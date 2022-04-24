@@ -28,8 +28,19 @@
     <script>
         function myFunction(){
             profileType = document.getElementById("profileType").value;
-            alert(profileType);
-            window.location.href = "another.html";
+            if(profileType == "admin"){
+                window.location.href = "adminPage.html";
+            }
+            else if(profileType == "owner"){
+                window.location.href = "ownerPage.html";
+            }
+            else if(profileType == "manager"){
+                window.location.href = "managerPage.html";
+            }
+            else if(profileType == "staff"){
+                window.location.href = "staffPage.html";
+            }
+            
             return false;
         }   
     </script>
