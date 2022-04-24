@@ -1,16 +1,39 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>FAF Table Ordering System </title>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>login form</title>
 
-    <script>
-        "testing 1234"
-        "test saving"
+   
 
-    </script>
 </head>
 <body>
+    <form onsubmit="return myFunction()">
+        <label for="username">Username:</label><br/>
+        <input type="text" id="username" name="username"><br/>
+        <label for="password">Password:</label><br/>
+        <input type="password" id="password"><br/>
+        <label for="profileType">Select profile type:</label>
+        <select id="profileType">
+            <option value="admin">Administrator</option>
+            <option value="owner">Owner</option>
+            <option value="manager">Manager</option>
+            <option value="staff">Staff</option>
+        </select><br/>
+        <input type="submit" value="Submit">
+    </form>
 
-
-
+    <script>
+        function myFunction(){
+            profileType = document.getElementById("profileType").value;
+            alert(profileType);
+            window.location.href = "another.html";
+            return false;
+        }   
+    </script>
 </body>
+
+
 </html>
