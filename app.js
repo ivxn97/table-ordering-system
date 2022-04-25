@@ -19,6 +19,10 @@ app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'./public/loginPage.html'));
 });
 
+app.get('/loginPage.html', function(req,res){
+  res.sendFile(path.join(__dirname,'./public/loginPage.html'));
+});
+
 app.get('/staffPage.html', function(req,res){
   res.sendFile(path.join(__dirname,'./public/staffPage.html'));
 })
