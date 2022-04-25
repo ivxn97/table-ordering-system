@@ -43,18 +43,24 @@ app.post('/login', function(req, res) {
   if (req.body.username && req.body.password) {
     console.log('Checking username: ' + username + ' password: ' + password );
     var db = new sqlite3.Database('./restaurant.db');
-    db.all("SELECT * FROM accounts where (username==?) AND (password==?)", function(err){
+    db.all("SELECT * FROM accounts where (username==?) AND (password==?)", function(err, rows){
     if (err) {
       console.log('Error: ' + err)
     }
     else {
-        console.log('Login Success')
-        res.sendFile(path.join(__dirname,'./public/managerPage.html'));
-    } 
+        rows.forEach(function (row) {
+          if (row.username = req.body.username && row.password == req.body.password) {
+            console.log('Login Success')
+            res.sendFile(path.join(__dirname,'./public/managerPage.html'))}
+          else {
+            console.log('Login Failed')
+            db.close();
+          }
+        }
+        )} 
     });
-    db.close();
   }
-  console.log('Login Failed')
+
 });
 
 server.listen(3000,function(){ 
