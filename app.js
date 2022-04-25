@@ -35,6 +35,28 @@ app.get('/managerPage.html', function(req,res){
   res.sendFile(path.join(__dirname,'./public/managerPage.html'));
 })
 
+app.post('/login', function(req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
+  var profileType = req.body.profileType;
+
+  if (req.body.username && req.body.password) {
+    console.log('Checking username: ' + username + ' password: ' + password );
+    var db = new sqlite3.Database('./restaurant.db');
+    db.all("SELECT * FROM accounts where (username==?) AND (password==?)", function(err){
+    if (err) {
+      console.log('Error: ' + err)
+    }
+    else {
+        console.log('Login Success')
+        res.sendFile(path.join(__dirname,'./public/managerPage.html'));
+    } 
+    });
+    db.close();
+  }
+  console.log('Login Failed')
+});
+
 server.listen(3000,function(){ 
   console.log("Server listening on port: 3000");
 }) 
