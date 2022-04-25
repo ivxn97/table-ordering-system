@@ -11,27 +11,28 @@ var server = http.createServer(app);
 var http = require('http');
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname,'./public')));
+app.use(express.static(path.join(__dirname,'/public')));
+app.use('/img', express.static(__dirname + '/Images'));
 
 
 app.get('/', function(req,res){
-  res.sendFile(path.join(__dirname,'./html/loginPage.html'));
+  res.sendFile(path.join(__dirname,'./public/loginPage.html'));
 });
 
 app.get('/staffPage.html', function(req,res){
-  res.sendFile(path.join(__dirname,'./html/staffPage.html'));
+  res.sendFile(path.join(__dirname,'./public/staffPage.html'));
 })
 
 app.get('/ownerPage.html', function(req,res){
-  res.sendFile(path.join(__dirname,'./html/ownerPage.html'));
+  res.sendFile(path.join(__dirname,'./public/ownerPage.html'));
 })
 
 app.get('/adminPage.html', function(req,res){
-  res.sendFile(path.join(__dirname,'./html/adminPage.html'));
+  res.sendFile(path.join(__dirname,'./public/adminPage.html'));
 })
 
 app.get('/managerPage.html', function(req,res){
-  res.sendFile(path.join(__dirname,'./html/managerPage.html'));
+  res.sendFile(path.join(__dirname,'./public/managerPage.html'));
 })
 
 server.listen(3000,function(){ 
