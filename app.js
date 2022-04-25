@@ -18,20 +18,21 @@ app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'./html/loginPage.html'));
 });
 
-/*
-http.createServer(function (req, res) {
-  var url = req.url;
-  app.get('/', function(req,res){
-    res.sendFile(path.join(__dirname,'./loginPage.html'));
-  });
-  if (url ==='/staffPage') {
-      res.sendFile(path.join(__dirname,'./loginPage.html'));
-      res.end();
-  }
+app.get('/staffPage.html', function(req,res){
+  res.sendFile(path.join(__dirname,'./html/staffPage.html'));
+})
 
-}).listen(3000,function(){ 
-  console.log("Server listening on port: 3000");
-}) */
+app.get('/ownerPage.html', function(req,res){
+  res.sendFile(path.join(__dirname,'./html/ownerPage.html'));
+})
+
+app.get('/adminPage.html', function(req,res){
+  res.sendFile(path.join(__dirname,'./html/adminPage.html'));
+})
+
+app.get('/managerPage.html', function(req,res){
+  res.sendFile(path.join(__dirname,'./html/managerPage.html'));
+})
 
 server.listen(3000,function(){ 
   console.log("Server listening on port: 3000");
