@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Welcome (Manager)</title>
+	
+	<style>
+	</style>
+	
+	<body>
+		<hl> Login Successful (Manager) </hl>
+			<table border = "1" width = "70%">
+				<tr>
+				<td style="padding:15px">
+				Welcome Manager
+				<br/>
+				<form onsubmit="return Logoutfunction()">
+				<input type="submit" value="Logout"></input>
+				</form>
+				</td>
+				</tr>
+			</table>
+		
+		<script>
+			function Logoutfunction()
+			{
+				history.back();
+				return false;
+			}
+			
+		</script>
+	</body>
+</html>
