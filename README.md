@@ -2,6 +2,6 @@
 
 1. Install node.js
 2. open terminal on Visual Studio Code and enter:
-npm install express --save
-npm install sqlite3 --save
-npm install body-parser --save
+3. npm install express --save
+4. npm install sqlite3 --save
+5. npm install body-parser --save
