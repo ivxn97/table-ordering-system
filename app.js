@@ -53,30 +53,47 @@ app.post('/login', function(req, res) {
         if(typeof row!=='undefined' && row!=null){ 
           console.log('Login Success')
           res.sendFile(path.join(__dirname,'./public/ownerPage.html'))
+      }
+      else {
+        console.log('Login Failed')
+        res.sendFile(path.join(__dirname,'./public/loginFailed.html'))
+        db.close(); 
       }}
       else if (profileType == 'manager') {
         if(typeof row!=='undefined' && row!=null){ 
           console.log('Login Success')
           res.sendFile(path.join(__dirname,'./public/managerPage.html'))
+        }
+        else {
+          console.log('Login Failed')
+          res.sendFile(path.join(__dirname,'./public/loginFailed.html'))
+          db.close(); 
       }}
       else if (profileType == 'staff') {
         if(typeof row!=='undefined' && row!=null){ 
           console.log('Login Success')
           res.sendFile(path.join(__dirname,'./public/staffPage.html'))
+        }
+        else {
+          console.log('Login Failed')
+          res.sendFile(path.join(__dirname,'./public/loginFailed.html'))
+          db.close(); 
       }}
       else if (profileType == 'admin') {
         if(typeof row!=='undefined' && row!=null){ 
           console.log('Login Success')
           res.sendFile(path.join(__dirname,'./public/adminPage.html'))
+        }
+        else {
+          console.log('Login Failed')
+          res.sendFile(path.join(__dirname,'./public/loginFailed.html'))
+          db.close(); 
       }}
       else {
-        console.log('Login Failed')
-        res.sendFile(path.join(__dirname,'./public/loginFailed.html'))
-        db.close(); 
-      }
-    });
+        err = console.log('Error: ' + err)
+      }}
+    );
   }
-
 });
 
 server.listen(3000,function(){ 
