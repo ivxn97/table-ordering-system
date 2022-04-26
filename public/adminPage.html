@@ -16,9 +16,7 @@
 				<td style="padding:15px">
 				Welcome Admin
 				<br/>
-				<form onsubmit="return Logoutfunction()">
-				<input type="submit" value="Logout"></input>
-				</form>
+				<button type="button" onclick="Logoutfunction()">Logout</button>
 				</td>
 				</tr>
 			</table>
@@ -26,8 +24,7 @@
 		<script>
 			function Logoutfunction()
 			{
-				history.back();
-				return false;
+				location.href = "loginPage.html";
 			}
 			
 		</script>

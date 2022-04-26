@@ -16,8 +16,7 @@
 				<td style="padding:15px">
 				Welcome Manager
 				<br/>
-				<form onsubmit="return Logoutfunction()">
-				<input type="submit" value="Logout"></input>
+				<button type="button" onclick="Logoutfunction()">Logout</button>
 				</form>
 				</td>
 				</tr>
@@ -26,8 +25,7 @@
 		<script>
 			function Logoutfunction()
 			{
-				history.back();
-				return false;
+				location.href = "loginPage.html";
 			}
 			
 		</script>
