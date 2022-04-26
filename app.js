@@ -45,13 +45,30 @@ app.post('/login', function(req, res) {
   var profileType = req.body.profileType;
 
   if (req.body.username && req.body.password) {
-    console.log('Checking username: ' + username + ' password: ' + password );
+    console.log('Checking username: ' + username + ' password: ' + password + ' Profile Type: ' + profileType);
     var db = new sqlite3.Database('./restaurant.db');
-    db.get("SELECT * FROM accounts where (username==?) AND (password==?)", [req.body.username, req.body.password], function(err,row){
-      if(typeof row!=='undefined' && row!=null){ 
-        console.log('Login Success')
-        res.sendFile(path.join(__dirname,'./public/managerPage.html'))
-      }
+    db.get("SELECT * FROM accounts where (username==?) AND (password==?) AND (role==?)", 
+                                  [req.body.username, req.body.password, req.body.profileType], function(err,row){
+      if (profileType == 'owner') {
+        if(typeof row!=='undefined' && row!=null){ 
+          console.log('Login Success')
+          res.sendFile(path.join(__dirname,'./public/ownerPage.html'))
+      }}
+      else if (profileType == 'manager') {
+        if(typeof row!=='undefined' && row!=null){ 
+          console.log('Login Success')
+          res.sendFile(path.join(__dirname,'./public/managerPage.html'))
+      }}
+      else if (profileType == 'staff') {
+        if(typeof row!=='undefined' && row!=null){ 
+          console.log('Login Success')
+          res.sendFile(path.join(__dirname,'./public/staffPage.html'))
+      }}
+      else if (profileType == 'admin') {
+        if(typeof row!=='undefined' && row!=null){ 
+          console.log('Login Success')
+          res.sendFile(path.join(__dirname,'./public/adminPage.html'))
+      }}
       else {
         console.log('Login Failed')
         res.sendFile(path.join(__dirname,'./public/loginFailed.html'))
