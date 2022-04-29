@@ -14,10 +14,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'/public')));
 app.use('/img', express.static(__dirname + '/Images'));
 
-//      WORKS WITHOUT THIS FOR NOW      // 
-// app.get('/', function(req,res){
-//   res.sendFile(path.join(__dirname,'./public/loginPage.html'));
-// });
+ app.get('/', function(req,res){
+  res.sendFile(path.join(__dirname,'./public/loginPage.html'));
+});
+
 // app.get('/loginPage.html', function(req,res){
 //   res.sendFile(path.join(__dirname,'./public/loginPage.html'));
 // });
