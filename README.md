@@ -6,7 +6,9 @@
 4. Make local copy of folder, open terminal on Visual Studio Code and enter:
 5. npm install express --save
 6. npm install sqlite3 --save
-7. npm install body-parser --save
+7. npm install body-parser --save\
+8. npm install popups
+9. npm install alert
 ctrl +  ` to open terminal
 ctrl + shift + p to open command palette 
 for sqlite extension in vscode, you can view database.db in local folder by typing >sqlite:run database in command palette

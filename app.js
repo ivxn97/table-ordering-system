@@ -5,7 +5,7 @@ var http = require('http');
 var path = require("path");
 var bodyParser = require ('body-parser');
 const res = require('express/lib/response');
-
+var alert = require('alert');
 var app = express()
 var server = http.createServer(app);
 var http = require('http');
@@ -94,25 +94,86 @@ app.post('/UserInfo', function(req, res) {
 });
 
 
-//Admin profile creation
-app.post('/createProfile', function(req, res){
+//Administrator: account creation
+app.post('/createAccount', function(req, res){
   var fname = req.body.fname;
   var lname = req.body.lname;
   var username = req.body.username;
   var password = req.body.password;
   var profileType = req.body.profileType;
 
-  console.log('Creating account with first name: ' + fname + ' last name' + lname  + ' username: ' + username + ' password: ' + password + ' profile type: ' + profileType);
+  console.log('Creating account with first name: ' + fname + ' last name: ' + lname  + ' username: '
+                                             + username + ' password: ' + password + ' profile type: ' + profileType);
   var db = new sqlite3.Database('./restaurant.db');
-  db.run('INSERT INTO accounts (first_name, last_name, username, password, role) VALUES(?,?,?,?,?)', [fname, lname, username, password, profileType], function(err){
+  db.run('INSERT INTO accounts (first_name, last_name, username, password, role) VALUES(?,?,?,?,?)', 
+                                                      [fname, lname, username, password, profileType], function(err){
     if(err){
       console.log(err);
     }
     else{
+      alert("Account successfully created");
       console.log("Successful account creation");
     }
   });
+});
 
+//Administrator: account deletion
+app.post('/deleteAccount', function(req, res){
+  var username = req.body.username;
+
+  console.log('Deleting account with username: ' + username);
+  var db = new sqlite3.Database('./restaurant.db');
+  db.run('DELETE FROM accounts WHERE username LIKE ?', [username], function(err){
+    if(err){
+      console.log(err);
+    }
+    else{
+      alert("Account successfully deleted");
+      console.log("Successful account deletion");
+    }
+  });
+});
+
+//Administrator: account editing
+app.post('/editAccount', function(req, res){
+  var oldUsername = req.body.oldUsername;
+  var fname = req.body.fname;
+  var lname = req.body.lname;
+  var username = req.body.username;
+  var password = req.body.password;
+  var profileType = req.body.profileType;
+
+  console.log('Editing account with old username: ' + oldUsername);
+  var db = new sqlite3.Database('./restaurant.db');
+  db.run('UPDATE accounts SET first_name = ?, last_name = ?, username = ?, password = ?, role = ? WHERE username = ?;', 
+                                            [fname, lname, username, password, profileType, oldUsername], function(err){
+    if(err){
+      console.log(err);
+    }
+    else{
+      alert("Account successfully edited");
+      console.log("Account successfully edited");
+    }
+  });
+});
+
+//Administrator: profile editing
+app.post('/editProfile', function(req, res){
+  var oldUsername = req.body.oldUsername;
+  var profileType = req.body.profileType;
+
+  console.log('Editing account with old username: ' + oldUsername);
+  var db = new sqlite3.Database('./restaurant.db');
+  db.run('UPDATE accounts SET role = ? WHERE username = ?;', 
+                                            [profileType, oldUsername], function(err){
+    if(err){
+      console.log(err);
+    }
+    else{
+      alert("Profile successfully edited");
+      console.log("Profile successfully edited");
+    }
+  });
 });
 
 
