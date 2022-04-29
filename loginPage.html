@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>login form</title>
+   
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 20%;
+  border-radius: 50%;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.container {
+  padding: 16px;
+}
+
+</style>
+
+</head>
+<body>
+
+    <form id="loginform" action="/UserInfo" method="post">
+      
+	    <div class="container">
+        <h2>Contactless Table Ordering System</h2>
+      </div>
+
+	<div class="imgcontainer">
+    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+	</div>
+	
+	<div class="container">
+        <label for="username"><b>Username:</b></label><br/>
+        <input type="text" placeholder="Enter Username" id="username" name="username" required><br/>
+        <label for="password"><b>Password:</b></label><br/>
+        <input type="password" placeholder="Enter Password" id="password" name="password" required><br/>
+        <label for="profileType">Select profile type:</label>
+        <select id="profileType" name="profileType">
+            <option value="admin">Administrator</option>
+            <option value="owner">Owner</option>
+            <option value="manager">Manager</option>
+            <option value="staff">Staff</option>
+        </select><br/>
+        <button type="submit">Login</button>
+	</div>
+    </form>
+
+    <script>
+    </script>
+</body>
+
+
+</html>
