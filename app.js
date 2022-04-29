@@ -44,7 +44,7 @@ app.post('/UserInfo', function(req, res) {
   var password = req.body.password;
   var profileType = req.body.profileType;
 
-  if (req.body.username && req.body.password) {
+  //if (req.body.username && req.body.password) {
     console.log('Checking username: ' + username + ' password: ' + password + ' Profile Type: ' + profileType);
     var db = new sqlite3.Database('./restaurant.db');
     db.get("SELECT * FROM accounts where (username==?) AND (password==?) AND (role==?)", 
@@ -94,7 +94,7 @@ app.post('/UserInfo', function(req, res) {
       }}
     );
   }
-});
+);
 
 server.listen(3000,function(){ 
   console.log("Server listening on port: 3000");
