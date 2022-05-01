@@ -50,12 +50,10 @@
 
 <body>
 	<hl> Login Successful (Administrator) </hl>
-		<table border = "1" width = "70%">
+		<table>
 			<tr>
 			<td style="padding:15px">
 			Welcome Admin
-			<br/>
-			<button type="button" style="border-color:red" onclick="Logoutfunction()">Logout</button>
 			</td>
 			</tr>
 		</table>
@@ -69,6 +67,7 @@
 			<button class="tablinks" onclick="openTab(event, 'Edit')">Edit</button>
 			<form id="viewAccountsForm" action="/adminView" method="post">
 				<button type="submit">View All</button>
+				<button type="button" onclick="Logoutfunction()">Logout</button>
 			</form>
 		</div>
 
@@ -86,7 +85,7 @@
 					<option value="owner">Owner</option>
 					<option value="manager">Manager</option>
 					<option value="staff">Staff</option>
-				</select><br/>
+				</select><br/><br/>
 				<label for="fname"><b>Enter first name:</b></label><br/>
 				<input type="fname" placeholder="First name" id="fname" name="fname" required><br/>
 				<label for="lname"><b>Enter last name:</b></label><br/>
