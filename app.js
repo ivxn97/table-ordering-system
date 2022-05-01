@@ -22,23 +22,6 @@ app.set('views', path.join(__dirname, '/views'));
   res.sendFile(path.join(__dirname,'./public/menuPage.html'));
 });
 
-// app.get('/loginPage.html', function(req,res){
-//   res.sendFile(path.join(__dirname,'./public/loginPage.html'));
-// });
-// app.get('/staffPage.html', function(req,res){
-//   res.sendFile(path.join(__dirname,'./public/staffPage.html'));
-// })
-// app.get('/ownerPage.html', function(req,res){
-//   res.sendFile(path.join(__dirname,'./public/ownerPage.html'));
-// })
-// app.get('/adminPage.html', function(req,res){
-//   res.sendFile(path.join(__dirname,'./public/adminPage.html'));
-// })
-// app.get('/managerPage.html', function(req,res){
-//   res.sendFile(path.join(__dirname,'./public/managerPage.html'));
-// })
-
-
 //Login validation
 app.post('/UserInfo', function(req, res) {
   var username = req.body.username;
