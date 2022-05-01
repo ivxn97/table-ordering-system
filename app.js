@@ -197,6 +197,7 @@ app.post('/adminViewProfiles', (req, res) => {
   });
 })
 
+// insert http://localhost:3000 into browser address bar
 server.listen(3000,function(){ 
   console.log("Server listening on port: 3000");
 }) 
