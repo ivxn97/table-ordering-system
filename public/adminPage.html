@@ -85,35 +85,13 @@
 							<option value="owner">Owner</option>
 							<option value="manager">Manager</option>
 							<option value="staff">Staff</option>
+							<option value="Suspended">Suspended</option>
 						</select><br/><br/>
 						<button type="submit" style="border-color:yellow">Edit</button>
 				</form>
 				</td>
 				</tr>
-			</table>
-
-			<!-- Edit Profile -->
-			<table border ="1" width = 70%>
-				<tr>
-				<td style="padding:15px">
-					<form id="editProfileForm" action="/editProfile" method="post">
-						<p><u><b>Edit user profile</b> of a account </u></p>
-						<label for="oldUsername"><b>Username of account to edit:</b></label><br/>
-						<input type="text" placeholder="Old Username" id="oldUsername" name="oldUsername" required><br/><br/>
-
-						<label for="profileType"><b>Select new Profile Type: </b></label>
-						<select id="profileType" name="profileType">
-							<option value="admin">Administrator</option>
-							<option value="owner">Owner</option>
-							<option value="manager">Manager</option>
-							<option value="staff">Staff</option>
-						</select><br/><br/>
-						<button type="submit" style="border-color:yellow">Edit</button>
-				</form>
-				</td>
-				</tr>
-			</table>
-
+			</table
 
 		<script>
 			function Logoutfunction()

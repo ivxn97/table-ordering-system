@@ -145,7 +145,7 @@ app.post('/editAccount', function(req, res){
 
   console.log('Editing account with old username: ' + oldUsername);
   var db = new sqlite3.Database('./restaurant.db');
-  db.run('UPDATE accounts SET first_name = ?, last_name = ?, username = ?, password = ?, role = ? WHERE username = ?;', 
+  db.run('UPDATE accounts SET first_name = COALESCE(first_name, ?), last_name = COALESCE(last_name, ?), username = COALESCE(username, ?), password = COALESCE(password, ?), role = ? WHERE username = ?;',
                                             [fname, lname, username, password, profileType, oldUsername], function(err){
     if(err){
       console.log(err);
@@ -156,26 +156,6 @@ app.post('/editAccount', function(req, res){
     }
   });
 });
-
-//Administrator: profile editing
-app.post('/editProfile', function(req, res){
-  var oldUsername = req.body.oldUsername;
-  var profileType = req.body.profileType;
-
-  console.log('Editing account with old username: ' + oldUsername);
-  var db = new sqlite3.Database('./restaurant.db');
-  db.run('UPDATE accounts SET role = ? WHERE username = ?;', 
-                                            [profileType, oldUsername], function(err){
-    if(err){
-      console.log(err);
-    }
-    else{
-      alert("Profile successfully edited");
-      console.log("Profile successfully edited");
-    }
-  });
-});
-
 
 server.listen(3000,function(){ 
   console.log("Server listening on port: 3000");
