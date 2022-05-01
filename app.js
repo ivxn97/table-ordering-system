@@ -181,7 +181,6 @@ app.post('/adminAccountSearch', (req, res) => {
       if (error){
           console.log(error);
       }
-      console.log({accounts: rows});
       res.render('adminAccountSearch', {accounts: rows});
   });
 })
@@ -194,7 +193,6 @@ app.post('/adminViewProfiles', (req, res) => {
       if (error){
           console.log(error);
       }
-      console.log({accounts: rows});
       res.render('adminViewProfiles', {accounts: rows});
   });
 })
