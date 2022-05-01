@@ -162,7 +162,7 @@ app.post('/editAccount', function(req, res){
 });
 
 
-// Administrator: View Restaurant Database 
+// Administrator: View all Accounts from Database 
 app.post('/adminView', (req, res) => {
   var db = new sqlite3.Database('./restaurant.db');
   db.all("SELECT * FROM accounts", (error, rows) => {
@@ -170,6 +170,19 @@ app.post('/adminView', (req, res) => {
           console.log(error);
       }
       res.render('adminView', {accounts: rows});
+  });
+})
+
+// Administrator: Account search
+app.post('/adminAccountSearch', (req, res) => {
+  var username = req.body.username;
+  var db = new sqlite3.Database('./restaurant.db');
+  db.get("SELECT * FROM accounts WHERE username = ?", [username], (error, rows) => {
+      if (error){
+          console.log(error);
+      }
+      console.log({accounts: rows});
+      res.render('adminAccountSearch', {accounts: rows});
   });
 })
 

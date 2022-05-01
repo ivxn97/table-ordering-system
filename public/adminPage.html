@@ -69,17 +69,17 @@
 				<form id="editAccountForm" action="/editAccount" method="post">
 					<p><u><b>Edit</b> a Account</u></p>
 					<label for="oldUsername"><b>Username of account to edit:</b></label><br/>
-					<input type="text" placeholder="Old Username" id="oldUsername" name="oldUsername" required><br/><br/>
+					<input type="text" placeholder="Current Username" id="oldUsername" name="oldUsername" required><br/><br/>
 
 					<p><u>Enter changes here:</u></p>
 					<label for="fname"><b>Enter first name:</b></label><br/>
-					<input type="fname" placeholder="First name" id="fname" name="fname" required><br/>
+					<input type="fname" placeholder="First name" id="fname" name="fname"><br/>
 					<label for="lname"><b>Enter last name:</b></label><br/>
-					<input type="lname" placeholder="Last name" id="lname" name="lname" required><br/>
+					<input type="lname" placeholder="Last name" id="lname" name="lname"><br/>
 					<label for="username"><b>Username:</b></label><br/>
-					<input type="text" placeholder="username" id="username" name="username" required><br/>
+					<input type="text" placeholder="Username" id="username" name="username"><br/>
 					<label for="password"><b>Password:</b></label><br/>
-					<input type="password" placeholder="password" id="password" name="password" required><br/>
+					<input type="password" placeholder="Password" id="password" name="password"><br/>
 					<label for="profileType"><b>Select new Profile Type: </b></label>
 					<select id="profileType" name="profileType">
 						<option value="admin">Administrator</option>
@@ -94,9 +94,16 @@
 			</tr>
 		</table>
 
-
+		<!-- View all Accounts in table -->
 		<form id="viewAccountsForm" action="/adminView" method="post">
-			<button type="submit" style="border-color:green">View</button>
+			<button type="submit" style="border-color:green">View all Accounts</button>
+		</form>
+
+		<!-- Search for Account from table -->
+		<form id="searchAccountsForm" action="/adminAccountSearch" method="post">
+			<label for="username"><b>Username:</b></label><br/>
+			<input type="text" placeholder="username" id="username" name="username" required><br/>
+			<button type="submit" style="border-color:green">Search Account</button>
 		</form>
 
 	<script>

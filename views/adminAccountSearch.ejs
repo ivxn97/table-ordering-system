@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+    </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="alert alert-secondary text-center">
+      <h1>Result from Account Search</h1>
+    </div>
+    <ul>
+        <table style= "float:left" border ="1">
+          <tr>
+          <td style="padding:15px">
+            <b>First Name: </b><%= accounts.first_name %><br/>
+            <Strong>Last Name: </Strong><%= accounts.last_name %><br/>
+            <Strong>UserName: </Strong><%= accounts.username %><br/>
+            <Strong>Password: </Strong><%= accounts.password %><br/>
+            <Strong>Profile Type: </Strong><%= accounts.role %><br/>
+          </td>
+        </tr>
+      </table>
+    </ul>
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <button type="button" style="border-color:red" onclick="Back()">Back</button>
+    <script>
+      function Back()
+      {
+        location.href = "adminPage.html";
+      }
+    </script>
+</body>
+</html>
