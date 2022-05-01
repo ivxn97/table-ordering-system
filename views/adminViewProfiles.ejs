@@ -9,20 +9,22 @@
 <body>
   <div class="container-fluid">
     <div class="alert alert-secondary text-center">
-      <h1>Result from Account Search</h1>
+      <h1>View all Accounts from selected Profile</h1>
     </div>
     <ul>
+      <% accounts.forEach(function(account) { %>
         <table style= "float:left" border ="1">
           <tr>
           <td style="padding:15px">
-            <Strong>First Name: </Strong><%= accounts.first_name %><br/>
-            <Strong>Last Name: </Strong><%= accounts.last_name %><br/>
-            <Strong>UserName: </Strong><%= accounts.username %><br/>
-            <Strong>Password: </Strong><%= accounts.password %><br/>
-            <Strong>Profile Type: </Strong><%= accounts.role %><br/>
+            <Strong>First Name: </Strong><%= account.first_name %><br/>
+            <Strong>Last Name: </Strong><%= account.last_name %><br/>
+            <Strong>UserName: </Strong><%= account.username %><br/>
+            <Strong>Password: </Strong><%= account.password %><br/>
+            <Strong>Profile Type: </Strong><%= account.role %><br/>
           </td>
         </tr>
       </table>
+        <% }); %>
     </ul>
     </div>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

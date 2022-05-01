@@ -186,6 +186,19 @@ app.post('/adminAccountSearch', (req, res) => {
   });
 })
 
+// Administrator: View all accounts by specific profile
+app.post('/adminViewProfiles', (req, res) => {
+  var profileType = req.body.profileType;
+  var db = new sqlite3.Database('./restaurant.db');
+  db.all("SELECT * FROM accounts WHERE role = ?", [profileType], (error, rows) => {
+      if (error){
+          console.log(error);
+      }
+      console.log({accounts: rows});
+      res.render('adminViewProfiles', {accounts: rows});
+  });
+})
+
 server.listen(3000,function(){ 
   console.log("Server listening on port: 3000");
 }) 

@@ -106,6 +106,19 @@
 			<button type="submit" style="border-color:green">Search Account</button>
 		</form>
 
+		<!-- Search for Account from table -->
+		<form id="viewProfilesForm" action="/adminViewProfiles" method="post">
+			<label for="profileType"><b>Select new Profile Type: </b></label>
+			<select id="profileType" name="profileType">
+				<option value="admin">Administrator</option>
+				<option value="owner">Owner</option>
+				<option value="manager">Manager</option>
+				<option value="staff">Staff</option>
+				<option value="Suspended">Suspended</option>
+			</select><br/>
+			<button type="submit" style="border-color:green">Search Account</button>
+		</form>
+
 	<script>
 		function Logoutfunction()
 		{
