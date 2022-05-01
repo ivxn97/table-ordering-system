@@ -9,6 +9,7 @@
 7. npm install body-parser --save\
 8. npm install popups
 9. npm install alert
+10. npm install ejs
 ctrl +  ` to open terminal
 ctrl + shift + p to open command palette 
 for sqlite extension in vscode, you can view database.db in local folder by typing >sqlite:run database in command palette
