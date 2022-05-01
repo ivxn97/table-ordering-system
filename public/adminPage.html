@@ -7,6 +7,44 @@
 	<title> Welcome (Administrator)</title>
 	
 	<style>
+		body {font-family: Arial;}
+
+		/* Style the tab */
+		.tab {
+		overflow: hidden;
+		border: 1px solid #ccc;
+		background-color: #f1f1f1;
+		}
+
+		/* Style the buttons inside the tab */
+		.tab button {
+		background-color: inherit;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+		font-size: 17px;
+		}
+
+		/* Change background color of buttons on hover */
+		.tab button:hover {
+		background-color: #ddd;
+		}
+
+		/* Create an active/current tablink class */
+		.tab button.active {
+		background-color: #ccc;
+		}
+
+		/* Style the tab content */
+		.tabcontent {
+		display: none;
+		padding: 6px 12px;
+		border: 1px solid #ccc;
+		border-top: none;
+		}
 	</style>
 </head>
 
@@ -22,12 +60,27 @@
 			</tr>
 		</table>
 	
+		
+		<div class="tab">
+			<button class="tablinks" onclick="openTab(event, 'Search')" id="defaultOpen">Search</button>
+			<button class="tablinks" onclick="openTab(event, 'ProfileSearch')">Profile Search</button>
+			<button class="tablinks" onclick="openTab(event, 'Add')">Add</button>
+			<button class="tablinks" onclick="openTab(event, 'Remove')">Remove</button>
+			<button class="tablinks" onclick="openTab(event, 'Edit')">Edit</button>
+			<form id="viewAccountsForm" action="/adminView" method="post">
+				<button type="submit">View All</button>
+			</form>
+		</div>
+
+
+
 		<!-- Create Account -->
+		<div id="Add" class="tabcontent">
 		<table border ="1" width = 70%>
 		<tr>
 		<td style="padding:15px">
 			<form id="createAccountForm" action="/createAccount" method="post">
-				<label for="profileType"><u><b>Create</b> a Account with Profile:</u> </label>
+				<label for="profileType"><u><b>Add</b> a Account with Profile:</u> </label>
 				<select id="profileType" name="profileType">
 					<option value="admin">Administrator</option>
 					<option value="owner">Owner</option>
@@ -47,13 +100,15 @@
 		</td>
 		</tr>
 		</table>
+		</div>
 
 		<!-- Delete Account -->
+		<div id="Remove" class="tabcontent">
 		<table border ="1" width = 70%>
 			<tr>
 			<td style="padding:15px">
 			<form id="deleteAccountForm" action="/deleteAccount" method="post">
-				<p><u><b>Delete</b> a Account</u></p>
+				<p><u><b>Remove</b> a Account</u></p>
 				<label for="username"><b>Username:</b></label><br/>
 				<input type="text" placeholder="username" id="username" name="username" required><br/><br/>
 				<button type="submit" style="border-color:red">Delete</button>
@@ -61,8 +116,10 @@
 		</td>
 		</tr>
 		</table>
+		</div>
 		
 		<!-- Edit Account -->
+		<div id="Edit" class="tabcontent">
 		<table border ="1" width = 70%>
 			<tr>
 			<td style="padding:15px">
@@ -88,25 +145,24 @@
 						<option value="staff">Staff</option>
 						<option value="Suspended">Suspended</option>
 					</select><br/><br/>
-					<button type="submit" style="border-color:yellow">Edit</button>
+					<button type="submit" style="border-color:green">Edit</button>
 			</form>
 			</td>
 			</tr>
 		</table>
-
-		<!-- View all Accounts in table -->
-		<form id="viewAccountsForm" action="/adminView" method="post">
-			<button type="submit" style="border-color:green">View all Accounts</button>
-		</form>
+		</div>
 
 		<!-- Search for Account from table -->
+		<div id="Search" class="tabcontent">
 		<form id="searchAccountsForm" action="/adminAccountSearch" method="post">
 			<label for="username"><b>Username:</b></label><br/>
-			<input type="text" placeholder="username" id="username" name="username" required><br/>
+			<input type="text" placeholder="username" id="username" name="username" required><br/><br/>
 			<button type="submit" style="border-color:green">Search Account</button>
 		</form>
+		</div>
 
-		<!-- View all profiles -->
+		<!-- Search by Profile -->
+		<div id="ProfileSearch" class="tabcontent">
 		<form id="viewProfilesForm" action="/adminViewProfiles" method="post">
 			<label for="profileType"><b>Select Profile Type: </b></label>
 			<select id="profileType" name="profileType">
@@ -115,16 +171,32 @@
 				<option value="manager">Manager</option>
 				<option value="staff">Staff</option>
 				<option value="Suspended">Suspended</option>
-			</select><br/>
+			</select><br/><br/>
 			<button type="submit" style="border-color:green">Search Account</button>
 		</form>
+		</div>
 
 	<script>
+		document.getElementById("defaultOpen").click();
+
 		function Logoutfunction()
 		{
 			location.href = "loginPage.html";
 		}
-		
+
+		function openTab(evt, typeOf) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+		document.getElementById(typeOf).style.display = "block";
+		evt.currentTarget.className += " active";
+		}
 	</script>
 </body>
 </html>
