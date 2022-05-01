@@ -171,7 +171,6 @@ app.post('/adminView', (req, res) => {
       }
       res.render('adminView', {accounts: rows});
   });
-
 },)
 
 server.listen(3000,function(){ 
