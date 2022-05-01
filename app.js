@@ -9,10 +9,14 @@ var alert = require('alert');
 var app = express()
 var server = http.createServer(app);
 var http = require('http');
+const ejs = require('ejs');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'/public')));
 app.use('/img', express.static(__dirname + '/Images'));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'));
+
 
  app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'./public/loginPage.html'));
@@ -145,7 +149,7 @@ app.post('/editAccount', function(req, res){
 
   console.log('Editing account with old username: ' + oldUsername);
   var db = new sqlite3.Database('./restaurant.db');
-  db.run('UPDATE accounts SET first_name = ?, last_name = ?, username = ?, password = ?, role = ? WHERE username = ?;', 
+  db.run('UPDATE accounts SET first_name = COALESCE(first_name, ?), last_name = COALESCE(last_name, ?), username = COALESCE(username, ?), password = COALESCE(password, ?), role = ? WHERE username = ?;',
                                             [fname, lname, username, password, profileType, oldUsername], function(err){
     if(err){
       console.log(err);
@@ -157,25 +161,18 @@ app.post('/editAccount', function(req, res){
   });
 });
 
-//Administrator: profile editing
-app.post('/editProfile', function(req, res){
-  var oldUsername = req.body.oldUsername;
-  var profileType = req.body.profileType;
 
-  console.log('Editing account with old username: ' + oldUsername);
+// Administrator: View Restaurant Database 
+app.post('/adminView', (req, res) => {
   var db = new sqlite3.Database('./restaurant.db');
-  db.run('UPDATE accounts SET role = ? WHERE username = ?;', 
-                                            [profileType, oldUsername], function(err){
-    if(err){
-      console.log(err);
-    }
-    else{
-      alert("Profile successfully edited");
-      console.log("Profile successfully edited");
-    }
+  db.all("SELECT * FROM accounts", (error, rows) => {
+      if (error){
+          console.log(error);
+      }
+      res.render('adminView', {accounts: rows});
   });
-});
 
+},)
 
 server.listen(3000,function(){ 
   console.log("Server listening on port: 3000");
