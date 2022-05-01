@@ -4,11 +4,12 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
    <title>login form</title>
    
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+form {border: 3px solid #000000;}
 
 .imgcontainer {
   text-align: center;
@@ -25,13 +26,14 @@ input[type=text], input[type=password] {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(0, 0, 0);
   box-sizing: border-box;
+  
 }
 
 button {
   background-color: #04AA6D;
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -45,24 +47,34 @@ button:hover {
 
 .container {
   padding: 16px;
+  color: rgb(0, 0, 0);
 }
 
+.menuButton {
+  height: 50px;
+  width: 80px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 20px;
+  padding: 10px;
+}
 </style>
 
 </head>
-<body>
-
+<body bgcolor="AliceBlue">
     <form id="loginform" action="/UserInfo" method="post">
+      <button type="Button" class="w3-right w3-xlarge menuButton" margin="20px" onclick="MenuFunction()";>Menu</button>
 
-    <div class="container">
-      <h2>Contactless Table Ordering System</h2>
-    </div>
+	    <div class="container">
+        <h2>Contactless Table Ordering System</h2>
+      </div>
 
 	<div class="imgcontainer">
     <img src="img_avatar2.png" alt="Avatar" class="avatar">
 	</div>
 	
-	<div class="container">
+	<div class="container" >
         <label for="username"><b>Username:</b></label><br/>
         <input type="text" placeholder="Enter Username" id="username" name="username" required><br/>
         <label for="password"><b>Password:</b></label><br/>
@@ -75,11 +87,15 @@ button:hover {
             <option value="staff">Staff</option>
         </select><br/>
         <button type="submit">Login</button>
-        <font color = "red"><b>INVALID LOGIN INFO</b></font><br/>
+        <font color ="red"><b>INVALID LOGIN INFO</b></font>
 	</div>
     </form>
 
     <script>
+      function MenuFunction()
+      {
+        location.href = "menuPage.html";
+      }
     </script>
 </body>
 
