@@ -62,41 +62,41 @@
 		</tr>
 		</table>
 		
-			<!-- Edit Account -->
-			<table border ="1" width = 70%>
-				<tr>
-				<td style="padding:15px">
-					<form id="editAccountForm" action="/editAccount" method="post">
-						<p><u><b>Edit</b> a Account</u></p>
-						<label for="oldUsername"><b>Username of account to edit:</b></label><br/>
-						<input type="text" placeholder="Old Username" id="oldUsername" name="oldUsername" required><br/><br/>
+		<!-- Edit Account -->
+		<table border ="1" width = 70%>
+			<tr>
+			<td style="padding:15px">
+				<form id="editAccountForm" action="/editAccount" method="post">
+					<p><u><b>Edit</b> a Account</u></p>
+					<label for="oldUsername"><b>Username of account to edit:</b></label><br/>
+					<input type="text" placeholder="Old Username" id="oldUsername" name="oldUsername" required><br/><br/>
 
-						<p><u>Enter changes here:</u></p>
-						<label for="fname"><b>Enter first name:</b></label><br/>
-						<input type="fname" placeholder="First name" id="fname" name="fname" required><br/>
-						<label for="lname"><b>Enter last name:</b></label><br/>
-						<input type="lname" placeholder="Last name" id="lname" name="lname" required><br/>
-						<label for="username"><b>Username:</b></label><br/>
-						<input type="text" placeholder="username" id="username" name="username" required><br/>
-						<label for="password"><b>Password:</b></label><br/>
-						<input type="password" placeholder="password" id="password" name="password" required><br/>
-						<label for="profileType"><b>Select new Profile Type: </b></label>
-						<select id="profileType" name="profileType">
-							<option value="admin">Administrator</option>
-							<option value="owner">Owner</option>
-							<option value="manager">Manager</option>
-							<option value="staff">Staff</option>
-							<option value="Suspended">Suspended</option>
-						</select><br/><br/>
-						<button type="submit" style="border-color:yellow">Edit</button>
-				</form>
-				</td>
-				</tr>
-			</table
+					<p><u>Enter changes here:</u></p>
+					<label for="fname"><b>Enter first name:</b></label><br/>
+					<input type="fname" placeholder="First name" id="fname" name="fname" required><br/>
+					<label for="lname"><b>Enter last name:</b></label><br/>
+					<input type="lname" placeholder="Last name" id="lname" name="lname" required><br/>
+					<label for="username"><b>Username:</b></label><br/>
+					<input type="text" placeholder="username" id="username" name="username" required><br/>
+					<label for="password"><b>Password:</b></label><br/>
+					<input type="password" placeholder="password" id="password" name="password" required><br/>
+					<label for="profileType"><b>Select new Profile Type: </b></label>
+					<select id="profileType" name="profileType">
+						<option value="admin">Administrator</option>
+						<option value="owner">Owner</option>
+						<option value="manager">Manager</option>
+						<option value="staff">Staff</option>
+						<option value="Suspended">Suspended</option>
+					</select><br/><br/>
+					<button type="submit" style="border-color:yellow">Edit</button>
+			</form>
+			</td>
+			</tr>
+		</table
 
 
 		<form id="viewAccountsForm" action="/adminView" method="post">
-		<button type="submit" style="border-color:green">View</button>
+			<button type="submit" style="border-color:green">View</button>
 		</form>
 
 	<script>
