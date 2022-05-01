@@ -19,7 +19,7 @@ app.set('views', path.join(__dirname, '/views'));
 
 
  app.get('/', function(req,res){
-  res.sendFile(path.join(__dirname,'./public/loginPage.html'));
+  res.sendFile(path.join(__dirname,'./public/menuPage.html'));
 });
 
 // app.get('/loginPage.html', function(req,res){
