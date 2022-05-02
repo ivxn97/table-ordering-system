@@ -4,10 +4,9 @@
 <title>Food Menu</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
 
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+body,h1,h2,h3,h4,h5,h6 {font-family: 'Courier New', Courier, monospace}
 
 .button {
   height: 50px;
@@ -22,15 +21,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 </style>
 <body>
 <!-- Start Content -->
-<button type="button" class="w3-right w3-black w3-xxlarge button" margin="20px" onclick="LoginFunction()";>Login</button>
+<button type="button" class="w3-right w3-black w3-large button" margin="20px" onclick="LoginFunction()";>Login</button>
 <div id="menu" class="menuItem">
 <!-- Menu -->
-<div id="menu" class="w3-container w3-black w3-xxlarge w3-padding-64">
-    <h1 class="w3-center w3-jumbo w3-padding-32">THE MENU</h1>
-    <h1 id="pasta" class="w3-center w3-jumbo w3-padding-32">FOOD</h1>
+<div id="menu" class="w3-container w3-black w3-large w3-padding-64">
+    <h1 class="w3-center w3-xxlarge">THE MENU</h1>
+    <h1 id="FOOD" class="w3-center w3-xxlarge w3-padding-32">FOOD</h1>
     <div class="w3-third">
-    <img src="/images/saladbowl.jpg" alt="salad_bowl" height="250" width="250">
-    <h1><b>Salad Bowl</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$12.00</span></h1>
+    <img src="/images/saladbowl.jpg" alt="salad_bowl" height="320" width="280">
+    <h3><b>Salad Bowl</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$12.00</span></h3>
     <form action="/action_page.php">
         <label for="quantity">Select Quantity:</label>
         <select name="quantity" id="quantity">
@@ -47,8 +46,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     </div>
 
     <div class="w3-third">
-    <img src="/images/steak.jpg" alt="steak" height="250" width="250">
-    <h1><b>Steak and Fries</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$25.00</span></h1>
+    <img src="/images/steak.jpg" alt="steak" height="320" width="280">
+    <h3><b>Steak and Fries</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$25.00</span></h3>
     <form action="/action_page.php">
         <label for="quantity">Select Quantity:</label>
         <select name="quantity" id="quantity">
@@ -65,8 +64,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     </div>
 
     <div class="w3-third">
-    <img src="/images/fishnchips.jpg" alt="fishnchips" height="250" width="250">
-    <h1><b>Fish and Chips</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$22.00</span></h1>
+    <img src="/images/fishnchips.jpg" alt="fishnchips" height="320" width="280">
+    <h3><b>Fish and Chips</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$22.00</span></h3>
     <form action="/action_page.php">
         <label for="quantity">Select Quantity:</label>
         <select name="quantity" id="quantity">
@@ -82,28 +81,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
       </form>
     </div>
 
-    <h1 id="pasta" class="w3-center w3-jumbo w3-padding-32">DRINKS</h1>
+    <h1 id="DRINKS" class="w3-center w3-xxlarge">DRINKS</h1>
     <div class="w3-third">
-    <img src="/images/cocacola.jpeg" alt="cocacola" height="250" width="250">
-    <h1><b>Coca Cola</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$2.00</span></h1>
-    <form action="/action_page.php">
-        <label for="quantity">Select Quantity:</label>
-        <select name="quantity" id="quantity">
-          <option value="0"></option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <br><br>
-        <input type="submit" value="Add to cart">
-      </form>
-    </div>
-
-    <div class="w3-third">
-    <img src="/images/greentea.jpg" alt="greentea" height="250" width="250">
-    <h1><b>Green Tea</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$2.00</span></h1>
+    <img src="/images/cocacola.jpeg" alt="cocacola" height="320" width="280">
+    <h3><b>Coca Cola</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$2.00</span></h3>
     <form action="/action_page.php">
         <label for="quantity">Select Quantity:</label>
         <select name="quantity" id="quantity">
@@ -120,8 +101,26 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     </div>
 
     <div class="w3-third">
-    <img src="/images/tigerbeer.jpg" alt="tigerbeer" height="250" width="250">
-    <h1><b>Tiger Beer</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$4.00</span></h1>
+    <img src="/images/greentea.jpg" alt="greentea" height="320" width="280">
+    <h3><b>Green Tea</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$2.00</span></h3>
+    <form action="/action_page.php">
+        <label for="quantity">Select Quantity:</label>
+        <select name="quantity" id="quantity">
+          <option value="0"></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Add to cart">
+      </form>
+    </div>
+
+    <div class="w3-third">
+    <img src="/images/tigerbeer.jpg" alt="tigerbeer" height="320" width="280">
+    <h3><b>Tiger Beer</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$4.00</span></h3>
     <form action="/action_page.php">
         <label for="quantity">Select Quantity:</label>
         <select name="quantity" id="quantity">
@@ -149,5 +148,3 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 
 </body>
 </html>
-
-
