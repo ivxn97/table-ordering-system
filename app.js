@@ -133,7 +133,7 @@ app.post('/editAccount', function(req, res){
 
   console.log('Editing account with old username: ' + currentUsername);
   var db = new sqlite3.Database('./restaurant.db');
-  db.run('UPDATE accounts SET first_name = COALESCE(first_name, ?), last_name = COALESCE(last_name, ?), username = COALESCE(username, ?), password = COALESCE(password, ?), profiletype = ? WHERE currentUsername = ?;',
+  db.run('UPDATE accounts SET first_name = COALESCE(first_name, ?), last_name = COALESCE(last_name, ?), username = ?, password = COALESCE(password, ?), profiletype = ? WHERE Username = ?;',
                                             [fname, lname, username, password, profileType, currentUsername], function(err){
     if(err){
       alert("Error Duplicate Username, Please Choose a different Username")
@@ -166,7 +166,14 @@ app.post('/adminAccountSearch', (req, res) => {
       if (error){
           console.log(error);
       }
-      res.render('adminAccountSearch', {accounts: rows});
+      res.render('adminAccountSearch', {accounts: rows}, function(err,html) {
+        if (err) {
+          res.render('error.ejs');
+        }
+        else {
+          res.send(html);
+        }
+      });
   });
 })
 
