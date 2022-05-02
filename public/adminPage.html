@@ -2,12 +2,22 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta http-equiv="X-UA-Compatible">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<title> Welcome (Administrator)</title>
 	
 	<style>
-		body {font-family: Arial;}
+		body {
+			background-color: aliceblue;
+			font-family: serif;
+		}
+
+		/*Style for welcome admin*/
+		.welcome{
+		text-align: center;
+		padding: 25px 25px;
+		}
 
 		/* Style the tab */
 		.tab {
@@ -35,29 +45,29 @@
 
 		/* Create an active/current tablink class */
 		.tab button.active {
-		background-color: #ccc;
+		background-color: #ddd;
 		}
 
 		/* Style the tab content */
 		.tabcontent {
 		display: none;
-		padding: 6px 12px;
+		padding: 16px;
 		border: 1px solid #ccc;
 		border-top: none;
+		}
+
+		/*Style for <label>*/
+		label{
+			line-height: 2;
 		}
 	</style>
 </head>
 
 <body>
-	<hl> Login Successful (Administrator) </hl>
-		<table>
-			<tr>
-			<td style="padding:15px">
-			Welcome Admin
-			</td>
-			</tr>
-		</table>
-	
+		<div class="welcome">
+		<hl> Login Successful,
+		 Welcome Administrator </hl>
+		</div>
 		
 		<div class="tab">
 			<button class="tablinks" onclick="openTab(event, 'Search')" id="defaultOpen">Search</button>
@@ -77,7 +87,7 @@
 		<div id="Add" class="tabcontent">
 		<table border ="1" width = 70%>
 		<tr>
-		<td style="padding:15px">
+			<td style="padding: 15px;">
 			<form id="createAccountForm" action="/createAccount" method="post">
 				<label for="profileType"><u><b>Add</b> a Account with Profile:</u> </label>
 				<select id="profileType" name="profileType">
@@ -94,7 +104,7 @@
 				<input type="text" placeholder="username" id="username" name="username" required><br/>
 				<label for="password"><b>Password:</b></label><br/>
 				<input type="password" placeholder="password" id="password" name="password" required><br/><br/>
-				<button type="submit" style="border-color:green">Create</button>
+				<button type="submit" style="border-color:rgb(115, 115, 115)">Create</button>
 			</form>
 		</td>
 		</tr>
@@ -105,12 +115,12 @@
 		<div id="Remove" class="tabcontent">
 		<table border ="1" width = 70%>
 			<tr>
-			<td style="padding:15px">
+			<td style="padding-left: 15px; padding-bottom: 15px; padding-right: 15px;">
 			<form id="deleteAccountForm" action="/deleteAccount" method="post">
 				<p><u><b>Remove</b> a Account</u></p>
 				<label for="username"><b>Username:</b></label><br/>
 				<input type="text" placeholder="username" id="username" name="username" required><br/><br/>
-				<button type="submit" style="border-color:red">Delete</button>
+				<button type="submit" style="border-color:red">Remove Account</button>
 			</form>
 		</td>
 		</tr>
@@ -121,11 +131,11 @@
 		<div id="Edit" class="tabcontent">
 		<table border ="1" width = 70%>
 			<tr>
-			<td style="padding:15px">
+				<td style="padding-left: 15px; padding-bottom: 15px; padding-right: 15px;">
 				<form id="editAccountForm" action="/editAccount" method="post">
 					<p><u><b>Edit</b> a Account</u></p>
 					<label for="oldUsername"><b>Username of account to edit:</b></label><br/>
-					<input type="text" placeholder="Current Username" id="oldUsername" name="oldUsername" required><br/><br/>
+					<input type="text" placeholder="Current Username" id="oldUsername" name="oldUsername" required><br/>
 
 					<p><u>Enter changes here:</u></p>
 					<label for="fname"><b>Enter first name:</b></label><br/>
@@ -135,8 +145,8 @@
 					<label for="username"><b>Username:</b></label><br/>
 					<input type="text" placeholder="Username" id="username" name="username"><br/>
 					<label for="password"><b>Password:</b></label><br/>
-					<input type="password" placeholder="Password" id="password" name="password"><br/>
-					<label for="profileType"><b>Select new Profile Type: </b></label>
+					<input type="password" placeholder="Password" id="password" name="password"><br/><br/>
+					<label for="profileType"><b>Select New Profile Type: </b></label>
 					<select id="profileType" name="profileType">
 						<option value="admin">Administrator</option>
 						<option value="owner">Owner</option>
@@ -144,7 +154,7 @@
 						<option value="staff">Staff</option>
 						<option value="Suspended">Suspended</option>
 					</select><br/><br/>
-					<button type="submit" style="border-color:green">Edit</button>
+					<button type="submit" style="border-color:rgb(115, 115, 115)">Save Changes</button>
 			</form>
 			</td>
 			</tr>
@@ -156,7 +166,7 @@
 		<form id="searchAccountsForm" action="/adminAccountSearch" method="post">
 			<label for="username"><b>Username:</b></label><br/>
 			<input type="text" placeholder="username" id="username" name="username" required><br/><br/>
-			<button type="submit" style="border-color:green">Search Account</button>
+			<button type="submit" style="border-color:rgb(115, 115, 115)">Search Account</button>
 		</form>
 		</div>
 
@@ -171,7 +181,7 @@
 				<option value="staff">Staff</option>
 				<option value="Suspended">Suspended</option>
 			</select><br/><br/>
-			<button type="submit" style="border-color:green">Search Account</button>
+			<button type="submit" style="border-color:rgb(115, 115, 115)">Search Account</button>
 		</form>
 		</div>
 
