@@ -123,17 +123,17 @@ app.post('/deleteAccount', function(req, res){
 
 //Administrator: account editing
 app.post('/editAccount', function(req, res){
-  var oldUsername = req.body.oldUsername;
+  var currentUsername = req.body.currentUsername;
   var fname = req.body.fname;
   var lname = req.body.lname;
   var username = req.body.username;
   var password = req.body.password;
   var profileType = req.body.profileType;
 
-  console.log('Editing account with old username: ' + oldUsername);
+  console.log('Editing account with old username: ' + currentUsername);
   var db = new sqlite3.Database('./restaurant.db');
   db.run('UPDATE accounts SET first_name = COALESCE(first_name, ?), last_name = COALESCE(last_name, ?), username = COALESCE(username, ?), password = COALESCE(password, ?), role = ? WHERE username = ?;',
-                                            [fname, lname, username, password, profileType, oldUsername], function(err){
+                                            [fname, lname, username, password, profileType, currentUsername], function(err){
     if(err){
       console.log(err);
     }
