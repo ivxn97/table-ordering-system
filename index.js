@@ -21,10 +21,10 @@ db.run('DROP TABLE customers', function(err){
     console.log('Table deleted')
 })*/
 
-//db.run('CREATE TABLE accounts(first_name,last_name,username,password,role, UNIQUE(username))');
+//db.run('CREATE TABLE accounts(first_name,last_name,username,password,profiletype, UNIQUE(username))');
 //db.run('CREATE TABLE customers(email UNIQUE, date, spending, food_order, UNIQUE(email))');
 
-const sql = 'INSERT INTO accounts (first_name, last_name, username, password, role) VALUES(?,?,?,?,?)';
+const sql = 'INSERT INTO accounts (first_name, last_name, username, password, profiletype) VALUES(?,?,?,?,?)';
 //const sql = 'INSERT INTO customers (email, date, spending, food_order) VALUES(?,?,?,?)';
 
 

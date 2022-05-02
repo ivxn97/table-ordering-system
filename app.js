@@ -31,7 +31,7 @@ app.post('/UserInfo', function(req, res) {
   //if (req.body.username && req.body.password) {
     console.log('Checking username: ' + username + ' password: ' + password + ' profile type: ' + profileType);
     var db = new sqlite3.Database('./restaurant.db');
-    db.get("SELECT * FROM accounts where (username==?) AND (password==?) AND (role==?)", 
+    db.get("SELECT * FROM accounts where (username==?) AND (password==?) AND (profiletype==?)", 
                                   [req.body.username, req.body.password, req.body.profileType], function(err,row){
       if (profileType == 'owner') {
         if(typeof row!=='undefined' && row!=null){ 
@@ -92,7 +92,7 @@ app.post('/createAccount', function(req, res){
   console.log('Creating account with first name: ' + fname + ' last name: ' + lname  + ' username: '
                                              + username + ' password: ' + password + ' profile type: ' + profileType);
   var db = new sqlite3.Database('./restaurant.db');
-  db.run('INSERT INTO accounts (first_name, last_name, username, password, role) VALUES(?,?,?,?,?)', 
+  db.run('INSERT INTO accounts (first_name, last_name, username, password, profiletype) VALUES(?,?,?,?,?)', 
                                                       [fname, lname, username, password, profileType], function(err){
     if(err){
       console.log(err);
@@ -132,7 +132,7 @@ app.post('/editAccount', function(req, res){
 
   console.log('Editing account with old username: ' + currentUsername);
   var db = new sqlite3.Database('./restaurant.db');
-  db.run('UPDATE accounts SET first_name = COALESCE(first_name, ?), last_name = COALESCE(last_name, ?), username = COALESCE(username, ?), password = COALESCE(password, ?), role = ? WHERE username = ?;',
+  db.run('UPDATE accounts SET first_name = COALESCE(first_name, ?), last_name = COALESCE(last_name, ?), username = COALESCE(username, ?), password = COALESCE(password, ?), profiletype = ? WHERE username = ?;',
                                             [fname, lname, username, password, profileType, currentUsername], function(err){
     if(err){
       console.log(err);
@@ -172,7 +172,7 @@ app.post('/adminAccountSearch', (req, res) => {
 app.post('/adminViewProfiles', (req, res) => {
   var profileType = req.body.profileType;
   var db = new sqlite3.Database('./restaurant.db');
-  db.all("SELECT * FROM accounts WHERE role = ?", [profileType], (error, rows) => {
+  db.all("SELECT * FROM accounts WHERE profiletype = ?", [profileType], (error, rows) => {
       if (error){
           console.log(error);
       }
