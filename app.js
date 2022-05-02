@@ -95,6 +95,7 @@ app.post('/createAccount', function(req, res){
   db.run('INSERT INTO accounts (first_name, last_name, username, password, profiletype) VALUES(?,?,?,?,?)', 
                                                       [fname, lname, username, password, profileType], function(err){
     if(err){
+      alert("Error Duplicate Username, Please Choose a different Username")
       console.log(err);
     }
     else{
@@ -132,9 +133,10 @@ app.post('/editAccount', function(req, res){
 
   console.log('Editing account with old username: ' + currentUsername);
   var db = new sqlite3.Database('./restaurant.db');
-  db.run('UPDATE accounts SET first_name = COALESCE(first_name, ?), last_name = COALESCE(last_name, ?), username = COALESCE(username, ?), password = COALESCE(password, ?), profiletype = ? WHERE username = ?;',
+  db.run('UPDATE accounts SET first_name = COALESCE(first_name, ?), last_name = COALESCE(last_name, ?), username = COALESCE(username, ?), password = COALESCE(password, ?), profiletype = ? WHERE currentUsername = ?;',
                                             [fname, lname, username, password, profileType, currentUsername], function(err){
     if(err){
+      alert("Error Duplicate Username, Please Choose a different Username")
       console.log(err);
     }
     else{
