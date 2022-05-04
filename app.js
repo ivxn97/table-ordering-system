@@ -44,7 +44,8 @@ app.use("/adminAccountSearch", SearchUserAdminController);
 // Administrator: View all Accounts by specific profile
 app.use("/adminViewProfiles", adminViewProfiles);
 
- app.get('/', function(req,res){
+// Default landing page
+app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'./public/menuPage.html'));
 });
 
