@@ -16,12 +16,12 @@ router.post('/', function(req, res) {
     var password = req.body.password;
     var profileType = req.body.profileType;
   
-    //if (req.body.username && req.body.password) {
       console.log('Checking username: ' + username + ' password: ' + password + ' profile type: ' + profileType);
       var db = new sqlite3.Database('restaurant.db');
-      db.get("SELECT * FROM accounts WHERE (username==?) AND (password==?) AND (profiletype==?)", 
-                                    [req.body.username, req.body.password, req.body.profileType], function(err,row){
+
         if (profileType == 'owner') {
+          db.get("SELECT * FROM owner WHERE (username==?) AND (password==?)", 
+          [req.body.username, req.body.password], function(err,row){
           if(typeof row!=='undefined' && row!=null){ 
             console.log('Login Success')
             res.sendFile(path.join(__dirname,'../public/ownerPage.html'))
@@ -30,8 +30,10 @@ router.post('/', function(req, res) {
           console.log('Login Failed')
           res.sendFile(path.join(__dirname,'../public/loginFailed.html'))
           db.close(); 
-        }}
+        }})}
         else if (profileType == 'manager') {
+          db.get("SELECT * FROM manager WHERE (username==?) AND (password==?)", 
+          [req.body.username, req.body.password], function(err,row){
           if(typeof row!=='undefined' && row!=null){ 
             console.log('Login Success')
             res.sendFile(path.join(__dirname,'../public/managerPage.html'))
@@ -40,8 +42,10 @@ router.post('/', function(req, res) {
             console.log('Login Failed')
             res.sendFile(path.join(__dirname,'../public/loginFailed.html'))
             db.close(); 
-        }}
+        }})}
         else if (profileType == 'staff') {
+          db.get("SELECT * FROM staff WHERE (username==?) AND (password==?)", 
+          [req.body.username, req.body.password], function(err,row){
           if(typeof row!=='undefined' && row!=null){ 
             console.log('Login Success')
             res.sendFile(path.join(__dirname,'../public/staffPage.html'))
@@ -50,8 +54,10 @@ router.post('/', function(req, res) {
             console.log('Login Failed')
             res.sendFile(path.join(__dirname,'../public/loginFailed.html'))
             db.close(); 
-        }}
+        }})}
         else if (profileType == 'admin') {
+          db.get("SELECT * FROM administrator WHERE (username==?) AND (password==?)", 
+          [req.body.username, req.body.password], function(err,row){
           if(typeof row!=='undefined' && row!=null){ 
             console.log('Login Success')
             res.sendFile(path.join(__dirname,'../public/adminPage.html'))
@@ -60,11 +66,9 @@ router.post('/', function(req, res) {
             console.log('Login Failed')
             res.sendFile(path.join(__dirname,'../public/loginFailed.html'))
             db.close(); 
-        }}
+        }})}
         else {
           err = console.log('Error: ' + err)
-        }}
-      );
-    //}
+        }
   });
   module.exports = router;
