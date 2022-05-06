@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+      body{
+        background-color: aliceblue;
+      }
+
+      button{
+        float: right;
+        padding: 5px;
+        margin: 12px;
+        cursor: pointer;
+      }
+      table{
+        padding: 5px;
+        border-collapse: separate;
+        border-spacing: 10px;
+        border: 2px double black;
+      }
+    </style>
+</head>
+
+<body>
+  <button type="button" style="border-color:red" onclick="Back()">Back</button>
+  <div class="container-fluid">
+    <div class="alert alert-secondary text-center">
+      <h1>View all coupons from Database</h1>
+    </div>
+    <ul>
+      <% coupon.forEach(function(cp) { %>
+        <table style= "float:left">
+          <tr>
+          <td>
+            <Strong>Coupon code: </Strong><%= cp.coupon_code %><br/>
+            <Strong>discount: </Strong><%= cp.discount %><br/>
+          </td>
+        </tr>
+      </table>
+        <% }); %>
+    </ul>
+    </div>
+    <script>
+      function Back()
+      {
+        location.href = "managerPage.html";
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   <title>login form</title>
+   
+<style>
+body {font-family: 'Courier New', Courier, monospace}
+form {border: 3px solid #000000;}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 20%;
+  border-radius: 20%;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(0, 0, 0);
+  box-sizing: border-box;
+  
+}
+
+button {
+  background-color:aquamarine;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.container {
+  font-size: medium;
+  padding: 16px;
+  color: rgb(0, 0, 0);
+}
+
+.menuButton {
+  height: 35px;
+  width: 150px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 12px;
+}
+</style>
+
+</head>
+<body bgcolor="FloralWhite">
+    <form id="loginform" action="/UserInfo" method="post">
+      <button type="Button" class="w3-right w3-large menuButton" margin="20px" onclick="MenuFunction()";>Back to Menu</button>
+
+	    <div class="container">
+        <h2 style="font-family:Amantic SC">Contactless Table Ordering System</h2>
+      </div>
+
+	<div class="imgcontainer">
+    <img src="/Images/loginavatar.jpg" style="background-color: floralwhite;" alt="Avatar" class="avatar">
+	</div>
+	
+	<div class="container" >
+        <label for="username"><b>Username:</b></label><br/>
+        <input type="text" placeholder="Enter Username" id="username" name="username" required><br/>
+        <label for="password"><b>Password:</b></label><br/>
+        <input type="password" placeholder="Enter Password" id="password" name="password" required><br/>
+        <label for="profileType">Select profile type:</label>
+        <select id="profileType" name="profileType">
+            <option value="admin">Administrator</option>
+            <option value="owner">Owner</option>
+            <option value="manager">Manager</option>
+            <option value="staff">Staff</option>
+        </select><br/>
+        <button type="submit">Login</button>
+	</div>
+    </form>
+
+    <script>
+      function MenuFunction()
+      {
+        location.href = "menuPage.html";
+      }
+    </script>
+</body>
+
+
+</html>

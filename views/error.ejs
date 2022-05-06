@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+      body{
+        background-color: aliceblue;
+      }
+
+      button{
+        float: left;
+        padding: 5px;
+        margin: 12px;
+        cursor: pointer;
+      }
+      table{
+        padding: 5px;
+        border-collapse: separate;
+        border-spacing: 10px;
+        border: 2px double black;
+      }
+    </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="alert alert-secondary text-center">
+      <h1><b>ERROR: Username does not exist</b></h1>
+      <button type="button" style="border-color:red" onclick="Back()">Back</button>
+    <script>
+      function Back()
+      {
+        location.href = "adminPage.html";
+      }
+    </script>
+</body>
+</html>
