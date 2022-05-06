@@ -15,19 +15,19 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
 //Controllers
-var loginValidation = require('./entity/loginValidation');
-var CreateUserAdminController = require('./entity/CreateUserAdminController');
-var DeleteUserAdminController = require('./entity/DeleteUserAdminController');
-var EditUserAdminController = require('./entity/EditUserAdminController');
-var adminViewAllAccounts = require('./entity/adminViewAllAccounts');
-var SearchUserAccountAdminController = require('./entity/SearchUserAccountAdminController');
-var SearchUserProfileAdminController = require('./entity/SearchUserProfileAdminController');
-var addMenuItem = require('./entity/addMenuItem');
-var addCouponCode = require('./entity/addCouponCode');
-var deleteCouponCode = require('./entity/deleteCouponCode');
-var editCouponCode = require('./entity/editCouponCode');
-var viewCouponCode = require('./entity/viewCouponCode');
-var searchCouponCode = require('./entity/searchCouponCode');
+var loginValidation = require('./controller/LoginAccountController');
+var CreateUserAdminController = require('./controller/CreateUserController');
+var DeleteUserAdminController = require('./controller/DeleteUserController');
+var EditUserAdminController = require('./controller/EditUserController');
+var adminViewAllAccounts = require('./controller/ViewAllController');
+var SearchUserAccountAdminController = require('./controller/SearchUserAccountController');
+var SearchUserProfileAdminController = require('./controller/SearchUserProfileController');
+var addMenuItem = require('./controller/AddMenuController');
+var addCouponCode = require('./controller/CreateCouponController');
+var deleteCouponCode = require('./controller/DeleteCouponController');
+var editCouponCode = require('./controller/EditCouponController');
+var viewCouponCode = require('./controller/ViewCouponController');
+var searchCouponCode = require('./controller/SearchCouponController');
 
 //LOGIN PAGE
 //Login Validation
