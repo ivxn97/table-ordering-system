@@ -20,8 +20,8 @@ var CreateUserAdminController = require('./controller/CreateUserAdminController'
 var DeleteUserAdminController = require('./controller/DeleteUserAdminController');
 var EditUserAdminController = require('./controller/EditUserAdminController');
 var adminViewAllAccounts = require('./controller/adminViewAllAccounts');
-var SearchUserAdminController = require('./controller/SearchUserAdminController');
-var adminViewProfiles = require('./controller/adminViewProfiles');
+var SearchUserAccountAdminController = require('./controller/SearchUserAccountAdminController');
+var SearchUserProfileAdminController = require('./controller/SearchUserProfileAdminController');
 var addMenuItem = require('./controller/addMenuItem');
 
 //Login Validation
@@ -40,10 +40,10 @@ app.use("/editAccount", EditUserAdminController);
 app.use("/adminview", adminViewAllAccounts);
 
 // Administrator: Account search
-app.use("/adminAccountSearch", SearchUserAdminController);
+app.use("/adminAccountSearch", SearchUserAccountAdminController);
 
 // Administrator: View all Accounts by specific profile
-app.use("/adminViewProfiles", adminViewProfiles);
+app.use("/SearchUserProfileAdminController", SearchUserProfileAdminController);
 
 // Manager: Create new menu item
 app.use("/addMenuItem", addMenuItem);
