@@ -21,7 +21,7 @@ router.post('/', function(req, res){
     console.log('Adding item with name: ' + itemName + ' price: ' + itemPrice  + ' quantity: '
                                                + itemQuantity + ' display picture URL: ' + itemURL);
     var db = new sqlite3.Database('restaurant.db');
-    db.run('INSERT INTO menu (item_name, price, quantity, pic_URL) VALUES(?,?,?,?)', 
+    db.run('INSERT INTO menu (item_Name, price, quantity, pic_URL) VALUES(?,?,?,?)', 
                                                         [itemName, itemPrice, itemQuantity, itemURL], function(err){
       if(err){
         alert("Error in adding a menu item")
