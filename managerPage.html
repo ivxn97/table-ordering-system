@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Welcome (Manager)</title>
+	
+	<style>
+	</style>
+	
+	<body>
+		<hl> Login Successful (Manager) </hl>
+		<table border = "1" width = "70%">
+			<tr>
+			<td style="padding:15px">
+			Welcome Manager
+			<br/>
+			<button type="button" onclick="Logoutfunction()">Logout</button>
+			</form>
+			</td>
+			</tr>
+		</table>
+
+		<form action="/addMenuItem" method="get">
+			<h2>Add new menu item:</h2>
+			<label for="itemName">Enter item name:</label><br/>
+			<input type="text" placeholder="Item name" id="itemName" name="itemName" required><br/>
+			<label for="itemPrice">Enter item price:</label><br/>
+			<input type="number" step="0.01" min="0"  placeholder="Item price" id="itemPrice" name="itemPrice" required><br/>
+			<label for="itemQuantity">Enter item quantity:</label><br/>
+			<input type="number" min="0" placeholder="Item quantity" id="itemQuantity" name="itemQuantity" required><br/>
+			<label for="itemURL">Enter URL of item's picture :</label><br/>
+			<input type="text" placeholder="Item URL" id="itemURL" name="itemURL"><br/>
+			<button type="submit">Add Item</button>
+		</form>
+
+		<script>
+			function Logoutfunction()
+			{
+				location.href = "loginPage.html";
+			}
+			
+		</script>
+	</body>
+</html>

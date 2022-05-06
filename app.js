@@ -22,6 +22,7 @@ var EditUserAdminController = require('./controller/EditUserAdminController');
 var adminViewAllAccounts = require('./controller/adminViewAllAccounts');
 var SearchUserAdminController = require('./controller/SearchUserAdminController');
 var adminViewProfiles = require('./controller/adminViewProfiles');
+var addMenuItem = require('./controller/addMenuItem');
 
 //Login Validation
 app.use('/UserInfo', loginValidation);
@@ -43,6 +44,9 @@ app.use("/adminAccountSearch", SearchUserAdminController);
 
 // Administrator: View all Accounts by specific profile
 app.use("/adminViewProfiles", adminViewProfiles);
+
+// Manager: Create new menu item
+app.use("/addMenuItem", addMenuItem);
 
 // Default landing page
 app.get('/', function(req,res){
