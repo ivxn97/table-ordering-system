@@ -23,30 +23,43 @@ var adminViewAllAccounts = require('./controller/adminViewAllAccounts');
 var SearchUserAccountAdminController = require('./controller/SearchUserAccountAdminController');
 var SearchUserProfileAdminController = require('./controller/SearchUserProfileAdminController');
 var addMenuItem = require('./controller/addMenuItem');
+var addCouponCode = require('./controller/addCouponCode');
+var deleteCouponCode = require('./controller/deleteCouponCode');
+var editCouponCode = require('./controller/editCouponCode');
+var viewCouponCode = require('./controller/viewCouponCode');
+var searchCouponCode = require('./controller/searchCouponCode');
 
+//LOGIN PAGE
 //Login Validation
 app.use('/UserInfo', loginValidation);
 
+//ADMINISTRATOR PAGE
 //Administrator: Account Creation
 app.use("/createAccount", CreateUserAdminController);
-
 //Administrator: Account Deletion
 app.use("/deleteAccount", DeleteUserAdminController);
-
 //Administrator: Account Editing
 app.use("/editAccount", EditUserAdminController);
-
 // Administrator: View all Accounts from Database 
 app.use("/adminview", adminViewAllAccounts);
-
 // Administrator: Account search
 app.use("/adminAccountSearch", SearchUserAccountAdminController);
-
 // Administrator: View all Accounts by specific profile
 app.use("/SearchUserProfileAdminController", SearchUserProfileAdminController);
 
+//MANAGER PAGE
 // Manager: Create new menu item
 app.use("/addMenuItem", addMenuItem);
+// Manager: Add coupon code
+app.use("/addCouponCode", addCouponCode);
+// Manager: Delete coupon code
+app.use("/deleteCouponCode", deleteCouponCode);
+// Manager: Edit coupon code
+app.use("/editCouponCode", editCouponCode);
+// Manager: View coupon code
+app.use("/viewCouponCode", viewCouponCode);
+// Manager: Search coupon code
+app.use("/searchCouponCode", searchCouponCode);
 
 // Default landing page
 app.get('/', function(req,res){

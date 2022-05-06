@@ -4,6 +4,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<title> Welcome (Manager)</title>
 	
 	<style>
@@ -22,6 +23,7 @@
 			</tr>
 		</table>
 
+		<!-- Adding an menu item -->
 		<form id = "addMenuItemForm" action="/addMenuItem" method="post">
 			<h2>Add new menu item:</h2>
 			<label for="itemName">Enter item name:</label><br/>
@@ -35,6 +37,44 @@
 			<button type="submit">Add Item</button>
 		</form>
 
+		<!-- Adding a coupon code -->
+		<form action="/addCouponCode" method="post">
+			<h2>Add coupon code:</h2>
+			<label for="couponCode">Enter a coupon code:</label><br/>
+			<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required><br/>
+			<label for="discount">Enter discount(%):</label><br/>
+			<input type="number" min="0" max="100" placeholder="discount percentage" id="discount" name="discount" required><br/>
+			<button type="submit">Add Coupon</button>
+		</form>
+
+		<form action="/deleteCouponCode" method="post">
+			<h2>Delete a coupon code:</h2>
+			<label for="couponCode">Enter a coupon code:</label><br/>
+			<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required><br/>
+			<button type="submit">Delete coupon</button>
+		</form>
+
+		<form action="/editCouponCode" method="post">
+			<h2>Edit a coupon code:</h2>
+			<label for="couponCode">Enter a coupon code:</label><br/>
+			<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required><br/>
+			<label for="discount">Enter new discount(%):</label><br/>
+			<input type="number" min="0" max="100" placeholder="discount percentage" id="discount" name="discount" required><br/>
+			<button type="submit">Edit coupon</button>
+		</form>
+
+		<form action="/viewCouponCode" method="post">
+			<h2>View all coupon codes:</h2>
+			<button type="submit">view coupons</button>
+		</form>
+
+		<form action="/searchCouponCode" method="post">
+			<h2>Search for a coupon code:</h2>
+			<label for="couponCode">Enter a coupon code:</label><br/>
+			<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required><br/>
+			<button type="submit">Delete coupon</button>
+		</form>
+		
 		<script>
 			function Logoutfunction()
 			{

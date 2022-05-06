@@ -23,11 +23,13 @@ db.run('DROP TABLE customers', function(err){
 
 //db.run('CREATE TABLE accounts(first_name,last_name,username,password,profiletype, UNIQUE(username))');
 //db.run('CREATE TABLE customers(email UNIQUE, date, spending, food_order, UNIQUE(email))');
-//db.run('CREATE TABLE menu(item_name, item_price, item_id)');
+//db.run('CREATE TABLE menu(item_name VARCHAR(20), price, quantity INTEGER, pic_URL VARCHAR(100))');
+//db.run('CREATE TABLE coupon(coupon_code VARCHAR(20), discount INTEGER)');
 
 //const sql = 'INSERT INTO accounts (first_name, last_name, username, password, profiletype) VALUES(?,?,?,?,?)';
 //const sql = 'INSERT INTO customers (email, date, spending, food_order) VALUES(?,?,?,?)';
-const sql = 'INSERT INTO menu (item_name, item_price, item_id) VALUES(?,?,?)';
+//const sql = 'INSERT INTO menu (item_name, price, quantity, pic_URL) VALUES(?,?,?,?)';
+const sql = 'INSERT INTO coupon (coupon_code, discount) VALUES(?,?)';
 
 // INSERT STATEMENTS FOR ACCOUNTS
 // db.run(sql,["Matthew", "Chua", "owner1", "owner123", "owner"], (err) => {
@@ -64,23 +66,19 @@ const sql = 'INSERT INTO menu (item_name, item_price, item_id) VALUES(?,?,?)';
 
 
 // INSERT STATEMENTS FOR MENU ITEMS
-db.run(sql,["Salad Bowl", "12.00", "001"], (err) => {
+// db.run(sql,["Salad Bowl", "24.99", "100", "/images/steak.jpg"], (err) => {
+//         if (err) return console.error(err.message);
+        
+//         console.log("A new menu item has been added");
+// })
+
+// INSERT STATEMENTS FOR COUPON CODE
+db.run(sql,["NEWCODE2022", "20"], (err) => {
         if (err) return console.error(err.message);
         
         console.log("A new menu item has been added");
 })
 
-db.run(sql,["Steak and Fries", "25.00", "002"], (err) => {
-    if (err) return console.error(err.message);
-    
-    console.log("A new menu item has been added");
-})
-
-db.run(sql,["Fish and Chips", "22.00", "003"], (err) => {
-    if (err) return console.error(err.message);
-    
-    console.log("A new menu item has been added");
-})
 
 db.close ((err) => {
     if (err) return console.error(err.message);
