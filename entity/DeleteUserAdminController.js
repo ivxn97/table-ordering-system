@@ -17,7 +17,7 @@ router.post('/', function(req, res){
 
   console.log('Deleting account with username: ' + username);
   var db = new sqlite3.Database('./restaurant.db');
-  db.run('begin; DELETE FROM manager WHERE username = ?; DELETE FROM administrator WHERE username = ?; DELETE FROM owner WHERE username = ?; DELETE FROM staff WHERE username = ?; commit;', [username, username, username, username], function(err){
+  db.run('DELETE FROM accounts WHERE username LIKE ?', [username], function(err){
     if(err){
       console.log(err);
     }
