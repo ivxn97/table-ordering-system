@@ -22,8 +22,32 @@ router.post('/', function(req, res){
     console.log('Creating account with first name: ' + fname + ' last name: ' + lname  + ' username: '
                                                + username + ' password: ' + password + ' profile type: ' + profileType);
     var db = new sqlite3.Database('restaurant.db');
-    db.run('INSERT INTO accounts (first_name, last_name, username, password, profiletype) VALUES(?,?,?,?,?)', 
-                                                        [fname, lname, username, password, profileType], function(err){
+
+    if (profileType == 'owner') {
+      db.run('INSERT INTO owner (first_name, last_name, username, password) VALUES(?,?,?,?)', 
+      [fname, lname, username, password], function(err){
+      if(err){
+        alert("Error Duplicate Username, Please Choose a different Username")
+        console.log(err);
+      }
+      else {
+        alert("Account successfully created");
+        console.log("Successful account creation");
+    }})}
+    else if (profileType == 'manager') {
+      db.run('INSERT INTO manager (first_name, last_name, username, password) VALUES(?,?,?,?)', 
+      [fname, lname, username, password], function(err){
+      if(err){
+        alert("Error Duplicate Username, Please Choose a different Username")
+        console.log(err);
+      }
+      else {
+        alert("Account successfully created");
+        console.log("Successful account creation");
+    }})}
+    else if (profileType == 'staff') {
+      db.run('INSERT INTO staff (first_name, last_name, username, password) VALUES(?,?,?,?)', 
+      [fname, lname, username, password], function(err){
       if(err){
         alert("Error Duplicate Username, Please Choose a different Username")
         console.log(err);
@@ -31,7 +55,21 @@ router.post('/', function(req, res){
       else{
         alert("Account successfully created");
         console.log("Successful account creation");
+    }})}
+    else if (profileType == 'admin') {
+      db.run('INSERT INTO administrator (first_name, last_name, username, password) VALUES(?,?,?,?)', 
+      [fname, lname, username, password], function(err){
+      if(err){
+        alert("Error Duplicate Username, Please Choose a different Username")
+        console.log(err);
       }
-    });
+      else{
+        alert("Account successfully created");
+        console.log("Successful account creation");
+    }})}
+    else {
+      consoele.log(err);
+      db.close();
+    }
   });
   module.exports = router;
