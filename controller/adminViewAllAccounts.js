@@ -19,5 +19,5 @@ router.post('/', (req, res) => {
         }
         res.render('adminView', {accounts: rows});
     });
-  })
+  });
   module.exports = router;
