@@ -12,31 +12,26 @@
         margin: 12px;
         cursor: pointer;
       }
-      table{
-        padding: 5px;
-        border-collapse: separate;
-        border-spacing: 10px;
-        border: 2px double black;
-      }
+
     </style>
 </head>
 
 <body>
-  <button type="button" style="border-color:red" onclick="Back()">Back</button>
+  <form id="backForm" action="/menuBack" method="get">
+  <button type="submit" style="border-color:red">Back</button>
+  </form>
   <div class="container-fluid">
     <div class="alert alert-secondary text-center">
       <h1>View all Profiles from Database</h1>
     </div>
     <ul>
-      <% accounts.forEach(function(account) { %>
+      <% cart.forEach(function(carts) { %>
         <table style= "float:left">
           <tr>
           <td>
-            <Strong>First Name: </Strong><%= account.first_name %><br/>
-            <Strong>Last Name: </Strong><%= account.last_name %><br/>
-            <Strong>UserName: </Strong><%= account.username %><br/>
-            <Strong>Password: </Strong><%= account.password %><br/>
-            <Strong>Profile Type: </Strong><%= account.profiletype %><br/>
+            <%= carts.item_name %><br/>
+            <%= carts.quantity %><br/>
+            <%= carts.price %><br/>
           </td>
         </tr>
       </table>
@@ -44,10 +39,6 @@
     </ul>
     </div>
     <script>
-      function Back()
-      {
-        location.href = "adminPage.html";
-      }
     </script>
 </body>
 </html>
