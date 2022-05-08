@@ -22,21 +22,23 @@
   </form>
   <div class="container-fluid">
     <div class="alert alert-secondary text-center">
-      <h1>View all Profiles from Database</h1>
+      <h1>Cart</h1>
     </div>
-    <ul>
+    <b>&emsp;&nbsp; Item Name &emsp; Quantity &nbsp; Price </b>
+    <ol>
       <% cart.forEach(function(carts) { %>
         <table style= "float:left">
           <tr>
           <td>
-            <%= carts.item_name %><br/>
-            <%= carts.quantity %><br/>
-            <%= carts.price %><br/>
+            <li><%= carts.item_name %> &emsp;
+            <%= carts.quantity %> &emsp;
+            <%= carts.price %></li>
           </td>
         </tr>
       </table>
+      <br/><br/>
         <% }); %>
-    </ul>
+    </ol>
     </div>
     <script>
     </script>
