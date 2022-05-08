@@ -22,7 +22,9 @@ var EditUserAdminController = require('./controller/EditUserController');
 var adminViewAllAccounts = require('./controller/ViewAllController');
 var SearchUserAccountAdminController = require('./controller/SearchUserAccountController');
 var SearchUserProfileAdminController = require('./controller/SearchUserProfileController');
-var addMenuItem = require('./controller/AddMenuController');
+var addMenuItem = require('./controller/CreateMenuController');
+var deleteMenuItem = require('./controller/DeleteMenuController');
+
 var addCouponCode = require('./controller/CreateCouponController');
 var deleteCouponCode = require('./controller/DeleteCouponController');
 var editCouponCode = require('./controller/EditCouponController');
@@ -30,7 +32,6 @@ var viewCouponCode = require('./controller/ViewCouponController');
 var searchCouponCode = require('./controller/SearchCouponController');
 var menuRender = require('./controller/MenuRenderController');
 var addToCart = require('./controller/AddToCartController');
-var viewCart = require('./controller/ViewCartController');
 
 //LOGIN PAGE
 //Login Validation
@@ -53,6 +54,9 @@ app.use("/SearchUserProfileAdminController", SearchUserProfileAdminController);
 //MANAGER PAGE
 // Manager: Create new menu item
 app.use("/addMenuItem", addMenuItem);
+// Manager: Delete menu item
+app.use("/deleteMenuItem", deleteMenuItem);
+
 // Manager: Add coupon code
 app.use("/addCouponCode", addCouponCode);
 // Manager: Delete coupon code
@@ -68,14 +72,8 @@ app.use("/searchCouponCode", searchCouponCode);
 // Default landing page
 app.use("/", menuRender);
 
-//Back
-app.use("/menuBack", menuRender);
-
 //Menu: Add To Cart
 app.use("/addToCart", addToCart);
-
-//Menu: View Cart
-app.use("/viewCart", viewCart);
 
 // insert http://localhost:3000 into browser address bar
 server.listen(3000,function(){ 
