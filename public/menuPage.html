@@ -6,15 +6,17 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <style>
-body,h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6 {
   font-weight: bold;
-  font-family: 'Courier New', Courier, monospace
+  font-family: 'Courier New', Courier, monospace;
 }
 
 body {
-  background-image: url("/Images/background2.jpg");
-  background-size: contain;
-  background-repeat: repeat;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  background-image: url("/Images/background4.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 .button {
@@ -25,18 +27,20 @@ body {
   display: flex;
   margin: 20px;
   padding: 10px;
+  border-radius: 12px;
+  text-align: center;
 }
 
 </style>
 <body>
 <!-- Start Content -->
-<button type="button" class="w3-right w3-black w3-large button" margin="20px" onclick="LoginFunction()";>Login</button>
+<button type="button" class="w3-right w3-black w3-large button" onclick="LoginFunction()";>Login</button>
 <div id="menu">
 <!-- Menu -->
 <div id="menu" class="w3-container w3-large w3-padding-64">
-    <h1 class="w3-center w3-jumbo">THE MENU</h1>
-    <h1 id="FOOD" class="w3-center w3-xxxlarge w3-padding-32">FOOD</h1>
-    <h3><b>Salad Bowl</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$12.00</span></h3>
+    <h1 style="color:black" class="w3-center w3-jumbo">THE MENU</h1>
+    <h1 style="color:black" class="w3-center w3-xxxlarge w3-padding-32">FOOD</h1>
+    <h3>Salad Bowl <span class="w3-center w3-tag w3-dark-grey w3-round">$12.00</span></h3>
     <form action="/action_page.php">
         <label for="quantity">Select Quantity:</label>
         <select name="quantity" id="quantity">
@@ -50,8 +54,9 @@ body {
         <br><br>
         <input type="submit" value="Add to cart">
       </form>
+    </br>
 
-    <h3><b>Steak and Fries</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$25.00</span></h3>
+    <h3>Steak and Fries <span class="w3-center w3-tag w3-dark-grey w3-round">$25.00</span></h3>
     <form action="/action_page.php">
         <label for="quantity">Select Quantity:</label>
         <select name="quantity" id="quantity">
@@ -65,8 +70,9 @@ body {
         <br><br>
         <input type="submit" value="Add to cart">
       </form>
+    </br>
 
-    <h3><b>Fish and Chips</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$22.00</span></h3>
+    <h3>Fish and Chips <span class="w3-center w3-tag w3-dark-grey w3-round">$22.00</span></h3>
     <form action="/action_page.php">
         <label for="quantity">Select Quantity:</label>
         <select name="quantity" id="quantity">
@@ -80,9 +86,10 @@ body {
         <br><br>
         <input type="submit" value="Add to cart">
       </form>
+    </br>
 
-    <h1 id="DRINKS" class="w3-center w3-xxxlarge">DRINKS</h1>
-    <h3><b>Coca Cola</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$2.00</span></h3>
+    <h1 style="color:black" class="w3-center w3-xxxlarge">DRINKS</h1>
+    <h3>Coca Cola <span class="w3-center w3-tag w3-dark-grey w3-round">$2.00</span></h3>
     <form action="/action_page.php">
         <label for="quantity">Select Quantity:</label>
         <select name="quantity" id="quantity">
@@ -96,8 +103,9 @@ body {
         <br><br>
         <input type="submit" value="Add to cart">
       </form>
+    </br>
 
-    <h3><b>Green Tea</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$2.00</span></h3>
+    <h3>Green Tea <span class="w3-center w3-tag w3-dark-grey w3-round">$2.00</span></h3>
     <form action="/action_page.php">
         <label for="quantity">Select Quantity:</label>
         <select name="quantity" id="quantity">
@@ -111,8 +119,9 @@ body {
         <br><br>
         <input type="submit" value="Add to cart">
       </form>
+    </br>
 
-    <h3><b>Tiger Beer</b> <span class="w3-center w3-tag w3-dark-grey w3-round">$4.00</span></h3>
+    <h3>Tiger Beer <span class="w3-center w3-tag w3-dark-grey w3-round">$4.00</span></h3>
     <form action="/action_page.php">
         <label for="quantity">Select Quantity:</label>
         <select name="quantity" id="quantity">
@@ -126,6 +135,13 @@ body {
         <br><br>
         <input type="submit" value="Add to cart">
       </form>
+    </br>
+
+<div class="w3-center w3-xlarge">
+    <form id="viewCart" action="/viewCart" method="post">
+      <button type="submit">View Cart</button>
+    </form>
+</div>
 <!-- End Content -->
 </div>
 
