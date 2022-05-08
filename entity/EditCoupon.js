@@ -18,7 +18,7 @@ router.post('/', function(req, res){
    
     console.log('Editing coupon discount with old coupon code: ' + couponCode);
     var db = new sqlite3.Database('./restaurant.db');
-    db.run('UPDATE coupon SET discount = ?, WHERE Username = ?;',[discount, couponCode], function(err){
+    db.run('UPDATE coupon SET discount = ? WHERE coupon_code = ?;',[discount, couponCode], function(err){
       if(err){
         alert("Error editing discount of coupon code")
         console.log(err);

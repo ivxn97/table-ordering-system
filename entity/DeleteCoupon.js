@@ -15,9 +15,9 @@ router.use('/img', express.static(__dirname + '../Images'));
 router.post('/', function(req, res){
   var couponCode = req.body.couponCode;
 
-  console.log('Deleting account with username: ' + couponCode);
+  console.log('Deleting coupon with name ' + couponCode);
   var db = new sqlite3.Database('./restaurant.db');
-  db.run('DELETE FROM coupon WHERE username LIKE ?', [couponCode], function(err){
+  db.run('DELETE FROM coupon WHERE coupon_code LIKE ?', [couponCode], function(err){
     if(err){
       console.log(err);
     }

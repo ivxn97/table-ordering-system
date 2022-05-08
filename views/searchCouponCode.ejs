@@ -12,16 +12,14 @@
       <h1>View coupon from selected coupon code</h1>
     </div>
     <ul>
-      <% coupon.forEach(function(cp) { %>
         <table style= "float:left" border ="1">
           <tr>
           <td style="padding:15px">
-            <Strong>Coupon: </Strong><%= cp.coupon_code %><br/>
-            <Strong>Discount: </Strong><%= cp.discount %><br/>
+            <Strong>Coupon: </Strong><%= coupon.coupon_code %><br/>
+            <Strong>Discount: </Strong><%= coupon.discount %><br/>
           </td>
         </tr>
       </table>
-        <% }); %>
     </ul>
     </div>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
@@ -29,7 +27,7 @@
     <script>
       function Back()
       {
-        location.href = "adminPage.html";
+        location.href = "managerPage.html";
       }
     </script>
 </body>

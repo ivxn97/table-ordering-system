@@ -15,14 +15,12 @@ router.use('/img', express.static(__dirname + '../Images'));
 router.post('/', function(req, res){
     var itemName = req.body.itemName;
     var itemPrice = req.body.itemPrice;
-    var itemQuantity = req.body.itemQuantity;
-    var itemURL = req.body.itemURL;
+    var itemID = req.body.itemID;
 
-    console.log('Adding item with name: ' + itemName + ' price: ' + itemPrice  + ' quantity: '
-                                               + itemQuantity + ' display picture URL: ' + itemURL);
+    console.log('Adding item with name: ' + itemName + ' price: ' + itemPrice  + 'item ID' + itemID);
     var db = new sqlite3.Database('restaurant.db');
-    db.run('INSERT INTO menu (item_Name, price, quantity, pic_URL) VALUES(?,?,?,?)', 
-                                                        [itemName, itemPrice, itemQuantity, itemURL], function(err){
+    db.run('INSERT INTO menu (item_name, item_price, item_id) VALUES(?,?,?)', 
+                                                        [itemName, itemPrice, itemID], function(err){
       if(err){
         alert("Error in adding a menu item")
         console.log(err);

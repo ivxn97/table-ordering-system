@@ -15,7 +15,7 @@ router.use('/img', express.static(__dirname + '../Images'));
 router.post('/', (req, res) => {
     var couponCode = req.body.couponCode;
     var db = new sqlite3.Database('./restaurant.db');
-    db.get("SELECT * FROM coupon WHERE username = ?", [couponCode], (error, rows) => {
+    db.get("SELECT * FROM coupon WHERE coupon_code = ?", [couponCode], (error, rows) => {
         if (error){
             console.log(error);
         }
