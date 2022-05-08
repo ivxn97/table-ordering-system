@@ -32,6 +32,7 @@ var viewCouponCode = require('./controller/ViewCouponController');
 var searchCouponCode = require('./controller/SearchCouponController');
 var menuRender = require('./controller/MenuRenderController');
 var addToCart = require('./controller/AddToCartController');
+var viewCart = require('./controller/ViewCartController');
 
 //LOGIN PAGE
 //Login Validation
@@ -72,8 +73,14 @@ app.use("/searchCouponCode", searchCouponCode);
 // Default landing page
 app.use("/", menuRender);
 
+//Back
+app.use("/menuBack", menuRender);
+
 //Menu: Add To Cart
 app.use("/addToCart", addToCart);
+
+//Menu: View Cart
+app.use("/viewCart", viewCart);
 
 // insert http://localhost:3000 into browser address bar
 server.listen(3000,function(){ 
