@@ -23,8 +23,9 @@ db.run('DROP TABLE customers', function(err){
 
 //db.run('CREATE TABLE accounts(first_name,last_name,username,password,profiletype, UNIQUE(username))');
 //db.run('CREATE TABLE customers(email UNIQUE, date, spending, food_order, UNIQUE(email))');
-//db.run('CREATE TABLE menu(item_name VARCHAR(20), price, quantity INTEGER, pic_URL VARCHAR(100))');
+//db.run('CREATE TABLE menu(item_name, price, item_id INTEGER');
 //db.run('CREATE TABLE coupon(coupon_code VARCHAR(20), discount INTEGER)');
+db.run('CREATE TABLE cart(item_name TEXT, quantity INTEGER, price INTEGER');
 
 //const sql = 'INSERT INTO accounts (first_name, last_name, username, password, profiletype) VALUES(?,?,?,?,?)';
 //const sql = 'INSERT INTO customers (email, date, spending, food_order) VALUES(?,?,?,?)';
