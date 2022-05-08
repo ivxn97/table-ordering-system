@@ -43,11 +43,11 @@
     <h1 style="color:black" class="w3-center w3-jumbo">THE MENU</h1>
     <h1 style="color:black" class="w3-center w3-xxxlarge w3-padding-32">FOOD</h1>
     <ul>
-        <% foodmenu.forEach(function(food) { %>
+        <% foodmenu.forEach(function(food) { -%>
           <table style= "float:left">
             <tr>
             <td>
-                <h3><%= food.item_name %> <span class="w3-center w3-tag w3-dark-grey w3-round"> <%= food.item_price %></span></h3> 
+                <h3><%- food.item_name %> <span class="w3-center w3-tag w3-dark-grey w3-round"> <%- food.item_price %></span></h3> 
                 <form action="/action_page.php">
                     <label for="quantity">Select Quantity:</label>
                     <select name="quantity" id="quantity">
@@ -64,9 +64,9 @@
             </td>
           </tr>
         </table>
-          <% }); %>
+        <br/><br/><br/><br/><br/><br/>
+          <% }); -%>
       </ul>
-      <br/><br/><br/><br/><br/>
 
       <h1 style="color:black" class="w3-center w3-xxxlarge w3-padding-32">DRINKS</h1>
       <ul>
@@ -91,9 +91,9 @@
             </td>
           </tr>
         </table>
+        <br/><br/><br/><br/><br/><br/>
           <% }); %>
       </ul>
-      <br/><br/><br/><br/><br/><br/>
 <div class="w3-center w3-xlarge">
     <form id="viewCart" action="/viewCart" method="post">
       <button type="submit">View Cart</button>
