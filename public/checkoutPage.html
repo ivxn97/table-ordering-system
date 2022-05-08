@@ -17,7 +17,7 @@
     font-family: 'Courier New', Courier, monospace;
     background-image: url("/Images/background4.jpg");
     background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     }
 
     .button {
@@ -30,14 +30,14 @@
     padding: 10px;
     border-radius: 12px;
     text-align: center;
-    }
+  }
 
     </style>
 </head>
 <body>
     <!-- Start Content -->
     <form id="backForm" action="/menuBack" method="get">
-        <button type="submit" class="w3-right w3-large menuButton" margin="20px";>Back to Menu</button>
+        <button type="submit" class="w3-left w3-black w3-large button" ;>Back to Menu</button>
     </form>
 
     <form id="checkoutForm" action="/checkout" method="post">
@@ -53,7 +53,7 @@
             <label for="securityCode"><b>Security Code:</b></label><br/>
             <input type="text" placeholder="Security Code" id="securityCode" name="securityCode" required><br/>
 
-            <button type="submit">Pay</button>
+            <button type="submit" class="w3-left w3-black w3-large button" margin="20px">Pay</button>
         </div>
     </form>
 </body>

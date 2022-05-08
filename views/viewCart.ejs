@@ -6,19 +6,24 @@
         background-image: url("/Images/background4.jpg");
       }
 
-      button{
-        float: left;
-        padding: 5px;
-        margin: 12px;
-        cursor: pointer;
-      }
+      .button {
+    height: 50px;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+  }
 
     </style>
 </head>
 
 <body>
   <form id="backForm" action="/menuBack" method="get">
-  <button type="submit" style="border-color:red">Back</button>
+  <button type="submit" class="w3-right w3-black w3-large button">Back</button>
   </form>
   <div class="container-fluid">
     <div class="alert alert-secondary text-center">
@@ -31,7 +36,7 @@
           <tr>
           <td>
             <li><%= carts.item_name %> &emsp;
-            <%= carts.quantity %> &emsp;
+            <%= carts.quantity %> &emsp;&emsp;&nbsp;
             <%= carts.price %></li>
           </td>
         </tr>
@@ -40,7 +45,11 @@
         <% }); %>
     </ol>
     </div>
+    <button type="button" onclick="checkout()" class="w3-right w3-black w3-large button" >Proceed to Checkout</button>
     <script>
+      function checkout() {
+        location.href = "checkoutPage.html";
+      }
     </script>
 </body>
 </html>
