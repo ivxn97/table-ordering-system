@@ -24,7 +24,8 @@ var SearchUserAccountAdminController = require('./controller/SearchUserAccountCo
 var SearchUserProfileAdminController = require('./controller/SearchUserProfileController');
 var addMenuItem = require('./controller/CreateMenuController');
 var deleteMenuItem = require('./controller/DeleteMenuController');
-
+var editMenuItem = require('./controller/EditMenuController');
+var searchMenuItem = require('./controller/SearchMenuController');
 var addCouponCode = require('./controller/CreateCouponController');
 var deleteCouponCode = require('./controller/DeleteCouponController');
 var editCouponCode = require('./controller/EditCouponController');
@@ -57,7 +58,10 @@ app.use("/SearchUserProfileAdminController", SearchUserProfileAdminController);
 app.use("/addMenuItem", addMenuItem);
 // Manager: Delete menu item
 app.use("/deleteMenuItem", deleteMenuItem);
-
+// Manager: Edit menu item
+app.use("/editMenuItem", editMenuItem);
+// Manager: Search menu item
+app.use("/searchMenuItem", searchMenuItem);
 // Manager: Add coupon code
 app.use("/addCouponCode", addCouponCode);
 // Manager: Delete coupon code
