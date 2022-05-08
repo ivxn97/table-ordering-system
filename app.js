@@ -28,6 +28,7 @@ var deleteCouponCode = require('./controller/DeleteCouponController');
 var editCouponCode = require('./controller/EditCouponController');
 var viewCouponCode = require('./controller/ViewCouponController');
 var searchCouponCode = require('./controller/SearchCouponController');
+var menuRender = require('./controller/MenuRenderController');
 
 //LOGIN PAGE
 //Login Validation
@@ -62,9 +63,11 @@ app.use("/viewCouponCode", viewCouponCode);
 app.use("/searchCouponCode", searchCouponCode);
 
 // Default landing page
+/*
 app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'./public/menuPage.html'));
-});
+});*/
+app.use("/", menuRender);
 
 // insert http://localhost:3000 into browser address bar
 server.listen(3000,function(){ 
