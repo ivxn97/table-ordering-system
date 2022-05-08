@@ -24,7 +24,7 @@
 		</table>
 
 		<!-- Adding an menu item -->
-		<form id = "addMenuItemForm" action="/AddMenu" method="post">
+		<form id = "addMenuItemForm" action="/addMenuItem" method="post">
 			<h2>Add new menu item:</h2>
 			<label for="itemName">Enter item name:</label><br/>
 			<input type="text" placeholder="Item name" id="itemName" name="itemName" required><br/>
@@ -38,7 +38,7 @@
 		</form>
 
 		<!-- Adding a coupon code -->
-		<form action="/AddCoupon" method="post">
+		<form action="/addCouponCode" method="post">
 			<h2>Add coupon code:</h2>
 			<label for="couponCode">Enter a coupon code:</label><br/>
 			<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required><br/>
@@ -47,14 +47,14 @@
 			<button type="submit">Add Coupon</button>
 		</form>
 
-		<form action="/DeleteCoupon" method="post">
+		<form action="/deleteCouponCode" method="post">
 			<h2>Delete a coupon code:</h2>
 			<label for="couponCode">Enter a coupon code:</label><br/>
 			<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required><br/>
 			<button type="submit">Delete coupon</button>
 		</form>
 
-		<form action="/EditCoupon" method="post">
+		<form action="/editCouponCode" method="post">
 			<h2>Edit a coupon code:</h2>
 			<label for="couponCode">Enter a coupon code:</label><br/>
 			<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required><br/>
@@ -63,12 +63,12 @@
 			<button type="submit">Edit coupon</button>
 		</form>
 
-		<form action="/ViewCoupon" method="post">
+		<form action="/viewCouponCode" method="post">
 			<h2>View all coupon codes:</h2>
 			<button type="submit">view coupons</button>
 		</form>
 
-		<form action="/SearchCoupon" method="post">
+		<form action="/searchCouponCode" method="post">
 			<h2>Search for a coupon code:</h2>
 			<label for="couponCode">Enter a coupon code:</label><br/>
 			<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required><br/>

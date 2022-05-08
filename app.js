@@ -15,19 +15,19 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
 //Controllers
-var loginValidation = require('./entity/LoginAccount');
-var CreateUserAdminController = require('./entity/CreateUser');
-var DeleteUserAdminController = require('./entity/DeleteUser');
-var EditUserAdminController = require('./entity/EditUser');
-var adminViewAllAccounts = require('./entity/ViewAll');
-var SearchUserAccountAdminController = require('./entity/SearchUserAccount');
-var SearchUserProfileAdminController = require('./entity/SearchUserProfile');
-var addMenuItem = require('./entity/AddMenu');
-var addCouponCode = require('./entity/CreateCoupon');
-var deleteCouponCode = require('./entity/DeleteCoupon');
-var editCouponCode = require('./entity/EditCoupon');
-var viewCouponCode = require('./entity/ViewCoupon');
-var searchCouponCode = require('./entity/SearchCoupon');
+var loginValidation = require('./controller/LoginAccountController');
+var CreateUserAdminController = require('./controller/CreateUserController');
+var DeleteUserAdminController = require('./controller/DeleteUserController');
+var EditUserAdminController = require('./controller/EditUserController');
+var adminViewAllAccounts = require('./controller/ViewAllController');
+var SearchUserAccountAdminController = require('./controller/SearchUserAccountController');
+var SearchUserProfileAdminController = require('./controller/SearchUserProfileController');
+var addMenuItem = require('./controller/AddMenuController');
+var addCouponCode = require('./controller/CreateCouponController');
+var deleteCouponCode = require('./controller/DeleteCouponController');
+var editCouponCode = require('./controller/EditCouponController');
+var viewCouponCode = require('./controller/ViewCouponController');
+var searchCouponCode = require('./controller/SearchCouponController');
 
 //LOGIN PAGE
 //Login Validation
@@ -49,17 +49,17 @@ app.use("/SearchUserProfileAdminController", SearchUserProfileAdminController);
 
 //MANAGER PAGE
 // Manager: Create new menu item
-app.use("/AddMenu", addMenuItem);
+app.use("/addMenuItem", addMenuItem);
 // Manager: Add coupon code
-app.use("/AddCoupon", addCouponCode);
+app.use("/addCouponCode", addCouponCode);
 // Manager: Delete coupon code
-app.use("/DeleteCoupon", deleteCouponCode);
+app.use("/deleteCouponCode", deleteCouponCode);
 // Manager: Edit coupon code
-app.use("/EditCoupon", editCouponCode);
+app.use("/editCouponCode", editCouponCode);
 // Manager: View coupon code
-app.use("/ViewCoupon", viewCouponCode);
+app.use("/viewCouponCode", viewCouponCode);
 // Manager: Search coupon code
-app.use("/SearchCoupon", searchCouponCode);
+app.use("/searchCouponCode", searchCouponCode);
 
 // Default landing page
 app.get('/', function(req,res){
