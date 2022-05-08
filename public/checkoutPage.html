@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<title>CHECKOUT</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+h1,h2,h3,h4,h5,h6 {
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  background-image: url("/Images/background4.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.button {
+  height: 50px;
+  width: 80px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+</style>
+
+<body>
+    <!-- Start Content -->
+    <button type="button" class="w3-right w3-black w3-large button" onclick="BackFunction()";>Back</button>
+
+    <form id="checkoutForm" action="/checkout" method="post">
+        <div class="container" >
+            <label for="email"><b>Email:</b></label><br/>
+            <input type="text" placeholder="Enter Email" id="email" name="email" required><br/><br/>
+            <label for="cardNumber"><b>Card Number:</b></label><br/>
+            <input type="text" placeholder="Card Number" id="cardNumber" name="cardNumber" required><br/>
+            <label for="nameCard"><b>Name On Card:</b></label><br/>
+            <input type="text" placeholder="Name On Card" id="nameCard" name="nameCard" required><br/>
+            <label for="expDate"><b>Expiration Date: (MM/YY)</b></label><br/>
+            <input type="text" placeholder="(MM/YY)" id="expDate" name="expDate" required><br/>
+            <label for="securityCode"><b>Security Code:</b></label><br/>
+            <input type="text" placeholder="Security Code" id="securityCode" name="securityCode" required><br/>
+
+            <button type="submit">Pay</button>
+        </div>
+    </form>
+</body>
+</html>
