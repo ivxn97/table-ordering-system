@@ -20,6 +20,13 @@
     background-repeat: no-repeat;
   }
 
+  input {
+    border-width:0px;
+    border:none;
+    outline:none;
+    background:transparent;
+  }
+
   .button {
     height: 50px;
     width: 80px;
@@ -37,9 +44,9 @@
 <body>
 <!-- Start Content -->
 <button type="button" class="w3-right w3-black w3-large button" onclick="LoginFunction()";>Login</button>
-<div id="menu">
+
 <!-- Menu -->
-<div id="menu" class="w3-container w3-large w3-padding-64">
+<div id="menu" class="w3-container w3-large w3-padding-64" >
     <h1 style="color:black" class="w3-center w3-jumbo">THE MENU</h1>
     <h1 style="color:black" class="w3-center w3-xxxlarge w3-padding-32">FOOD</h1>
     <ul>
@@ -47,8 +54,9 @@
           <table style= "float:left">
             <tr>
             <td>
-                <h3><%- food.item_name %> <span class="w3-center w3-tag w3-dark-grey w3-round"> <%- food.item_price %></span></h3> 
-                <form action="/action_page.php">
+                <form id="foodForm" action="/addToCart" method="post">
+                <input type="text" name="name" id="name" value="<%= food.item_name %>"readonly />
+                <input type="number" name="price" id="price" value="<%= food.item_price %>" style="width:85px" class="w3-center w3-tag w3-dark-grey w3-round" readonly /> <br/>
                     <label for="quantity">Select Quantity:</label>
                     <select name="quantity" id="quantity">
                       <option value="0"></option>
@@ -74,8 +82,8 @@
           <table style= "float:left">
             <tr>
             <td>
-                <h3><%= drink.item_name %> <span class="w3-center w3-tag w3-dark-grey w3-round"> <%= drink.item_price %></span></h3> 
-                <form action="/action_page.php">
+                <form id="drinkForm" action="/addToCart" method="post">
+                <h3><span id="name"> <%= drink.item_name %> </span> <span id="price" class="w3-center w3-tag w3-dark-grey w3-round"> <%= drink.item_price %></span></h3> 
                     <label for="quantity">Select Quantity:</label>
                     <select name="quantity" id="quantity">
                       <option value="0"></option>
@@ -112,4 +120,3 @@
 
 </body>
 </html>
-

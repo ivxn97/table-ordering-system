@@ -11,22 +11,21 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-//MenuPage: add food item to cart
+//Manager: add item to cart
 router.post('/', function(req, res){
-    var itemName = req.body.itemName;
-    var itemPrice = req.body.itemPrice;
-    var itemQuantity = req.body.quantity;
+    var itemName = req.body.name;
+    var itemPrice = req.body.price;
+    var quantity = req.body.quantity;
 
-    console.log('Adding item with name: ' + itemName + ' price: ' + itemPrice  + 'item ID' + itemID);
+    console.log('Adding item with name: ' + itemName + ' price: ' + itemPrice  + ' Quantity: ' + quantity);
     var db = new sqlite3.Database('restaurant.db');
-    db.run('INSERT INTO menu (item_name, item_price, item_id) VALUES(?,?,?)', 
-                                                        [itemName, itemPrice, itemID], function(err){
+    db.run('INSERT INTO cart (item_name, quantity, price) VALUES(?,?,?)', 
+                                                        [itemName, quantity, itemPrice], function(err){
       if(err){
         alert("Error in adding a menu item")
         console.log(err);
       }
       else{
-        alert("Menu item successfully created");
         console.log("Successful menu item insertion");
       }
     });
