@@ -29,6 +29,7 @@ var editCouponCode = require('./controller/EditCouponController');
 var viewCouponCode = require('./controller/ViewCouponController');
 var searchCouponCode = require('./controller/SearchCouponController');
 var menuRender = require('./controller/MenuRenderController');
+var addToCart = require('./controller/AddToCartController');
 
 //LOGIN PAGE
 //Login Validation
@@ -62,12 +63,12 @@ app.use("/viewCouponCode", viewCouponCode);
 // Manager: Search coupon code
 app.use("/searchCouponCode", searchCouponCode);
 
+//MENU PAGE
 // Default landing page
-/*
-app.get('/', function(req,res){
-  res.sendFile(path.join(__dirname,'./public/menuPage.html'));
-});*/
 app.use("/", menuRender);
+
+//Menu: Add To Cart
+app.use("/addToCart", addToCart);
 
 // insert http://localhost:3000 into browser address bar
 server.listen(3000,function(){ 
