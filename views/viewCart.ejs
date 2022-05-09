@@ -6,47 +6,49 @@
         background-image: url("/Images/background4.jpg");
       }
 
-      button{
-        float: left;
-        padding: 5px;
-        margin: 12px;
-        cursor: pointer;
-      }
-      table{
-        padding: 5px;
-        border-collapse: separate;
-        border-spacing: 10px;
-        border: 2px double black;
-      }
+      .button {
+    height: 50px;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
     </style>
 </head>
 
 <body>
-  <button type="button" style="border-color:red" onclick="Back()">Back</button>
+  <form id="backForm" action="/menuBack" method="get">
+  <button type="submit" class="w3-right w3-black w3-large button">Back</button>
+  </form>
   <div class="container-fluid">
     <div class="alert alert-secondary text-center">
-      <h1>View all Profiles from Database</h1>
+      <h1>Cart</h1>
     </div>
-    <ul>
-      <% accounts.forEach(function(account) { %>
+    <b>&emsp;&nbsp; Item Name &emsp; Quantity &nbsp; Price </b>
+    <ol>
+      <% cart.forEach(function(carts) { %>
         <table style= "float:left">
           <tr>
           <td>
-            <Strong>First Name: </Strong><%= account.first_name %><br/>
-            <Strong>Last Name: </Strong><%= account.last_name %><br/>
-            <Strong>UserName: </Strong><%= account.username %><br/>
-            <Strong>Password: </Strong><%= account.password %><br/>
-            <Strong>Profile Type: </Strong><%= account.profiletype %><br/>
+            <li><%= carts.item_name %> &emsp;
+            <%= carts.quantity %> &emsp;&emsp;&nbsp;
+            <%= carts.price %></li>
           </td>
         </tr>
       </table>
+      <br/><br/>
         <% }); %>
-    </ul>
+    </ol>
     </div>
+    <button type="button" onclick="checkout()" class="w3-right w3-black w3-large button" >Proceed to Checkout</button>
     <script>
-      function Back()
-      {
-        location.href = "adminPage.html";
+      function checkout() {
+        location.href = "checkoutPage.html";
       }
     </script>
 </body>

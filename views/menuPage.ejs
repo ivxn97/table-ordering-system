@@ -20,11 +20,11 @@
     background-repeat: no-repeat;
   }
 
-  input {
-    border-width:0px;
+  input[type=text] {
     border:none;
     outline:none;
     background:transparent;
+    padding: 2px;
   }
 
   .button {
@@ -51,56 +51,57 @@
     <h1 style="color:black" class="w3-center w3-xxxlarge w3-padding-32">FOOD</h1>
     <ul>
         <% foodmenu.forEach(function(food) { -%>
-          <table style= "float:left">
+          <table>
             <tr>
             <td>
                 <form id="foodForm" action="/addToCart" method="post">
                 <input type="text" name="name" id="name" value="<%= food.item_name %>"readonly />
-                <input type="number" name="price" id="price" value="<%= food.item_price %>" style="width:85px" class="w3-center w3-tag w3-dark-grey w3-round" readonly /> <br/>
+                <input type="text" name="price" id="price" value="<%- food.item_price -%>" style ="width: 18%; text-align: center;" class="w3-dark-grey w3-round"readonly/>
+                <br/>
                     <label for="quantity">Select Quantity:</label>
                     <select name="quantity" id="quantity">
-                      <option value="0"></option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
                       <option value="5">5</option>
                     </select>
-                    <br><br>
+                  </br></br>
                     <input type="submit" value="Add to cart">
                 </form>
             </td>
           </tr>
         </table>
-        <br/><br/><br/><br/><br/><br/>
+      </br></br>
           <% }); -%>
       </ul>
 
       <h1 style="color:black" class="w3-center w3-xxxlarge w3-padding-32">DRINKS</h1>
       <ul>
-        <% drinkmenu.forEach(function(drink) { %>
-          <table style= "float:left">
+        <% drinkmenu.forEach(function(drink) { -%>
+          <table>
             <tr>
             <td>
                 <form id="drinkForm" action="/addToCart" method="post">
-                <h3><span id="name"> <%= drink.item_name %> </span> <span id="price" class="w3-center w3-tag w3-dark-grey w3-round"> <%= drink.item_price %></span></h3> 
+                <input type="text" name="name" id="name" value="<%= drink.item_name %>"readonly />
+                <input type="text" name="price" id="price" value="<%- drink.item_price -%>" style ="width: 18%; text-align: center;" class="w3-dark-grey w3-round"readonly/>
+                <br/>
                     <label for="quantity">Select Quantity:</label>
                     <select name="quantity" id="quantity">
-                      <option value="0"></option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
                       <option value="5">5</option>
                     </select>
-                    <br><br>
+                  </br></br>
                     <input type="submit" value="Add to cart">
                 </form>
             </td>
           </tr>
         </table>
-        <br/><br/><br/><br/><br/><br/>
-          <% }); %>
+      </br></br>
+          <% }); -%>
       </ul>
 <div class="w3-center w3-xlarge">
     <form id="viewCart" action="/viewCart" method="post">

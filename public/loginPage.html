@@ -65,9 +65,11 @@ button:hover {
 
 </head>
 <body bgcolor="FloralWhite">
-    <form id="loginform" action="/UserInfo" method="post">
-      <button type="Button" class="w3-right w3-large menuButton" margin="20px" onclick="MenuFunction()";>Back to Menu</button>
+  <form id="backForm" action="/menuBack" method="get">
+    <button type="submit" class="w3-right w3-large menuButton" margin="20px"";>Back to Menu</button>
+  </form>
 
+    <form id="loginform" action="/UserInfo" method="post">
 	    <div class="container">
         <h2 style="font-family:Amantic SC">Contactless Table Ordering System</h2>
       </div>
@@ -93,10 +95,6 @@ button:hover {
     </form>
 
     <script>
-      function MenuFunction()
-      {
-        location.href = "menuPage.html";
-      }
     </script>
 </body>
 
