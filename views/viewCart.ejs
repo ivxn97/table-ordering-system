@@ -79,38 +79,31 @@
     <input type="string" name="priceHeader" id="priceHeader" value="Price"readonly />
 
     <ol>
+      <% var count = 0; %>
+      <% var total = 0; %>
       <% cart.forEach(function(carts) { %>
         <table style= "float:left">
           <tr>
           <td>
             <li><input type="text" name="name" id="name" value="<%= carts.item_name %>"readonly />
             <input type="number" name="quantity" id="quantity" value="<%= carts.quantity %>"readonly />
-            <input type="number" name="price" id="price" value="<%= carts.price %>"readonly />
+            <% var subtotal = carts.quantity * carts.price; %>
+            <input type="number" name="price" id="price" value="<%= subtotal %>"readonly />
             </li>
           </td>
         </tr>
       </table>
+      <% if (count == 0) {
+        total = subtotal;
+      } 
+      else {
+        total = total + subtotal;
+      } %>
+      <% count = count + 1 %>
       <br/><br/>
         <% }); %>
+      <b style="padding-left: 330px;">Total: $</b><%= total %>
     </ol>
-      <!-- <ol>
-        <table style= "float:left">
-          <tr>
-            <th>Item Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-            <% cart.forEach(function(carts) { %>
-        <tr>
-            <li><td><%= carts.item_name %></td>
-            <td><%= carts.quantity %> </td>
-            <td><%= carts.price %></td></li>
-
-        </tr>
-        <% }); %>
-      </table>
-    </ol> 
-      <br/><br/> -->
 
     <button type="button" onclick="checkout()" class="button" >Proceed To Checkout</button>
     <script>

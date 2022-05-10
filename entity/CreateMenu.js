@@ -20,7 +20,7 @@ router.post('/', function(req, res){
     var db = new sqlite3.Database('restaurant.db');
 
     if(itemType == 'food'){
-      console.log('Adding food item with name: ' + itemName + ' price: ' + itemPrice  + 'item ID' + itemID);
+      console.log('Adding food item with name: ' + itemName + ' price: ' + itemPrice  + 'item ID: ' + itemID);
       db.run('INSERT INTO foodmenu (item_name, item_price, item_id) VALUES(?,?,?)',[itemName, itemPrice, itemID], function(err){
         if(err){
           alert("Error in adding a food menu item");
@@ -33,7 +33,7 @@ router.post('/', function(req, res){
       });
     }
     else if(itemType == 'drink'){
-      console.log('Adding drink item with name: ' + itemName + ' price: ' + itemPrice  + 'item ID' + itemID);
+      console.log('Adding drink item with name: ' + itemName + ' price: ' + itemPrice  + 'item ID: ' + itemID);
       db.run('INSERT INTO drinkmenu (item_name, item_price, item_id) VALUES(?,?,?)',[itemName, itemPrice, itemID], function(err){
         if(err){
           alert("Error in adding a drink menu item");

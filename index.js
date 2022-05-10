@@ -28,7 +28,8 @@ db.run('DROP TABLE customers', function(err){
 
 //const sql = 'INSERT INTO accounts (first_name, last_name, username, password, profiletype) VALUES(?,?,?,?,?)';
 //const sql = 'INSERT INTO customers (email, date, spending, food_order) VALUES(?,?,?,?)';
-//const sql = 'INSERT INTO menu (item_name, price, quantity, pic_URL) VALUES(?,?,?,?)'
+//const sql = 'INSERT INTO menu (item_name, price, quantity, pic_URL) VALUES(?,?,?,?)';
+const sql = 'INSERT INTO coupon (coupon_code, discount) VALUES(?,?)';
 
 // INSERT STATEMENTS FOR ACCOUNTS
 // db.run(sql,["Matthew", "Chua", "owner1", "owner123", "owner"], (err) => {
