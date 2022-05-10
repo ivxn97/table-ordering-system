@@ -80,6 +80,7 @@
 
     <ol>
       <% var count = 0; %>
+      <% var total = 0; %>
       <% cart.forEach(function(carts) { %>
         <table style= "float:left">
           <tr>
@@ -92,8 +93,16 @@
           </td>
         </tr>
       </table>
+      <% if (count == 0) {
+        total = subtotal;
+      } 
+      else {
+        total = total + subtotal;
+      } %>
+      <% count = count + 1 %>
       <br/><br/>
         <% }); %>
+      <b style="padding-left: 330px;">Total: $</b><%= total %>
     </ol>
 
     <button type="button" onclick="checkout()" class="button" >Proceed To Checkout</button>
