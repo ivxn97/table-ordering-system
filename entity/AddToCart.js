@@ -26,6 +26,7 @@ router.post('/', function(req, res){
         console.log(err);
       }
       else{
+        alert("Item successfully added to cart!")
         console.log("Successful menu item insertion");
       }
     });

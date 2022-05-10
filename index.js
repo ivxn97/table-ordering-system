@@ -25,12 +25,10 @@ db.run('DROP TABLE customers', function(err){
 //db.run('CREATE TABLE customers(email UNIQUE, date, spending, food_order, UNIQUE(email))');
 //db.run('CREATE TABLE menu(item_name VARCHAR(20), price, quantity INTEGER, pic_URL VARCHAR(100))');
 //db.run('CREATE TABLE coupon(coupon_code VARCHAR(20), discount INTEGER)');
-db.run('ALTER TABLE coupon(ADD CONSTRAINT ck_No_Special_Characters CHECK (coupon_code NOT LIKE /%[^A-Z0-9]%/))');
 
 //const sql = 'INSERT INTO accounts (first_name, last_name, username, password, profiletype) VALUES(?,?,?,?,?)';
 //const sql = 'INSERT INTO customers (email, date, spending, food_order) VALUES(?,?,?,?)';
-//const sql = 'INSERT INTO menu (item_name, price, quantity, pic_URL) VALUES(?,?,?,?)';
-const sql = 'INSERT INTO coupon (coupon_code, discount) VALUES(?,?)';
+//const sql = 'INSERT INTO menu (item_name, price, quantity, pic_URL) VALUES(?,?,?,?)'
 
 // INSERT STATEMENTS FOR ACCOUNTS
 // db.run(sql,["Matthew", "Chua", "owner1", "owner123", "owner"], (err) => {
@@ -74,11 +72,11 @@ const sql = 'INSERT INTO coupon (coupon_code, discount) VALUES(?,?)';
 // })
 
 // INSERT STATEMENTS FOR COUPON CODE
-/*db.run(sql,["NEWCODE2022", "20"], (err) => {
+db.run(sql,["NEWCODE2022", "20"], (err) => {
         if (err) return console.error(err.message);
         
         console.log("A new menu item has been added");
-})*/
+})
 
 
 db.close ((err) => {
