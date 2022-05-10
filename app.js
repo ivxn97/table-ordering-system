@@ -34,6 +34,7 @@ var searchCouponCode = require('./controller/SearchCouponController');
 var menuRender = require('./controller/MenuRenderController');
 var addToCart = require('./controller/AddToCartController');
 var viewCart = require('./controller/ViewCartController');
+var receipt = require('./controller/ReceiptController');
 
 //LOGIN PAGE
 //Login Validation
@@ -85,6 +86,9 @@ app.use("/addToCart", addToCart);
 
 //Menu: View Cart
 app.use("/viewCart", viewCart);
+
+//Menu: Display Receipt 
+app.use("/checkoutSuccess", receipt);
 
 // insert http://localhost:3000 into browser address bar
 server.listen(3000,function(){ 
