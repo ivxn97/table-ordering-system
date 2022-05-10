@@ -26,7 +26,7 @@ router.post('/', function(req, res){
           alert("Error editing food menu item")
           console.log(err);
         }
-        else{node
+        else{
           alert("Food menu item successfully edited");
           console.log("Food menu item successfully edited");
         }
