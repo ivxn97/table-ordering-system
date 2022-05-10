@@ -27,6 +27,28 @@
         border-radius: 12px;
         text-align: center;
      }
+
+     input[type=text] {
+        border:none;
+        outline:none;
+        background:transparent;
+        padding: 2px;
+    }
+
+    input[type=number] {
+        border:none;
+        outline:none;
+        background:transparent;
+        padding: 2px;
+    }
+
+    input[type=string] {
+        border:none;
+        outline:none;
+        background:transparent;
+        padding: 2px;
+        font-weight: bold;
+    }
     </style>
 </head>
 
@@ -36,23 +58,47 @@
   </form>
       <h1>Cart</h1>
     <form id="tableNo">
-      <input type="integer" placeholder="Enter Table No" id="tableNo" name="tableNo" required><br/>
+      <input type="integer" placeholder="Enter Table No" id="tableNo" name="tableNo" pattern="[0-9]+" oninvalid="setCustomValidity('Please Enter A Valid Table Number')" required><br/>
     </form>
-    <b>&emsp;&nbsp; Item Name &emsp; Quantity &nbsp; Price </b>
+
+    &emsp;&ensp;&nbsp;<input type="string" name="nameHeader" id="nameHeader" value="Item Name"readonly />
+    <input type="string" name="quantityHeader" id="quantityHeader" value="Quantity"readonly />
+    <input type="string" name="priceHeader" id="priceHeader" value="Price"readonly />
+
     <ol>
       <% cart.forEach(function(carts) { %>
         <table style= "float:left">
           <tr>
           <td>
-            <li><%= carts.item_name %> &emsp;
-            <%= carts.quantity %> &emsp;&emsp;&nbsp;
-            <%= carts.price %></li>
+            <li><input type="text" name="name" id="name" value="<%= carts.item_name %>"readonly />
+            <input type="number" name="quantity" id="quantity" value="<%= carts.quantity %>"readonly />
+            <input type="number" name="price" id="price" value="<%= carts.price %>"readonly />
+            </li>
           </td>
         </tr>
       </table>
       <br/><br/>
         <% }); %>
     </ol>
+      <!-- <ol>
+        <table style= "float:left">
+          <tr>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+            <% cart.forEach(function(carts) { %>
+        <tr>
+            <li><td><%= carts.item_name %></td>
+            <td><%= carts.quantity %> </td>
+            <td><%= carts.price %></td></li>
+
+        </tr>
+        <% }); %>
+      </table>
+    </ol> 
+      <br/><br/> -->
+
     <button type="button" onclick="checkout()" class="button" >Proceed To Checkout</button>
     <script>
       function checkout() {
