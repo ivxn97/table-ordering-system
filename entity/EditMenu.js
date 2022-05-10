@@ -21,7 +21,7 @@ router.post('/', function(req, res){
   console.log('Editing ' + itemType + ' menu item with item ID: ' + itemID);
 
   if(itemType == 'food'){
-    db.run('UPDATE foodmenu SET item_name = COALESCE(item_name, ?), item_price = COALESCE(item_price, ?) WHERE item_id = ?;',[itemName, itemPrice, itemID], function(err){
+    db.run('UPDATE foodmenu SET item_name = ?, item_price = ? WHERE item_id = ?;',[itemName, itemPrice, itemID], function(err){
         if(err){
           alert("Error editing food menu item")
           console.log(err);
@@ -33,7 +33,7 @@ router.post('/', function(req, res){
     });
   } 
   else if(itemType == 'drink'){
-    db.run('UPDATE drinkmenu SET item_name = COALESCE(item_name, ?), item_price = COALESCE(item_price, ?) WHERE item_id = ?;',[itemName, itemPrice, itemID], function(err){
+    db.run('UPDATE drinkmenu SET item_name = ?, item_price = ? WHERE item_id = ?;',[itemName, itemPrice, itemID], function(err){
       if(err){
         alert("Error editing drink menu item")
         console.log(err);
