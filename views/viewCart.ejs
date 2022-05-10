@@ -2,33 +2,42 @@
 <html lang="en">
 <head>
     <style>
+      h1{
+        margin: 18px;
+      }
+
+      form[id = tableNo]{
+        margin: 14px;
+        padding: 8px;
+        line-height: 1;
+    }
+
       body{
         background-image: url("/Images/background4.jpg");
       }
 
       .button {
-    height: 50px;
-    width: 80px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 12px;
-    text-align: center;
-  }
-
+        height: 50px;
+        width: 100px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin: 20px;
+        padding: 10px;
+        border-radius: 12px;
+        text-align: center;
+     }
     </style>
 </head>
 
 <body>
   <form id="backForm" action="/menuBack" method="get">
-  <button type="submit" class="w3-right w3-black w3-large button">Back</button>
+  <button type="submit" class="button">Back</button>
   </form>
-  <div class="container-fluid">
-    <div class="alert alert-secondary text-center">
       <h1>Cart</h1>
-    </div>
+    <form id="tableNo">
+      <input type="integer" placeholder="Enter Table No" id="tableNo" name="tableNo" required><br/>
+    </form>
     <b>&emsp;&nbsp; Item Name &emsp; Quantity &nbsp; Price </b>
     <ol>
       <% cart.forEach(function(carts) { %>
@@ -44,8 +53,7 @@
       <br/><br/>
         <% }); %>
     </ol>
-    </div>
-    <button type="button" onclick="checkout()" class="w3-right w3-black w3-large button" >Proceed to Checkout</button>
+    <button type="button" onclick="checkout()" class="button" >Proceed To Checkout</button>
     <script>
       function checkout() {
         location.href = "checkoutPage.html";
