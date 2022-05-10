@@ -59,8 +59,15 @@
             <label for="securityCode"><b>Security Code:</b></label><br/>
             <input type="text" placeholder="Security Code" id="securityCode" name="securityCode" required><br/>
 
-            <button type="submit" class="w3-black button" margin="20px">Confirm Payment</button>
+            <button type="submit" class="w3-black button" margin="20px" onclick="CheckoutFunction()";>Confirm Payment</button>
         </div>
     </form>
+    <script>
+        function CheckoutFunction()
+        {
+          location.href = "checkoutSuccess.html";
+        }
+        
+      </script>
 </body>
 </html>

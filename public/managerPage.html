@@ -73,7 +73,7 @@
 			<button class="tablinks" onclick="openTab(event, 'DeleteMenu')">Delete Menu Item</button>
 			<button class="tablinks" onclick="openTab(event, 'EditMenu')">Edit Menu Item</button>
 			<button class="tablinks" onclick="openTab(event, 'SearchMenu')">Search Menu Item</button>
-			<button class="tablinks" onclick="openTab(event, 'AddCoupon')">Add Coupon</button>
+			<button class="tablinks" onclick="openTab(event, 'AddCoupon')">Create Coupon</button>
 			<button class="tablinks" onclick="openTab(event, 'DeleteCoupon')">Delete Coupon</button>
 			<button class="tablinks" onclick="openTab(event, 'EditCoupon')">Edit Coupon</button>
 			<button class="tablinks" onclick="openTab(event, 'SearchCoupon')">Search Coupon</button>
@@ -93,11 +93,12 @@
 					<option value="drink">Drink</option>
 				</select><br/><br/>
 				<label for="itemName">Enter item name:</label><br/>
-				<input type="text" placeholder="Item name" id="itemName" name="itemName" required><br/>
+				<input type="text" placeholder="Item name" id="itemName" name="itemName" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')" required><br/>
 				<label for="itemPrice">Enter item price:</label><br/>
 				<input type="number" step="0.01" min="0"  placeholder="Item price" id="itemPrice" name="itemPrice" required><br/>
 				<label for="itemID">Enter item ID:</label><br/>
-				<input type="number" min="0" placeholder="Item ID" id="itemID" name="itemID" required><br/>
+				<input type="number" min="0" placeholder="Item ID" id="itemID" name="itemID" required>
+				<br/><br/>
 				<button type="submit">Add Item</button>
 			</form>
 		</div>
@@ -112,7 +113,8 @@
 					<option value="drink">Drink</option>
 				</select><br/><br/>
 				<label for="itemID">Enter item ID:</label><br/>
-				<input type="number" min="0" placeholder="Item ID" id="itemID" name="itemID" required><br/>
+				<input type="number" min="0" placeholder="Item ID" id="itemID" name="itemID" required>
+				<br/><br/>
 				<button type="submit">Delete Item</button>
 			</form>
 		</div>
@@ -131,7 +133,8 @@
 				<label for="itemName">Enter new item name:</label><br/>
 				<input type="text" placeholder="Item name" id="itemName" name="itemName" required><br/>
 				<label for="itemPrice">Enter new item price:</label><br/>
-				<input type="number" step="0.01" min="0"  placeholder="Item price" id="itemPrice" name="itemPrice" required><br/>
+				<input type="number" step="0.01" min="0"  placeholder="Item price" id="itemPrice" name="itemPrice" required>
+				<br/><br/>
 				<button type="submit">Edit Item</button>
 			</form>
 		</div>
@@ -146,7 +149,8 @@
 					<option value="drink">Drink</option>
 				</select><br/><br/>
 				<label for="itemID">Enter item ID:</label><br/>
-				<input type="number" min="0" placeholder="Item ID" id="itemID" name="itemID" required><br/>
+				<input type="number" min="0" placeholder="Item ID" id="itemID" name="itemID" required>
+				<br/><br/>
 				<button type="submit">Search Item</button>
 			</form>
 		</div>
@@ -156,9 +160,10 @@
 			<form action="/addCouponCode" method="post">
 				<h2>Add coupon code:</h2>
 				<label for="couponCode">Enter a coupon code:</label><br/>
-				<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required><br/>
+				<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')" required><br/>
 				<label for="discount">Enter discount(%):</label><br/>
-				<input type="number" min="0" max="100" placeholder="discount percentage" id="discount" name="discount" required><br/>
+				<input type="number" min="1" max="100" placeholder="discount percentage" id="discount" name="discount" required>
+				<br/><br/>
 				<button type="submit">Add Coupon</button>
 			</form>
 		</div>
@@ -167,7 +172,8 @@
 			<form action="/deleteCouponCode" method="post">
 				<h2>Delete a coupon code:</h2>
 				<label for="couponCode">Enter a coupon code:</label><br/>
-				<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required><br/>
+				<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required>
+				<br/><br/>
 				<button type="submit">Delete coupon</button>
 			</form>
 		</div>
@@ -176,9 +182,10 @@
 			<form action="/editCouponCode" method="post">
 				<h2>Edit a coupon code:</h2>
 				<label for="couponCode">Enter a coupon code:</label><br/>
-				<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required><br/>
+				<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')" required><br/>
 				<label for="discount">Enter new discount(%):</label><br/>
-				<input type="number" min="0" max="100" placeholder="discount percentage" id="discount" name="discount" required><br/>
+				<input type="number" min="0" max="100" placeholder="discount percentage" id="discount" name="discount" required>
+				<br/><br/>
 				<button type="submit">Edit coupon</button>
 			</form>
 		</div>
@@ -187,7 +194,8 @@
 			<form action="/searchCouponCode" method="post">
 				<h2>Search for a coupon code:</h2>
 				<label for="couponCode">Enter a coupon code:</label><br/>
-				<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" required><br/>
+				<input type="text" placeholder="coupon code" id="couponCode" name="couponCode" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')" required>
+				<br/><br/>
 				<button type="submit">Search coupon</button>
 			</form>
 		</div>

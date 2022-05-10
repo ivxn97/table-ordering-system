@@ -97,9 +97,9 @@
 					<option value="staff">Staff</option>
 				</select><br/><br/>
 				<label for="fname"><b>Enter first name:</b></label><br/>
-				<input type="fname" placeholder="First name" id="fname" name="fname" required><br/>
+				<input type="fname" placeholder="First name" id="fname" name="fname" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')" required><br/>
 				<label for="lname"><b>Enter last name:</b></label><br/>
-				<input type="lname" placeholder="Last name" id="lname" name="lname" required><br/>
+				<input type="lname" placeholder="Last name" id="lname" name="lname" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')" required><br/>
 				<label for="username"><b>Username:</b></label><br/>
 				<input type="text" placeholder="username" id="username" name="username" required><br/>
 				<label for="password"><b>Password:</b></label><br/>
@@ -139,9 +139,9 @@
 
 					<p><u>Enter changes here:</u></p>
 					<label for="fname"><b>Enter first name:</b></label><br/>
-					<input type="fname" placeholder="First name" id="fname" name="fname"><br/>
+					<input type="fname" placeholder="First name" id="fname" name="fname" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')"><br/>
 					<label for="lname"><b>Enter last name:</b></label><br/>
-					<input type="lname" placeholder="Last name" id="lname" name="lname"><br/>
+					<input type="lname" placeholder="Last name" id="lname" name="lname" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')"><br/>
 					<label for="username"><b>Username:</b></label><br/>
 					<input type="text" placeholder="Username" id="username" name="username" required><br/>
 					<label for="password"><b>Password:</b></label><br/>
