@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <style>
+      h1{
+        padding-left: 38px;
+      }
+
       body{
         background-color: aliceblue;
       }
@@ -15,8 +19,15 @@
       table{
         padding: 5px;
         border-collapse: separate;
-        border-spacing: 10px;
-        border: 2px double black;
+        border-spacing: 2px;
+        text-align: center;
+      }
+
+      td{
+        text-align: left;
+        padding: 5px;
+        border-spacing: 50px;
+        border: 1px solid black;
       }
     </style>
 </head>
@@ -28,19 +39,23 @@
       <h1>View all Profiles from Database</h1>
     </div>
     <ul>
-      <% accounts.forEach(function(account) { %>
-        <table style= "float:left">
+      <table>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Profile Type</th>
+        <% accounts.forEach(function(account) { %>
           <tr>
-          <td>
-            <Strong>First Name: </Strong><%= account.first_name %><br/>
-            <Strong>Last Name: </Strong><%= account.last_name %><br/>
-            <Strong>UserName: </Strong><%= account.username %><br/>
-            <Strong>Password: </Strong><%= account.password %><br/>
-            <Strong>Profile Type: </Strong><%= account.profiletype %><br/>
-          </td>
-        </tr>
-      </table>
+            <td><%= account.first_name %></td>
+            <td><%= account.last_name %></td>
+            <td><%= account.username %></td>
+            <td><%= account.password %></td>
+            <td><%= account.profiletype %></td>
+          </tr>
         <% }); %>
+      </table>
+      
     </ul>
     </div>
     <script>
