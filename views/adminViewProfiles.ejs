@@ -14,19 +14,22 @@
       <h1>View all Accounts from selected Profile</h1>
     </div>
     <ul>
-      <% accounts.forEach(function(account) { %>
-        <table style= "float:left" border ="1">
+      <table style= "float:left" border ="1">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Profile Type</th>
+        <% accounts.forEach(function(account) { %>
           <tr>
-          <td style="padding:15px">
-            <Strong>First Name: </Strong><%= account.first_name %><br/>
-            <Strong>Last Name: </Strong><%= account.last_name %><br/>
-            <Strong>UserName: </Strong><%= account.username %><br/>
-            <Strong>Password: </Strong><%= account.password %><br/>
-            <Strong>Profile Type: </Strong><%= account.profiletype %><br/>
-          </td>
-        </tr>
-      </table>
+            <td><%= account.first_name %></td>
+            <td><%= account.last_name %></td>
+            <td><%= account.username %></td>
+            <td><%= account.password %></td>
+            <td><%= account.profiletype %></td>
+          </tr>
         <% }); %>
+      </table>
     </ul>
     </div>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

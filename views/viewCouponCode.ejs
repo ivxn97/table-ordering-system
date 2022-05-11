@@ -28,15 +28,14 @@
       <h1>View all coupons from Database</h1>
     </div>
     <ul>
-      <% coupon.forEach(function(cp) { %>
-        <table style= "float:left">
+      <table style= "float:left">
+        <th>Coupon Code</th>
+        <th>Discount</th>
+        <% coupon.forEach(function(cp) { %>
           <tr>
-          <td>
-            <Strong>Coupon code: </Strong><%= cp.coupon_code %><br/>
-            <Strong>discount: </Strong><%= cp.discount %><br/>
-          </td>
-        </tr>
-      </table>
+            <td><%= cp.coupon_code %></td>
+            <td><%= cp.discount %></td>
+          </tr>
         <% }); %>
     </ul>
     </div>

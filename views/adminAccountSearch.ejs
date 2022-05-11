@@ -14,15 +14,18 @@
       <h1>Result from Account Search</h1>
     </div>
     <ul>
-        <table style= "float:left" border ="1">
-          <tr>
-          <td style="padding:15px">
-            <Strong>First Name: </Strong><%= accounts.first_name %><br/>
-            <Strong>Last Name: </Strong><%= accounts.last_name %><br/>
-            <Strong>UserName: </Strong><%= accounts.username %><br/>
-            <Strong>Password: </Strong><%= accounts.password %><br/>
-            <Strong>Profile Type: </Strong><%= accounts.profiletype %><br/>
-          </td>
+      <table style= "float:left" border ="1">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Profile Type</th>
+        <tr>
+          <td style="padding:15px"><%= accounts.first_name %></td>
+          <td style="padding:15px"><%= accounts.last_name %></td>
+          <td style="padding:15px"><%= accounts.username %></td>
+          <td style="padding:15px"><%= accounts.password %></td>
+          <td style="padding:15px"><%= accounts.profiletype %></td>
         </tr>
       </table>
     </ul>

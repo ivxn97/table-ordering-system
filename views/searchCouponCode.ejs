@@ -21,12 +21,12 @@
       <h1>View coupon from selected coupon code</h1>
     </div>
     <ul>
-        <table style= "float:left" border ="1">
-          <tr>
-          <td style="padding:15px">
-            <Strong>Coupon: </Strong><%= coupon.coupon_code %><br/>
-            <Strong>Discount: </Strong><%= coupon.discount %><br/>
-          </td>
+      <table style= "float:left" border ="1">
+        <th>Coupon</th>
+        <th>Discount</th>
+        <tr>
+          <td style="padding:15px"><%= coupon.coupon_code %></td>
+          <td style="padding:15px"><%= coupon.discount %></td>
         </tr>
       </table>
     </ul>

@@ -21,12 +21,12 @@
       <h1>View drink menu item from selected item ID</h1>
     </div>
     <ul>
-        <table style= "float:left" border ="1">
-          <tr>
-          <td style="padding:15px">
-            <Strong>Menu Item: </Strong><%= drinkmenu.item_name %><br/>
-            <Strong>Price: </Strong><%= drinkmenu.item_price %><br/>
-          </td>
+      <table style= "float:left" border ="1">
+        <th>Menu Item</th>
+        <th>Price</th>
+        <tr>
+          <td style="padding:15px"><%= drinkmenu.item_name %></td>
+          <td style="padding:15px"><%= drinkmenu.item_price %></td>
         </tr>
       </table>
     </ul>
