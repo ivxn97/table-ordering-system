@@ -14,7 +14,7 @@ router.use('/img', express.static(__dirname + '../Images'));
 // Staff: View all Orders
 router.post('/', (req, res) => {
     var db = new sqlite3.Database('./restaurant.db');
-    db.all("SELECT * FROM kitchenorder", [tableNumber], (error, rows) => {
+    db.all("SELECT * FROM kitchenorder", (error, rows) => {
         if (error){
             console.log(error);
         }
