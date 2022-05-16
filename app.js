@@ -40,6 +40,7 @@ var editOrderStatus = require('./controller/EditOrderStatusController');
 var searchOrder = require('./controller/SearchOrderController');
 var viewOrder = require('./controller/ViewOrderController');
 var kitchenOrder = require('./controller/KitchenOrderController');
+var EmptyCart = require('./controller/EmptyCartController');
 
 //LOGIN PAGE
 //Login Validation
@@ -102,6 +103,9 @@ app.use("/viewCart", viewCart);
 
 //Menu: Display Receipt 
 app.use("/checkoutSuccess", kitchenOrder);
+
+//Menu: Empty Cart
+app.use("/,", EmptyCart);
 
 // insert http://localhost:3000 into browser address bar
 server.listen(3000,function(){ 
