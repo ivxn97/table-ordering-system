@@ -10,6 +10,6 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-var SearchCouponController = require('../../entity/admin/SearchCoupon');
+var SearchCouponController = require('../../entity/manager/SearchCoupon');
 router.use('/', SearchCouponController);
 module.exports = router;

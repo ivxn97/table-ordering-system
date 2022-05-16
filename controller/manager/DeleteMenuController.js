@@ -10,6 +10,6 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-var DeleteMenuController = require('../../entity/DeleteMenu');
+var DeleteMenuController = require('../../entity/manager/DeleteMenu');
 router.use('/', DeleteMenuController);
 module.exports = router;

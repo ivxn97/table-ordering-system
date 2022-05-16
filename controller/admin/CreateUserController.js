@@ -11,6 +11,6 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-var CreateUserController = require('../../entity/CreateUser');
+var CreateUserController = require('../../entity/admin/CreateUser');
 router.use('/', CreateUserController);
 module.exports = router;
