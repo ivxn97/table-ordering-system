@@ -80,6 +80,12 @@ app.use("/viewCouponCode", viewCouponCode);
 app.use("/searchCouponCode", searchCouponCode);
 
 //STAFF PAGE
+app.use("/deleteOrder", deleteOrder);
+app.use("/editOrder", editOrder);
+app.use("/editOrderStatus", editOrderStatus);
+app.use("/searchOrder", searchOrder);
+app.use("/staffView", viewOrder);
+
 
 //MENU PAGE
 // Default landing page

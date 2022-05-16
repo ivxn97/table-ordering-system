@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body{
+      background-color: aliceblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="alert alert-secondary text-center">
+      <h1>View all Orders sent to the kitchen</h1>
+    </div>
+    <ul>
+      <table style= "float:left" border ="1">
+        <th>Table Number</th>
+        <th>Food Order</th>
+        <th>Quantity</th>
+        <th>Order Status</th>
+        <% kitchenorder.forEach(function(order) { %>
+          <tr>
+            <td><%= order.table_no %></td>
+            <td><%= order.food_order %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.order_status %></td>
+          </tr>
+        <% }); %>
+      </table>
+    </ul>
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <button type="button" style="border-color:red" onclick="Back()">Back</button>
+    <script>
+      function Back()
+      {
+        location.href = "staffPage.html";
+      }
+    </script>
+</body>
+</html>

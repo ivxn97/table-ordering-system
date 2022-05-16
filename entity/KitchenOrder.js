@@ -28,7 +28,7 @@ db.all('SELECT item_name, quantity FROM cart', function(err,row)
 
 db.close();
 
-db.run('UPDATE kitchenorder SET tableNo = ? WHERE food_order IS NOT NULL;',[tableNo], function(err){
+db.run('UPDATE kitchenorder SET tableNo = ? WHERE food_order IS NOT NULL AND tableNo IS NULL;',[tableNo], function(err){
       if(err){
         console.log(err);
       }
