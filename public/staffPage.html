@@ -2,33 +2,177 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta http-equiv="X-UA-Compatible">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> Welcome (Staff Member)</title>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<title> Welcome (Administrator)</title>
 	
 	<style>
+		body {
+			background-color: aliceblue;
+			font-family: serif;
+		}
+
+		/*Style for welcome admin*/
+		.welcome{
+		text-align: center;
+		padding: 25px 25px;
+		}
+
+		/* Style the tab */
+		.tab {
+		overflow: hidden;
+		border: 1px solid #ccc;
+		background-color: #f1f1f1;
+		}
+
+		/* Style the buttons inside the tab */
+		.tab button {
+		background-color: inherit;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+		font-size: 17px;
+		}
+
+		/* Change background color of buttons on hover */
+		.tab button:hover {
+		background-color: #ddd;
+		}
+
+		/* Create an active/current tablink class */
+		.tab button.active {
+		background-color: #ddd;
+		}
+
+		/* Style the tab content */
+		.tabcontent {
+		display: none;
+		padding: 16px;
+		border: 1px solid #ccc;
+		border-top: none;
+		}
+
+		/*Style for <label>*/
+		label{
+			line-height: 2;
+		}
 	</style>
+</head>
+
+<body>
+	<div class="welcome">
+	<hl> Login Successful,
+	 Welcome Staff </hl>
+	</div>
 	
-	<body>
-		<hl> Login Successful (Staff) </hl>
-			<table border = "1" width = "70%">
-				<tr>
-				<td style="padding:15px">
-				Welcome Staff
-				<br/>
-				<form onsubmit="return Logoutfunction()">
-				<button type="button" onclick="Logoutfunction()">Logout</button>
-				</form>
-				</td>
-				</tr>
-			</table>
-		
-		<script>
-			function Logoutfunction()
-			{
-				location.href = "loginPage.html";
-			}
-			
-		</script>
-	</body>
+	<div class="tab">
+		<button class="tablinks" onclick="openTab(event, 'Search')" id="defaultOpen">Search Order</button>
+		<button class="tablinks" onclick="openTab(event, 'Remove')">Remove Order</button>
+		<button class="tablinks" onclick="openTab(event, 'Edit')">Edit Order</button>
+		<button class="tablinks" onclick="openTab(event, 'EditStatus')">Edit Order Status</button>
+		<form id="viewOrdersForm" action="/staffView" method="post">
+			<button type="submit">View All</button>
+			<button type="button" onclick="Logoutfunction()">Logout</button>
+		</form>
+	</div>
+
+	<!-- Remove Order -->
+	<div id="Remove" class="tabcontent">
+	<table border ="1" width = 70%>
+		<tr>
+		<td style="padding-left: 15px; padding-bottom: 15px; padding-right: 15px;">
+		<form id="deleteOrderForm" action="/deleteOrder" method="post">
+			<p><u><b>Remove</b> a order from kitchen </u></p>
+			<label for="tableNumber"><b>Table Number:</b></label><br/>
+			<input type="text" placeholder="Table Number" id="tableNumber" name="tableNumber" required><br/><br/>
+			<label for="itemName"><b>Item Name:</b></label><br/>
+			<input type="text" placeholder="Item Name" id="itemName" name="itemName" required><br/><br/>
+			<button type="submit" style="border-color:red">Remove Item</button>
+		</form>
+	</td>
+	</tr>
+	</table>
+	</div>
+	
+	<!-- Edit Order Quantity -->
+	<div id="Edit" class="tabcontent">
+	<table border ="1" width = 70%>
+		<tr>
+			<td style="padding-left: 15px; padding-bottom: 15px; padding-right: 15px;">
+			<form id="editOrderForm" action="/editOrder" method="post">
+				<p><u><b>Edit</b> Order Quantity</u></p>
+				<label for="tableNumber"><b>Table Number:</b></label><br/>
+				<input type="text" placeholder="Table Number" id="tableNumber" name="tableNumber" required><br/><br/>
+				<label for="itemName"><b>Item Name of quantity to edit:</b></label><br/>
+				<input type="text" placeholder="Item Name" id="itemName" name="itemName" required><br/><br/>
+
+				<p><u>Enter changes here:</u></p>
+				<label for="editQty"><b>Edit Quantity:</b></label><br/>
+				<input type="number" id="editQty" name="editQty" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')"><br/>
+				<button type="submit" style="border-color:rgb(115, 115, 115)">Save Changes</button>
+		</form>
+		</td>
+		</tr>
+	</table>
+	</div>
+
+	<!-- Edit Order Quantity -->
+	<div id="EditStatus" class="tabcontent">
+		<table border ="1" width = 70%>
+			<tr>
+				<td style="padding-left: 15px; padding-bottom: 15px; padding-right: 15px;">
+				<form id="editOrderForm" action="/editOrder" method="post">
+					<p><u><b>Edit</b> Order Quantity</u></p>
+					<label for="tableNumber"><b>Table Number:</b></label><br/>
+					<input type="text" placeholder="Table Number" id="tableNumber" name="tableNumber" required><br/><br/>
+					<label for="itemName"><b>Item Name of quantity to edit:</b></label><br/>
+					<input type="text" placeholder="Item Name" id="itemName" name="itemName" required><br/><br/>
+	
+					<p><u>Enter changes here:</u></p>
+					<label for="editQty"><b>Edit Status:</b></label><br/>
+					<input type="text" id="editStatus" name="editStatus" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')"><br/>
+					<button type="submit" style="border-color:rgb(115, 115, 115)">Save Changes</button>
+			</form>
+			</td>
+			</tr>
+		</table>
+		</div>
+
+	<!-- Search Order -->
+	<div id="Search" class="tabcontent">
+	<form id="searchOrderForm" action="/searchOrder" method="post">
+		<p><u><b>Search</b> Order by Table Number</u></p>
+		<label for="tableNumber"><b>Table Number:</b></label><br/>
+		<input type="text" placeholder="Table Number" id="tableNumber" name="tableNumber" required><br/><br/>
+		<button type="submit" style="border-color:rgb(115, 115, 115)">Search Account</button>
+	</form>
+	</div>
+
+<script>
+	document.getElementById("defaultOpen").click();
+
+	function Logoutfunction()
+	{
+		location.href = "loginPage.html";
+	}
+
+	function openTab(evt, typeOf) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+	}
+	tablinks = document.getElementsByClassName("tablinks");
+	for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
+	}
+	document.getElementById(typeOf).style.display = "block";
+	evt.currentTarget.className += " active";
+	}
+</script>
+</body>
 </html>
