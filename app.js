@@ -35,11 +35,11 @@ var menuRender = require('./controller/MenuRenderController');
 var addToCart = require('./controller/AddToCartController');
 var viewCart = require('./controller/ViewCartController');
 var receipt = require('./controller/ReceiptController');
-var deleteOrder = require('./controller/DeleteOrderController');
+/*var deleteOrder = require('./controller/DeleteOrderController');
 var editOrder = require('./controller/EditOrderController');
 var editOrderStatus = require('./controller/EditOrderStatusController');
 var searchOrder = require('./controller/SearchOrderController');
-var viewOrder = require('./controller/ViewOrderController');
+var viewOrder = require('./controller/ViewOrderController');*/
 
 //LOGIN PAGE
 //Login Validation
@@ -80,8 +80,11 @@ app.use("/viewCouponCode", viewCouponCode);
 app.use("/searchCouponCode", searchCouponCode);
 
 //STAFF PAGE
-
-
+/*app.use("/deleteOrder", deleteOrder);
+app.use("/editOrder", editOrder);
+app.use("/editOrderStatus", editOrderStatus);
+app.use("/searchOrder", searchOrder);
+app.use("/viewOrder", viewOrder);*/
 
 
 //MENU PAGE
