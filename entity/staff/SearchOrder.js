@@ -17,17 +17,18 @@ router.post('/', (req, res) => {
 
     console.log('Searching order from table ' + tableNumber);
     var db = new sqlite3.Database('./restaurant.db');
-    db.get("SELECT * FROM kitchenorder WHERE table_no = ?", [tableNumber], (error, rows) => {
+    db.all("SELECT * FROM kitchenorder WHERE table_no = ?", [tableNumber], (error, rows) => {
         if (error){
             console.log(error);
         }
         res.render('searchOrder', {kitchenorder: rows}, function(err,html) {
             if (err) {
-              alert("Error in finding table number");
+              alert("Error Table No not found");
               console.log(err);
             }
             else {
               res.send(html);
+              console.log("Order Pulled");
             }
           });
     });

@@ -26,11 +26,13 @@
         <th>Food Order</th>
         <th>Quantity</th>
         <th>Order Status</th>
+        <% kitchenorder.forEach(function(order) { %>
         <tr>
-          <td style="padding:15px"><%= kitchenorder.food_order %></td>
-          <td style="padding:15px"><%= kitchenorder.quantity %></td>
-          <td style="padding:15px"><%= kitchenorder.order_status %></td>
+          <td style="padding:15px"><%= order.food_order %></td>
+          <td style="padding:15px"><%= order.quantity %></td>
+          <td style="padding:15px"><%= order.order_status %></td>
         </tr>
+        <% }); %>
       </table>
     </ul>
     </div>

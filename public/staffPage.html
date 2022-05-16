@@ -112,7 +112,7 @@
 
 				<p><u>Enter changes here:</u></p>
 				<label for="editQty"><b>Edit Quantity:</b></label><br/>
-				<input type="number" id="editQty" name="editQty" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')" required><br/>
+				<input type="number" id="editQty" name="editQty" pattern="[0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')" required><br/><br/>
 				<button type="submit" style="border-color:rgb(115, 115, 115)">Save Changes</button>
 		</form>
 		</td>
@@ -132,9 +132,12 @@
 					<label for="itemName"><b>Item Name of status to edit:</b></label><br/>
 					<input type="text" placeholder="Item Name" id="itemName" name="itemName" required><br/><br/>
 	
-					<p><u>Enter changes here:</u></p>
-					<label for="editQty"><b>Edit Status:</b></label><br/>
-					<input type="text" id="editStatus" name="editStatus" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity('No Special Characters Allowed')" required><br/>
+					<label for="editStatus">Select Status Type:</label>
+					<select id="editStatus" name="editStatus">
+						<option value="new order">New Order</option>
+						<option value="in preparation">In Preparation</option>
+						<option value="ready to serve">Ready To Serve</option>
+					</select><br/><br/>
 					<button type="submit" style="border-color:rgb(115, 115, 115)">Save Changes</button>
 			</form>
 			</td>

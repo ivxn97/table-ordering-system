@@ -7,7 +7,7 @@
 
 <head>
     <style>
-        h1{
+        h1, h2{
           margin: 18px;
         }
   
@@ -21,15 +21,10 @@
           background-image: url("/Images/background4.jpg");
         }
   
-        .button {
-          height: 50px;
-          width: 100px;
+        button {
           align-items: center;
           justify-content: center;
-          display: flex;
           margin: 20px;
-          padding: 10px;
-          border-radius: 12px;
           text-align: center;
        }
   
@@ -104,8 +99,8 @@
       <b style="padding-left: 430px;">Total: $</b><%= total %>
     </ol>
     <br/>
-    <form id="backForm" action="/emptyCart" method="get">
-        <button type="submit" class="w3-left w3-large menuButton" margin="20px";>Back to Menu</button>
+      <form id="backForm" action="/emptyCart" method="get">
+        <button type="submit" class="w3-large";>Back to Menu</button>
       </form>
     <script>
     </script>

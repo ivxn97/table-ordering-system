@@ -21,20 +21,15 @@
     }
 
     .container{
-        margin: 14px;
+        margin: 18px;
         padding: 2px;
         line-height: 2;
     }
 
-    .button {
-    height: 50px;
-    width: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    button {
     margin: 20px;
-    padding: 10px;
-    border-radius: 12px;
+    padding: 6px;
+    border-radius: 4px;
     text-align: center;
   }
 
@@ -43,7 +38,7 @@
 <body>
     <!-- Start Content -->
     <form id="backForm" action="/menuBack" method="get">
-        <button type="submit" class="w3-black button" ;>Back To Menu</button>
+        <button type="submit" ;>Back To Menu</button>
     </form>
 
     <form id="checkoutForm" action="/checkoutSuccess" method="post">
@@ -60,9 +55,8 @@
             <input type="text" placeholder="(MM/YY)" id="expDate" name="expDate" required><br/>
             <label for="securityCode"><b>Security Code:</b></label><br/>
             <input type="text" placeholder="Security Code" id="securityCode" name="securityCode" required><br/>
-
-            <button type="submit" class="w3-black button" margin="20px";>Confirm Payment</button>
         </div>
+            <button type="submit";>Confirm Payment</button>
     </form>
   
     <script>
