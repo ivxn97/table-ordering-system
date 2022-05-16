@@ -11,5 +11,7 @@ router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
 var EmptyCartController = require('../entity/EmptyCart');
+var menuRender = require('../entity/MenuRender');
+router.use('/', menuRender);
 router.use('/', EmptyCartController);
 module.exports = router;

@@ -11,9 +11,8 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-//Administrator: account deletion
-router.post('/', function(req, res){
-  var username = req.body.username;
+//MENU: empty cart
+router.get('/', (req, res) =>{
 
   console.log('Emptying Cart...');
   var db = new sqlite3.Database('./restaurant.db');
