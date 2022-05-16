@@ -17,21 +17,32 @@ router.post('/', function(req, res){
 var tableNo = req.body.tableNo;
 var db = new sqlite3.Database('restaurant.db');
 console.log('Sending Cart Order to Kitchen Staff');
-db.all('SELECT item_name, quantity FROM cart', function(err,row)
+db.all('INSERT INTO kitchenorder (food_order, quantity) SELECT item_name, quantity FROM cart', function(err,row)
 {
-    res.send(row);
     if (err){
         alert('Error in sending order to kitchen')
         console.log(error);
     }
-});
-
-db.close();
-
-db.run('UPDATE kitchenorder SET tableNo = ? WHERE food_order IS NOT NULL AND tableNo IS NULL;',[tableNo], function(err){
+    db.run('UPDATE kitchenorder SET table_no = ? WHERE food_order IS NOT NULL AND table_no IS NULL;',[tableNo], function(err){
       if(err){
         console.log(err);
       }
+      db.run('UPDATE kitchenorder SET order_status = ?;',['new order'], function(err){
+        if(err){
+          console.log(err);
+        }
+        db.all("SELECT * FROM cart", (error, rows) => {
+          if (error){
+              console.log(error);
+          }
+          res.render('checkoutSuccess', {cart: rows});
+        });
+        });
     });
 });
+});
+
+
+
+
 module.exports = router;
