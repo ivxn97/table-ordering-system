@@ -34,12 +34,12 @@ var searchCouponCode = require('./controller/SearchCouponController');
 var menuRender = require('./controller/MenuRenderController');
 var addToCart = require('./controller/AddToCartController');
 var viewCart = require('./controller/ViewCartController');
-var receipt = require('./controller/ReceiptController');
 var deleteOrder = require('./controller/DeleteOrderController');
 var editOrder = require('./controller/EditOrderController');
 var editOrderStatus = require('./controller/EditOrderStatusController');
 var searchOrder = require('./controller/SearchOrderController');
 var viewOrder = require('./controller/ViewOrderController');
+var kitchenOrder = require('./controller/KitchenOrderController');
 
 //LOGIN PAGE
 //Login Validation
@@ -101,7 +101,7 @@ app.use("/addToCart", addToCart);
 app.use("/viewCart", viewCart);
 
 //Menu: Display Receipt 
-app.use("/checkoutSuccess", receipt);
+app.use("/checkoutSuccess", kitchenOrder);
 
 // insert http://localhost:3000 into browser address bar
 server.listen(3000,function(){ 
