@@ -10,7 +10,7 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-// Administrator: View all Accounts from Database 
+// Menu: View Cart
 router.post('/', (req, res) => {
     var db = new sqlite3.Database('./restaurant.db');
     db.all("SELECT * FROM cart", (error, rows) => {

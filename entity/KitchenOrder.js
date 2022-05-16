@@ -12,7 +12,7 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-// Push order from cart to kitchenorder
+// MENU: Push order from cart to kitchenorder
 router.post('/', function(req, res){
 var tableNo = req.body.tableNo;
 var db = new sqlite3.Database('restaurant.db');

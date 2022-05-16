@@ -11,12 +11,12 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-// Administrator: Account search
+// Manager: Menu Item search
 router.post('/', (req, res) => {
   var itemType = req.body.itemType;
   var itemID = req.body.itemID;
 
-  console.log('Deleting menu with ID:' + itemID + ' from table:' + itemType);
+  console.log('Searching menu with ID:' + itemID + ' from table:' + itemType);
   var db = new sqlite3.Database('./restaurant.db');
 
   if(itemType == 'food'){
