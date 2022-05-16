@@ -8,7 +8,7 @@ var router = express.Router();
 router.use(bodyParser.urlencoded({extended: true}));
 router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../../public')));
-router.use('/img', express.static(__dirname + '../Images'));
+router.use('/img', express.static(__dirname + '../../public/Images'));
 
 var DeleteOrderController = require('../../entity/staff/DeleteOrder');
 router.use('/', DeleteOrderController);
