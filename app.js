@@ -35,6 +35,11 @@ var menuRender = require('./controller/MenuRenderController');
 var addToCart = require('./controller/AddToCartController');
 var viewCart = require('./controller/ViewCartController');
 var receipt = require('./controller/ReceiptController');
+var deleteOrder = require('./controller/DeleteOrderController');
+var editOrder = require('./controller/EditOrderController');
+var editOrderStatus = require('./controller/EditOrderStatusController');
+var searchOrder = require('./controller/SearchOrderController');
+var viewOrder = require('./controller/ViewOrderController');
 
 //LOGIN PAGE
 //Login Validation
@@ -73,6 +78,11 @@ app.use("/editCouponCode", editCouponCode);
 app.use("/viewCouponCode", viewCouponCode);
 // Manager: Search coupon code
 app.use("/searchCouponCode", searchCouponCode);
+
+//STAFF PAGE
+
+
+
 
 //MENU PAGE
 // Default landing page
