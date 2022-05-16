@@ -11,7 +11,7 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-//Manager: add item to cart
+//Customer: add item to cart
 router.post('/', function(req, res){
     var itemName = req.body.name;
     var itemPrice = req.body.price;
