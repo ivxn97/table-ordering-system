@@ -48,6 +48,8 @@
 
     <form id="checkoutForm" action="/checkout" method="post">
         <div class="container">
+            <label for="tableNo"><b>Table No:</b></label><br/>
+            <input type="integer" placeholder="Enter Table No" id="tableNo" name="tableNo" pattern="[0-9]+" oninvalid="setCustomValidity('Please Enter A Valid Table Number')" required><br/>
             <label for="email"><b>Email:</b></label><br/>
             <input type="text" placeholder="Enter Email" id="email" name="email" required><br/>
             <label for="cardNumber"><b>Card Number:</b></label><br/>
