@@ -23,6 +23,13 @@ router.get('/', (req, res) =>{
     else{
       console.log("Cart Emptied");
     }
+    db.all("SELECT * FROM foodmenu", (error, rows1) => {
+      db.all("SELECT * FROM drinkmenu", (error, rows2) => {
+          if (error){
+              console.log(error);
+          }
+          res.render('menuPage', {foodmenu: rows1, drinkmenu: rows2});
+  })});
   });
 });
 module.exports = router;
