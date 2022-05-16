@@ -11,6 +11,20 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-var CreateUserController = require('../../entity/CreateUser');
-router.use('/', CreateUserController);
+//Manager: coupon deletion
+router.post('/', function(req, res){
+  var couponCode = req.body.couponCode;
+
+  console.log('Deleting coupon with name ' + couponCode);
+  var db = new sqlite3.Database('./restaurant.db');
+  db.run('DELETE FROM coupon WHERE coupon_code LIKE ?', [couponCode], function(err){
+    if(err){
+      console.log(err);
+    }
+    else{
+      alert("Coupon code successfully deleted");
+      console.log("Successful coupon code deletion");
+    }
+  });
+});
 module.exports = router;

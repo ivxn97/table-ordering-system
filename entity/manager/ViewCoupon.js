@@ -10,6 +10,15 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-var AddToCartController = require('../../entity/menu/AddToCart');
-router.use('/', AddToCartController);
-module.exports = router;
+// Manager: Coupon viewing
+router.post('/', (req, res) => {
+    var couponCode = req.body.couponCode;
+    var db = new sqlite3.Database('./restaurant.db');
+    db.all("SELECT * FROM coupon", (error, rows) => {
+        if (error){
+            console.log(error);
+        }
+        res.render('viewCouponCode', {coupon: rows});
+    });
+  })
+  module.exports = router;
