@@ -15,12 +15,21 @@ router.use('/img', express.static(__dirname + '../Images'));
 router.post('/', (req, res) => {
     var tableNumber = req.body.tableNumber;
 
+    console.log('Searching order from table ' + tableNumber);
     var db = new sqlite3.Database('./restaurant.db');
-    db.all("SELECT * FROM kitchenorder WHERE table_no = ?", [tableNumber], (error, rows) => {
+    db.get("SELECT * FROM kitchenorder WHERE table_no = ?", [tableNumber], (error, rows) => {
         if (error){
             console.log(error);
         }
-        res.render('searchOrder', {kitchenorder: rows});
+        res.render('searchOrder', {kitchenorder: rows}, function(err,html) {
+            if (err) {
+              alert("Error in finding table number");
+              console.log(err);
+            }
+            else {
+              res.send(html);
+            }
+          });
     });
   })
   module.exports = router;
