@@ -10,6 +10,6 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-var LoginAccount = require('../../entity/LoginAccount');
+var LoginAccount = require('../../entity/login/LoginAccount');
 router.use('/', LoginAccount);
 module.exports = router;

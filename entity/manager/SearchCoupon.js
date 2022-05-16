@@ -11,7 +11,7 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-// Administrator: Account search
+// Manager: search coupon
 router.post('/', (req, res) => {
     var couponCode = req.body.couponCode;
     var db = new sqlite3.Database('./restaurant.db');
