@@ -10,6 +10,6 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-var SearchMenuController = require('../../entity/SearchMenu');
+var SearchMenuController = require('../../entity/manager/SearchMenu');
 router.use('/', SearchMenuController);
 module.exports = router;

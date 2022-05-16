@@ -10,6 +10,6 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-var EmptyCartController = require('../../entity/EmptyCart');
+var EmptyCartController = require('../../entity/menu/EmptyCart');
 router.use('/', EmptyCartController);
 module.exports = router;

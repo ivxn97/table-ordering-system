@@ -10,6 +10,6 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-var EditOrderController = require('../../entity/EditOrder');
+var EditOrderController = require('../../entity/staff/EditOrder');
 router.use('/', EditOrderController);
 module.exports = router;

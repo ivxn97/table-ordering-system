@@ -10,6 +10,6 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-var ViewAllController = require('../../entity/ViewAll');
+var ViewAllController = require('../../entity/admin/ViewAll');
 router.use('/', ViewAllController);
 module.exports = router;

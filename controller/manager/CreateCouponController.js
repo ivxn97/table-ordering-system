@@ -10,6 +10,6 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-var CreateCouponController = require('../../entity/CreateCoupon');
+var CreateCouponController = require('../../entity/manager/CreateCoupon');
 router.use('/', CreateCouponController);
 module.exports = router;

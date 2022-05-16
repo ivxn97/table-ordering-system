@@ -10,6 +10,6 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../public')));
 router.use('/img', express.static(__dirname + '../Images'));
 
-var MenuRender = require('../../entity/MenuRender');
+var MenuRender = require('../../entity/menu/MenuRender');
 router.use('/', MenuRender);
 module.exports = router;
