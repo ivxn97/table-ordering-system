@@ -46,10 +46,10 @@
         <button type="submit" class="w3-black button" ;>Back To Menu</button>
     </form>
 
-    <form id="checkoutForm" action="/checkout" method="post">
+    <form id="checkoutForm" action="/checkoutSuccess" method="post">
         <div class="container">
             <label for="tableNo"><b>Table No:</b></label><br/>
-            <input type="integer" placeholder="Enter Table No" id="tableNo" name="tableNo" pattern="[0-9]+" oninvalid="setCustomValidity('Please Enter A Valid Table Number')" required><br/>
+            <input type="integer" placeholder="Enter Table No" id="tableNo" name="tableNo"  required><br/>
             <label for="email"><b>Email:</b></label><br/>
             <input type="text" placeholder="Enter Email" id="email" name="email" required><br/>
             <label for="cardNumber"><b>Card Number:</b></label><br/>
@@ -60,11 +60,11 @@
             <input type="text" placeholder="(MM/YY)" id="expDate" name="expDate" required><br/>
             <label for="securityCode"><b>Security Code:</b></label><br/>
             <input type="text" placeholder="Security Code" id="securityCode" name="securityCode" required><br/>
+
+            <button type="submit" class="w3-black button" margin="20px";>Confirm Payment</button>
         </div>
     </form>
-    <form id="checkoutSuccessForm" action="/checkoutSuccess" method="get">
-        <button type="submit" class="w3-black button" margin="20px";>Confirm Payment</button>
-    </form>    
+  
     <script>
         function CheckoutFunction()
         {
