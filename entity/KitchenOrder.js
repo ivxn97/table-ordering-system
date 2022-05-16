@@ -13,6 +13,17 @@ router.use('/img', express.static(__dirname + '../Images'));
 
 // Push order from cart to kitchenorder
 router.post('/', function(req, res){
-    var itemName = req.body.name;
-    var itemPrice = req.body.price;
-    var quantity = req.body.quantity;
+var db = new sqlite3.Database('restaurant.db');
+console.log('Sending Cart Order to Kitchen Staff');
+db.all('SELECT item_name, quantity FROM cart', function(err,row)
+{
+    res.send(row);
+    if (err){
+        alert('Error in sending order to kitchen')
+        console.log(error);
+    }
+});
+
+db.close();
+});
+module.exports = router;
