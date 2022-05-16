@@ -4,6 +4,7 @@ var express = require('express');
 var path = require("path");
 var bodyParser = require ('body-parser');
 var alert = require('alert');
+const { table } = require('console');
 var router = express.Router();
 
 router.use(bodyParser.urlencoded({extended: true}));
@@ -13,6 +14,7 @@ router.use('/img', express.static(__dirname + '../Images'));
 
 // Push order from cart to kitchenorder
 router.post('/', function(req, res){
+var tableNo = req.body.tableNo;
 var db = new sqlite3.Database('restaurant.db');
 console.log('Sending Cart Order to Kitchen Staff');
 db.all('SELECT item_name, quantity FROM cart', function(err,row)
@@ -25,5 +27,11 @@ db.all('SELECT item_name, quantity FROM cart', function(err,row)
 });
 
 db.close();
+
+db.run('UPDATE kitchenorder SET tableNo = ? WHERE food_order IS NOT NULL;',[tableNo], function(err){
+      if(err){
+        console.log(err);
+      }
+    });
 });
 module.exports = router;
