@@ -81,9 +81,6 @@ app.use("/searchCouponCode", searchCouponCode);
 
 //STAFF PAGE
 
-
-
-
 //MENU PAGE
 // Default landing page
 app.use("/", menuRender);
