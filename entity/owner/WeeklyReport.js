@@ -16,7 +16,7 @@ router.post('/', function(req, res){
     var dateInput = req.body.date1;
     var dateInput2 = req.body.date2;
 
-    console.log('Generating Weekly Report For Date: ' + dateInput + 'To' + dateInput2 );
+    console.log('Generating Weekly Report For Date: ' + dateInput + ' To ' + dateInput2 );
     var db = new sqlite3.Database('restaurant.db');
     db.all("SELECT * FROM customer WHERE date BETWEEN ? AND ?", [dateInput, dateInput2], (error, rows) => {
         if (error){
