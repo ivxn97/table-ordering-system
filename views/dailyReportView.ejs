@@ -48,7 +48,7 @@
           <tr>
             <td><%= cust.email %></td>
             <td><%= cust.date %></td>
-            <td><%= cust.spending %></td>
+            <td><%= parseFloat(cust.spending).toFixed(2) %></td>
             <td><%= cust.food_order %></td>
           </tr>
         <% }); %>
