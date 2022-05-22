@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+      h1{
+        padding-left: 38px;
+      }
+
+      body{
+        background-color: aliceblue;
+      }
+
+      button{
+        float: left;
+        padding: 5px;
+        margin: 12px;
+        cursor: pointer;
+      }
+      table{
+        padding: 5px;
+        border-collapse: separate;
+        border-spacing: 2px;
+        text-align: center;
+      }
+
+      td{
+        text-align: left;
+        padding: 5px;
+        border-spacing: 50px;
+        border: 1px solid black;
+      }
+    </style>
+</head>
+
+<body>
+  <button type="button" style="border-color:red" onclick="Back()">Back</button><br/><br/>
+  <div class="container-fluid">
+    <div class="alert alert-secondary text-center">
+      <h1>View all Profiles from Database</h1>
+    </div>
+    <ul>
+      <table>
+        <th>Email</th>
+        <th>Date</th>
+        <th>Spending</th>
+        <th>Most Food Ordered</th>
+        <% customer.forEach(function(account) { %>
+          <tr>
+            <td><%= account.first_name %></td>
+            <td><%= account.last_name %></td>
+            <td><%= account.username %></td>
+            <td><%= account.password %></td>
+            <td><%= account.profiletype %></td>
+          </tr>
+        <% }); %>
+      </table>
+      
+    </ul>
+    </div>
+    <script>
+      function Back()
+      {
+        location.href = "adminPage.html";
+      }
+    </script>
+</body>
+</html>
