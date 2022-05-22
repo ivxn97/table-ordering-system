@@ -13,7 +13,7 @@ router.use('/img', express.static(__dirname + '../../public/Images'));
 
 //Owner: Generating Monthly Report Function
 router.post('/', function(req, res){
-    var dateInput = req.body.date;
+    var dateInput = req.body.date1;
     var dateInput2 = req.body.date2;
 
     console.log('Generating Monthly Report For Date: ' + dateInput + 'To' + dateInput2 );
