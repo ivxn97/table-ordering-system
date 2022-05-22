@@ -23,7 +23,7 @@ router.post('/', function(req, res){
             console.log(error);
         }
         else {
-        res.render('ownermonthlyreporttttt', {customer: rows});
+        res.render('monthlyReportView', {customer: rows});
         }
     });
   })

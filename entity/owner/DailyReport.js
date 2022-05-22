@@ -22,7 +22,7 @@ router.post('/', function(req, res){
             console.log(error);
         }
         else {
-            res.render('ownerdailyreporttttt', {customer: rows});
+            res.render('dailyReportView', {customer: rows});
             }
     });
   })
