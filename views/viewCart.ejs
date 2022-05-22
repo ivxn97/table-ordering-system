@@ -99,7 +99,7 @@
       <% count = count + 1 %>
       <br/><br/>
         <% }); %>
-      <b style="padding-left: 330px;">Total: $</b><%= total %>
+      <b style="padding-left: 330px;">Total: $</b><%= parseFloat(total).toFixed(2) %>
     </ol>
 
     <button type="button" onclick="checkout()" class="button" >Proceed To Checkout</button>

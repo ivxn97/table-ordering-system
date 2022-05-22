@@ -14,35 +14,61 @@ router.use('/img', express.static(__dirname + '../../public/Images'));
 
 // MENU: Push order from cart to kitchenorder
 router.post('/', function(req, res){
+var email = req.body.email;
 var tableNo = req.body.tableNo;
+var date = '22/05/2022';
+
 var db = new sqlite3.Database('restaurant.db');
 console.log('Sending Cart Order to Kitchen Staff');
+
+// Copy from table cart to kitchenorder
 db.all('INSERT INTO kitchenorder (food_order, quantity) SELECT item_name, quantity FROM cart', function(err,row)
 {
     if (err){
         alert('Error in sending order to kitchen')
         console.log(error);
     }
+    // Set table number
     db.run('UPDATE kitchenorder SET table_no = ? WHERE food_order IS NOT NULL AND table_no IS NULL;',[tableNo], function(err){
       if(err){
         console.log(err);
       }
+      // Set order status
       db.run('UPDATE kitchenorder SET order_status = ?;',['new order'], function(err){
         if(err){
           console.log(err);
         }
-        db.all("SELECT * FROM cart", (error, rows) => {
-          if (error){
-              console.log(error);
+        // Get total amount from cart
+        db.get('SELECT SUM(quantity * price) AS TOTAL FROM cart;', function (err,row){
+          console.log(row);
+          var spending = row.TOTAL;
+          if(err){
+            console.log(err);
           }
-          res.render('checkoutSuccess', {cart: rows});
-        });
+          // Get most ordered item from cart by using quantity 
+          db.get('SELECT item_name FROM cart GROUP BY item_name ORDER BY quantity DESC LIMIT 1;', function (err,row) {
+            console.log(row);
+            var food_order = row.item_name;
+            if (err){
+              console.log(err);
+            }
+            // Insert data into table customer
+            db.all('INSERT INTO customer (email, date, spending, food_order) VALUES(?,?,?,?)', [email, date, spending, food_order], function (err){
+              if (err){
+                console.log(err)
+              }
+              // Render checkoutSuccess page
+              db.all("SELECT * FROM cart", (error, rows) => {
+                if (error){
+                    console.log(error);
+                }
+                res.render('checkoutSuccess', {cart: rows});
+                });
+              });
+            });
+          });
         });
     });
 });
 });
-
-
-
-
 module.exports = router;
