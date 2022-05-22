@@ -2,31 +2,153 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta http-equiv="X-UA-Compatible">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> Welcome (Onwer)</title>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<title> Welcome (Owner)</title>
 	
 	<style>
+		body {
+			background-color: aliceblue;
+			font-family: serif;
+		}
+
+		/*Style for welcome owner*/
+		.welcome{
+		text-align: center;
+		padding: 25px 25px;
+		}
+
+		/* Style the tab */
+		.tab {
+		overflow: hidden;
+		border: 1px solid #ccc;
+		background-color: #f1f1f1;
+		}
+
+		/* Style the buttons inside the tab */
+		.tab button {
+		background-color: inherit;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+		font-size: 17px;
+		}
+
+		/* Change background color of buttons on hover */
+		.tab button:hover {
+		background-color: #ddd;
+		}
+
+		/* Create an active/current tablink class */
+		.tab button.active {
+		background-color: #ddd;
+		}
+
+		/* Style the tab content */
+		.tabcontent {
+		display: none;
+		padding: 16px;
+		border: 1px solid #ccc;
+		border-top: none;
+		}
+
+		/*Style for <label>*/
+		label{
+			line-height: 2;
+		}
 	</style>
 </head>
-	<body>
-		<hl> Login Successful (Owner) </hl>
-			<table border = "1" width = "70%">
-				<tr>
-				<td style="padding:15px">
-				Welcome Owner
-				<br/>
-				<button type="button" onclick="Logoutfunction()">Logout</button>
-				</td>
-				</tr>
-			</table>
-		
-		<script>
-			function Logoutfunction()
-			{
-				location.href = "loginPage.html";
-			}
-			
-		</script>
-	</body>
+
+<body>
+	<div class="welcome">
+	<hl> Login Successful,
+	 Welcome Owner </hl>
+	</div>
+	
+	<div class="tab">
+		<button class="tablinks" onclick="openTab(event, 'Daily')" id="defaultOpen">Daily</button>
+		<button class="tablinks" onclick="openTab(event, 'Weekly')">Weekly Report</button>
+		<button class="tablinks" onclick="openTab(event, 'Monthly')">Monthly Report</button>
+	</div>
+
+	<!-- Daily Report -->
+	<div id="Daily" class="tabcontent">
+	<table border ="1" width = 70%>
+		<tr>
+			<td style="padding-left: 15px; padding-bottom: 15px; padding-right: 15px;">
+			<form id="dailyReportForm" action="/daily" method="post">
+				<p><u><b>Daily</b> Report</u></p>
+				<label for="date"><b>Enter Date:</b></label><br/>
+				<input type="date" id="date" name="date" required><br/><br/>
+				<button type="submit" style="border-color:rgb(115, 115, 115)">Save Changes</button>
+		</form>
+		</td>
+		</tr>
+	</table>
+	</div>
+
+	<!-- Weekly Report -->
+	<div id="Weekly" class="tabcontent">
+		<table border ="1" width = 70%>
+			<tr>
+				<td style="padding-left: 15px; padding-bottom: 15px; padding-right: 15px;">
+				<form id="weeklyReportForm" action="/weekly" method="post">
+					<p><u><b>Weekly</b> Report</u></p>
+					<label for="date1"><b>Enter Start Date:</b></label><br/>
+					<input type="date" id="date1" name="date1" required><br/><br/>
+					<label for="date2"><b>Enter End Date:</b></label><br/>
+					<input type="date" id="date2" name="date2" required><br/><br/>
+					<button type="submit" style="border-color:rgb(115, 115, 115)">Save Changes</button>
+			</form>
+			</td>
+			</tr>
+		</table>
+		</div>
+
+
+	<!-- Monthly Report -->
+	<div id="Monthly" class="tabcontent">
+		<table border ="1" width = 70%>
+			<tr>
+				<td style="padding-left: 15px; padding-bottom: 15px; padding-right: 15px;">
+				<form id="MonthlyReportForm" action="/monthly" method="post">
+					<p><u><b>Monthly</b> Report</u></p>
+					<label for="date1"><b>Enter Start Date:</b></label><br/>
+					<input type="date" id="date1" name="date1" required><br/><br/>
+					<label for="date2"><b>Enter End Date:</b></label><br/>
+					<input type="date" id="date2" name="date2" required><br/><br/>
+					<button type="submit" style="border-color:rgb(115, 115, 115)">Save Changes</button>
+			</form>
+			</td>
+			</tr>
+		</table>
+		</div>
+
+<script>
+	document.getElementById("defaultOpen").click();
+
+	function Logoutfunction()
+	{
+		location.href = "loginPage.html";
+	}
+
+	function openTab(evt, typeOf) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+	}
+	tablinks = document.getElementsByClassName("tablinks");
+	for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
+	}
+	document.getElementById(typeOf).style.display = "block";
+	evt.currentTarget.className += " active";
+	}
+</script>
+</body>
 </html>
