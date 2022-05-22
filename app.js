@@ -41,6 +41,9 @@ var searchOrder = require('./controller/staff/SearchOrderController');
 var viewOrder = require('./controller/staff/ViewOrderController');
 var kitchenOrder = require('./controller/menu/KitchenOrderController');
 var emptyCart = require('./controller/menu/EmptyCartController');
+var dailyReport = require('./controller/owner/DailyReportController');
+var weeklyReport = require('./controller/owner/WeeklyReportController');
+var monthlyReport = require('./controller/owner/MonthlyReportController');
 
 //LOGIN PAGE
 //Login Validation
@@ -81,31 +84,39 @@ app.use("/viewCouponCode", viewCouponCode);
 app.use("/searchCouponCode", searchCouponCode);
 
 //STAFF PAGE
+// Staff: Delete Order
 app.use("/deleteOrder", deleteOrder);
+// Staff: Edit Order
 app.use("/editOrder", editOrder);
+// Staff: Edit Order Status
 app.use("/editOrderStatus", editOrderStatus);
+// Staff: Search Order
 app.use("/searchOrder", searchOrder);
+// Staff: View Orders
 app.use("/staffView", viewOrder);
 
 
 //MENU PAGE
 // Default landing page
 app.use("/", menuRender);
-
-//Back
+// Back to menu
 app.use("/menuBack", menuRender);
-
-//Menu: Add To Cart
+// Menu: Add To Cart
 app.use("/addToCart", addToCart);
-
-//Menu: View Cart
+// Menu: View Cart
 app.use("/viewCart", viewCart);
-
-//Menu: Display Receipt 
+// Menu: Display Receipt 
 app.use("/checkoutSuccess", kitchenOrder);
-
-//Menu: Empty Cart and go back to menu
+// Menu: Empty Cart and go back to menu
 app.use("/emptyCart", emptyCart);
+
+//OWNER PAGE
+// Owner: Daily Report
+app.use("/daily", dailyReport);
+// Owner: Weekly Report
+app.use("/weekly", weeklyReport);
+// Owner: Monthly Report
+app.use("/monthly", monthlyReport);
 
 // insert http://localhost:3000 into browser address bar
 server.listen(3000,function(){ 
