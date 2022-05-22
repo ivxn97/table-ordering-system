@@ -18,7 +18,7 @@ router.post('/', function(req, res){
 
     console.log('Generating Monthly Report For Date: ' + dateInput + 'To' + dateInput2 );
     var db = new sqlite3.Database('restaurant.db');
-    db.all("SELECT * FROM customer WHERE date BETWEEN = ?,?", [dateInput, dateInput2], (error, rows) => {
+    db.all("SELECT * FROM customer WHERE date BETWEEN ? AND ?", [dateInput, dateInput2], (error, rows) => {
         if (error){
             console.log(error);
         }
