@@ -82,7 +82,7 @@
             <li><input type="text" name="name" id="name" value="<%= carts.item_name %>"readonly />
             <input type="number" name="quantity" id="quantity" value="<%= carts.quantity %>"readonly />
             <% var subtotal = carts.quantity * carts.price; %>
-            <input type="number" name="price" id="price" value="<%= subtotal %>"readonly />
+            <input type="number" name="price" id="price" value="<%= parseFloat(subtotal).toFixed(2) %>"readonly />
             </li>
           </td>
         </tr>
@@ -96,7 +96,7 @@
       <% count = count + 1 %>
       <br/><br/>
         <% }); %>
-      <b style="padding-left: 430px;">Total: $</b><%= total %>
+      <b style="padding-left: 430px;">Total: $</b><%= parseFloat(total).toFixed(2) %>
     </ol>
     <br/>
       <form id="backForm" action="/emptyCart" method="get">

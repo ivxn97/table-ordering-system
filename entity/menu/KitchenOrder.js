@@ -12,11 +12,20 @@ router.use(bodyParser.json());
 router.use(express.static(path.join(__dirname + '../../public')));
 router.use('/img', express.static(__dirname + '../../public/Images'));
 
+//Date formatting
+let dateFormat = new Date();
+//adjust 0 before single digit date
+let date = ("0" + dateFormat.getDate()).slice(-2);
+//current month
+let month = ("0" + (dateFormat.getMonth() +1)).slice(-2);
+//current year
+let year = dateFormat.getFullYear();
+
 // MENU: Push order from cart to kitchenorder
 router.post('/', function(req, res){
 var email = req.body.email;
 var tableNo = req.body.tableNo;
-var date = '22/05/2022';
+var dateFinal = (date + "-" + month + "-" + year);
 
 var db = new sqlite3.Database('restaurant.db');
 console.log('Sending Cart Order to Kitchen Staff');
@@ -53,7 +62,7 @@ db.all('INSERT INTO kitchenorder (food_order, quantity) SELECT item_name, quanti
               console.log(err);
             }
             // Insert data into table customer
-            db.all('INSERT INTO customer (email, date, spending, food_order) VALUES(?,?,?,?)', [email, date, spending, food_order], function (err){
+            db.all('INSERT INTO customer (email, date, spending, food_order) VALUES(?,?,?,?)', [email, dateFinal, spending, food_order], function (err){
               if (err){
                 console.log(err)
               }
