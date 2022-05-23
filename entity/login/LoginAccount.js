@@ -4,6 +4,7 @@ var express = require('express');
 var path = require("path");
 var bodyParser = require ('body-parser');
 var router = express.Router();
+var alert = require('alert');
 
 router.use(bodyParser.urlencoded({extended: true}));
 router.use(bodyParser.json());
@@ -28,7 +29,7 @@ router.post('/', function(req, res) {
         }
         else {
           console.log('Login Failed');
-          res.sendFile(path.join(__dirname,'../../public/loginFailed.html'));
+          alert("Login Failed. Please try again.");
           db.close(); 
         }}
         else if (profileType == 'manager') {
@@ -38,7 +39,7 @@ router.post('/', function(req, res) {
           }
           else {
             console.log('Login Failed');
-            res.sendFile(path.join(__dirname,'../../public/loginFailed.html'));
+            alert("Login Failed. Please try again.");
             db.close(); 
         }}
         else if (profileType == 'staff') {
@@ -48,7 +49,7 @@ router.post('/', function(req, res) {
           }
           else {
             console.log('Login Failed');
-            res.sendFile(path.join(__dirname,'../../public/loginFailed.html'));
+            alert("Login Failed. Please try again.");
             db.close(); 
         }}
         else if (profileType == 'admin') {
@@ -58,7 +59,7 @@ router.post('/', function(req, res) {
           }
           else {
             console.log('Login Failed');
-            res.sendFile(path.join(__dirname,'../../public/loginFailed.html'));
+            alert("Login Failed. Please try again.");
             db.close(); 
         }}
         else {
