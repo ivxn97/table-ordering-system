@@ -25,7 +25,7 @@ let year = dateFormat.getFullYear();
 router.post('/', function(req, res){
 var email = req.body.email;
 var tableNo = req.body.tableNo;
-var dateFinal = (year + "-" + month + "-" + day);
+var dateFinal = (year + "-" + month + "-" + date);
 
 var db = new sqlite3.Database('restaurant.db');
 console.log('Sending Cart Order to Kitchen Staff');

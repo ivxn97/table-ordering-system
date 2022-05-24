@@ -1,66 +1,66 @@
 <!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<title>CHECKOUT SUCCESSFUL</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+<html lang="en">
 <head>
     <style>
-        h1, h2{
-          margin: 18px;
-        }
-  
-        form[id = tableNo]{
-          margin: 14px;
-          padding: 8px;
-          line-height: 1;
+      h1{
+        margin: 18px;
       }
-  
-        body{
-          background-image: url("/Images/background4.jpg");
-        }
-  
-        button {
-          align-items: center;
-          justify-content: center;
-          margin: 20px;
-          text-align: center;
-       }
-  
-       input[type=text] {
-          border:none;
-          outline:none;
-          background:transparent;
+
+      form[id = tableNo]{
+        margin: 14px;
+        padding: 8px;
+        line-height: 1;
+    }
+
+      body{
+        background-image: url("/Images/background4.jpg");
       }
-  
-      input[type=number] {
-          border:none;
-          outline:none;
-          background:transparent;
-      }
-  
-      input[type=string] {
-          border:none;
-          outline:none;
-          background:transparent;
-          font-weight: bold;
-          padding-left: 2px;
-      }
-  
-      input[id=quantity] {
-        padding-left: 20px;
-        text-align: left;
-      }
-  
-      input[id=price] {
-      display: inline-block;
+
+      .button {
+        height: 50px;
+        width: 100px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin: 20px;
+        padding: 10px;
+        border-radius: 12px;
+        text-align: center;
+     }
+
+     input[type=text] {
+        border:none;
+        outline:none;
+        background:transparent;
+    }
+
+    input[type=number] {
+        border:none;
+        outline:none;
+        background:transparent;
+    }
+
+    input[type=string] {
+        border:none;
+        outline:none;
+        background:transparent;
+        font-weight: bold;
+        padding-left: 2px;
+    }
+
+    input[id=quantity] {
+      padding-left: 20px;
       text-align: left;
-      }
-  
-      input[id=priceHeader]{
-        padding-left: 6px;
-      }
+    }
+
+    input[id=price] {
+    display: inline-block;
+    text-align: left;
+    }
+
+    input[id=priceHeader]{
+      padding-left: 6px;
+    }
   
       </style>
 </head>
@@ -96,7 +96,7 @@
       <% count = count + 1 %>
       <br/><br/>
         <% }); %>
-      <b style="padding-left: 430px;">Total: $</b><%= parseFloat(total).toFixed(2) %>
+      <b style="padding-left: 300px;">Total: $</b><%= parseFloat(total).toFixed(2) %>
     </ol>
     <br/>
       <form id="backForm" action="/emptyCart" method="get">
