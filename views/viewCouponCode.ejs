@@ -12,11 +12,19 @@
         margin: 12px;
         cursor: pointer;
       }
+
       table{
-        padding: 5px;
-        border-collapse: separate;
-        border-spacing: 10px;
         border: 2px double black;
+      }
+
+      th{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      td{
+        text-align: center;
+        padding: 15px;
       }
     </style>
 </head>
@@ -28,7 +36,7 @@
       <h1>View all coupons from Database</h1>
     </div>
     <ul>
-      <table style= "float:left">
+      <table style= "float:left" border = "1">
         <th>Coupon Code</th>
         <th>Discount</th>
         <% coupon.forEach(function(cp) { %>
