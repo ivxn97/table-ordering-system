@@ -15,35 +15,35 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
 //Controllers
-var loginValidation = require('./controller/login/LoginAccountController');
-var CreateUserAdminController = require('./controller/admin/CreateUserController');
-var DeleteUserAdminController = require('./controller/admin/DeleteUserController');
-var EditUserAdminController = require('./controller/admin/EditUserController');
-var adminViewAllAccounts = require('./controller/admin/ViewAllController');
-var SearchUserAccountAdminController = require('./controller/admin/SearchUserAccountController');
-var SearchUserProfileAdminController = require('./controller/admin/SearchUserProfileController');
-var addMenuItem = require('./controller/manager/CreateMenuController');
-var deleteMenuItem = require('./controller/manager/DeleteMenuController');
-var editMenuItem = require('./controller/manager/EditMenuController');
-var searchMenuItem = require('./controller/manager/SearchMenuController');
-var addCouponCode = require('./controller/manager/CreateCouponController');
-var deleteCouponCode = require('./controller/manager/DeleteCouponController');
-var editCouponCode = require('./controller/manager/EditCouponController');
-var viewCouponCode = require('./controller/manager/ViewCouponController');
-var searchCouponCode = require('./controller/manager/SearchCouponController');
-var menuRender = require('./controller/menu/MenuRenderController');
-var addToCart = require('./controller/menu/AddToCartController');
-var viewCart = require('./controller/menu/ViewCartController');
-var deleteOrder = require('./controller/staff/DeleteOrderController');
-var editOrder = require('./controller/staff/EditOrderController');
-var editOrderStatus = require('./controller/staff/EditOrderStatusController');
-var searchOrder = require('./controller/staff/SearchOrderController');
-var viewOrder = require('./controller/staff/ViewOrderController');
-var kitchenOrder = require('./controller/menu/KitchenOrderController');
-var emptyCart = require('./controller/menu/EmptyCartController');
-var dailyReport = require('./controller/owner/DailyReportController');
-var weeklyReport = require('./controller/owner/WeeklyReportController');
-var monthlyReport = require('./controller/owner/MonthlyReportController');
+var loginValidation = require('./scripts/login/LoginAccount');
+var CreateUserAdmin = require('./scripts/admin/CreateUser');
+var DeleteUserAdmin = require('./scripts/admin/DeleteUser');
+var EditUserAdmin = require('./scripts/admin/EditUser');
+var adminViewAllAccounts = require('./scripts/admin/ViewAll');
+var SearchUserAccountAdmin = require('./scripts/admin/SearchUserAccount');
+var SearchUserProfileAdmin = require('./scripts/admin/SearchUserProfile');
+var addMenuItem = require('./scripts/manager/CreateMenu');
+var deleteMenuItem = require('./scripts/manager/DeleteMenu');
+var editMenuItem = require('./scripts/manager/EditMenu');
+var searchMenuItem = require('./scripts/manager/SearchMenu');
+var addCouponCode = require('./scripts/manager/CreateCoupon');
+var deleteCouponCode = require('./scripts/manager/DeleteCoupon');
+var editCouponCode = require('./scripts/manager/EditCoupon');
+var viewCouponCode = require('./scripts/manager/ViewCoupon');
+var searchCouponCode = require('./scripts/manager/SearchCoupon');
+var menuRender = require('./scripts/menu/MenuRender');
+var addToCart = require('./scripts/menu/AddToCart');
+var viewCart = require('./scripts/menu/ViewCart');
+var deleteOrder = require('./scripts/staff/DeleteOrder');
+var editOrder = require('./scripts/staff/EditOrder');
+var editOrderStatus = require('./scripts/staff/EditOrderStatus');
+var searchOrder = require('./scripts/staff/SearchOrder');
+var viewOrder = require('./scripts/staff/ViewOrder');
+var kitchenOrder = require('./scripts/menu/KitchenOrder');
+var emptyCart = require('./scripts/menu/EmptyCart');
+var dailyReport = require('./scripts/owner/DailyReport');
+var weeklyReport = require('./scripts/owner/WeeklyReport');
+var monthlyReport = require('./scripts/owner/MonthlyReport');
 
 //LOGIN PAGE
 //Login Validation
@@ -51,17 +51,17 @@ app.use('/UserInfo', loginValidation);
 
 //ADMINISTRATOR PAGE
 //Administrator: Account Creation
-app.use("/createAccount", CreateUserAdminController);
+app.use("/createAccount", CreateUserAdmin);
 //Administrator: Account Deletion
-app.use("/deleteAccount", DeleteUserAdminController);
+app.use("/deleteAccount", DeleteUserAdmin);
 //Administrator: Account Editing
-app.use("/editAccount", EditUserAdminController);
+app.use("/editAccount", EditUserAdmin);
 // Administrator: View all Accounts from Database 
 app.use("/adminview", adminViewAllAccounts);
 // Administrator: Account search
-app.use("/adminAccountSearch", SearchUserAccountAdminController);
+app.use("/adminAccountSearch", SearchUserAccountAdmin);
 // Administrator: View all Accounts by specific profile
-app.use("/SearchUserProfileAdminController", SearchUserProfileAdminController);
+app.use("/SearchUserProfileAdminController", SearchUserProfileAdmin);
 
 //MANAGER PAGE
 // Manager: Create new menu item
