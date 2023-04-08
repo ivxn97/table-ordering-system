@@ -14,7 +14,7 @@ app.use('/img', express.static(__dirname + '/Images'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
-//Controllers
+//Scripts
 var loginValidation = require('./scripts/login/LoginAccount');
 var CreateUserAdmin = require('./scripts/admin/CreateUser');
 var DeleteUserAdmin = require('./scripts/admin/DeleteUser');
